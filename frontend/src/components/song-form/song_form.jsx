@@ -3,16 +3,17 @@ import React from 'react'
 class SongForm extends React.Component {
     constructor(props) {
         super(props)
-
+        this.chordMasterList = []
         this.state = {
             songTitle: "",
             key: "C",
-            chordProgression: [],
+            barCount = 4,
             triadsChecked: false,
             extendedChordsChecked: false,
-            secondaryDominantsChecked: false
-        }
+            secondaryDominantsChecked: false,
+            resolve: true
 
+        }
         this.handleSubmit = this.handleSubmit.bind(this)
         // this.updateCheckboxChange = this.handleCheckboxChange.bind(this)
     }
@@ -112,8 +113,36 @@ class SongForm extends React.Component {
         }
     }
 
+    buildChordProgression(masterList){
+        let chordProgression = []
+
+        let i = 0;
+        while (i < this.state.barCount) {
+            chordProgression.push(masterList[Math.floor(Math.random() * masterList.length)])
+            i += 1
+        }
+
+
+        if (this.state.resolve === true) {
+            chordProgression.pop();
+            chordProgression.push(this.state.key)
+        }
+
+        return chordProgression
+    }
+
     handleSubmit(e) {
         e.preventDefault()
+        chords = this.buildChordProgression(this.chordMasterList)
+        let song = {
+            title: this.state.songTitle,
+            key: this.state.key,
+            chordProgression: chordProgression,
+            songwriterId: this.props.author_id
+        }
+
+
+        this.props.composeSong(song)
     }
 
     updateCheckboxChange(checkBox) {
@@ -122,6 +151,10 @@ class SongForm extends React.Component {
 
     update(key) {
         return e => this.setState({ [key]: e.currentTarget.value })
+    }
+
+    radioChange(e){
+        this.setState({ resolve: e.target.value })
     }
 
     render() {
@@ -162,7 +195,7 @@ class SongForm extends React.Component {
                 </ul>
             </div>
         )
-
+        this.chordMasterList = chordsToBuildFrom
 
         return (
 
@@ -193,6 +226,18 @@ class SongForm extends React.Component {
                             <option value="Eb">Eb Major</option>
                             <option value="D">D Major</option>
                             <option value="Db">Db Major</option>
+                        </select>
+
+                        <select name="bar-count"
+                            id="bar-count-selector-dropdown"
+                            onChange={this.update('barCount')}
+                        >
+                            <option value="4">4 Bars</option>
+                            <option value="8">8 Bars</option>
+                            <option value="12">12 Bars</option>
+                            <option value="16">16 Bars</option>
+                            <option value="24">24 Bars</option>
+                            <option value="32">32 Bars</option>
                         </select>
 
                         <label>Triads
@@ -227,7 +272,9 @@ class SongForm extends React.Component {
                                 <input type="radio"
                                     id="resolve-radio-button"
                                     className="resolve-toggle"
-                                    value="resolve-true"
+                                    value="true"
+                                    checked={this.state.resolve === true}
+                                    onChange={this.radioChange}
                                 />
                             </label>
 
@@ -235,7 +282,10 @@ class SongForm extends React.Component {
                                 <input type="radio"
                                     id="dont-resolve-radio-button"
                                     className="resolve-toggle"
-                                    value="resolve-false" />
+                                    value="false" 
+                                    checked={this.state.resolve === false}
+                                    onChange={this.radioChange}
+                                />
                             </label>
                         </div>
 

@@ -7,7 +7,7 @@ class SongForm extends React.Component {
         this.state = {
             songTitle: "",
             key: "C",
-            barCount = 4,
+            barCount: 4,
             triadsChecked: false,
             extendedChordsChecked: false,
             secondaryDominantsChecked: false,
@@ -15,6 +15,7 @@ class SongForm extends React.Component {
 
         }
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.radioChange = this.radioChange.bind(this)
     }
 
     //builds the scale for the class to use
@@ -118,7 +119,8 @@ class SongForm extends React.Component {
 
 
     //function that takes in all selected chords and builds a chord progression
-    buildChordProgression(masterList){
+    buildChordProgression(masterList, harmonicFunctions) {
+
         let chordProgression = []
 
         let i = 0;
@@ -128,9 +130,16 @@ class SongForm extends React.Component {
         }
 
 
-        if (this.state.resolve === true) {
+        if (this.state.resolve === true || this.state.resolve === "true") {
+            chordProgression.shift();
+            chordProgression.unshift(harmonicFunctions.tonic[0])
+
             chordProgression.pop();
-            chordProgression.push(this.state.key)
+            chordProgression.pop();
+            chordProgression.pop();
+            chordProgression.push(harmonicFunctions.subdominant[0])
+            chordProgression.push(harmonicFunctions.dominant[0])
+            chordProgression.push(harmonicFunctions.tonic[0])
         }
 
         return chordProgression
@@ -140,13 +149,19 @@ class SongForm extends React.Component {
     //form update and submit functions
     handleSubmit(e) {
         e.preventDefault()
-        chords = this.buildChordProgression(this.chordMasterList)
+        let scale = this.setScale(this.state.key)
+        let triads = this.buildDiatonicChords(scale)
+        let harmonicFunctions = this.buildHarmonicFunctions(triads)
+        let chords = this.buildChordProgression(this.chordMasterList, harmonicFunctions)
+
+
         let song = {
             title: this.state.songTitle,
             key: this.state.key,
-            chordProgression: chordProgression,
+            chordProgression: chords,
             songwriterId: this.props.author_id
         }
+        debugger
         this.props.composeSong(song)
     }
 
@@ -158,7 +173,7 @@ class SongForm extends React.Component {
         return e => this.setState({ [key]: e.currentTarget.value })
     }
 
-    radioChange(e){
+    radioChange(e) {
         this.setState({ resolve: e.target.value })
     }
 
@@ -287,7 +302,7 @@ class SongForm extends React.Component {
                                 <input type="radio"
                                     id="dont-resolve-radio-button"
                                     className="resolve-toggle"
-                                    value="false" 
+                                    value="false"
                                     checked={this.state.resolve === false}
                                     onChange={this.radioChange}
                                 />

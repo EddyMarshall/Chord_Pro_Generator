@@ -15,7 +15,6 @@ class SongForm extends React.Component {
 
         }
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.updateCheckboxChange = this.handleCheckboxChange.bind(this)
     }
 
     //builds the scale for the class to use
@@ -74,6 +73,8 @@ class SongForm extends React.Component {
         return secondaryDominants
     }
 
+
+    //function to build four part chords
     buildExtendedChords(scale) {
         let extendedChords = [];
         for (let i = 0; i < scale.length; i++) {
@@ -90,7 +91,8 @@ class SongForm extends React.Component {
         return extendedChords
     }
 
-    //function to classify harmonic functions of each chord
+    //function to classify harmonic functions of each chord 
+    //Not currently used
     buildHarmonicFunctions(chords) {
         let ton = []
         let sub = []
@@ -113,6 +115,9 @@ class SongForm extends React.Component {
         }
     }
 
+
+
+    //function that takes in all selected chords and builds a chord progression
     buildChordProgression(masterList){
         let chordProgression = []
 
@@ -131,6 +136,8 @@ class SongForm extends React.Component {
         return chordProgression
     }
 
+
+    //form update and submit functions
     handleSubmit(e) {
         e.preventDefault()
         chords = this.buildChordProgression(this.chordMasterList)
@@ -140,8 +147,6 @@ class SongForm extends React.Component {
             chordProgression: chordProgression,
             songwriterId: this.props.author_id
         }
-
-
         this.props.composeSong(song)
     }
 

@@ -9,6 +9,7 @@ import SignupFormContainer from './session/signup_form_container';
 import SongFormContainer from "./song-form/song_form_container";
 import '../stylesheets/application.scss';
 
+
 const App = () => (
   <div className="background"> 
     <NavBarContainer />

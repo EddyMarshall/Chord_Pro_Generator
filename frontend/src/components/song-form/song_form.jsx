@@ -161,7 +161,6 @@ class SongForm extends React.Component {
             chordProgression: chords,
             songwriterId: this.props.author_id
         }
-        debugger
         this.props.composeSong(song)
     }
 

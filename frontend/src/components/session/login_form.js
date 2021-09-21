@@ -1,5 +1,3 @@
-// src/components/session/login_form.js
-
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
@@ -17,27 +15,21 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  // Once the user has been authenticated, redirect to the Songs page
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) { // if authenticated, redirect to '/songs'
     if (nextProps.currentUser === true) {
       this.props.history.push('/songs');
     }
-
-    // Set or clear errors
-    this.setState({errors: nextProps.errors})
+    this.setState({errors: nextProps.errors}) // Set or clear errors
   }
 
-  // Handle field updates (called in the render method)
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
   }
 
-  // Handle form submission
   handleSubmit(e) {
     e.preventDefault();
-
     let user = {
       email: this.state.email,
       password: this.state.password
@@ -62,21 +54,28 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
+        {/* <img src="/images/background.JPG" className="background-img"/>  */}
+        <form onSubmit={this.handleSubmit} className="whole-signup-login-form">
+          <div className="signup-login-form">
               <input type="text"
                 value={this.state.email}
                 onChange={this.update('email')}
                 placeholder="Email"
+                className="signup-input-field"
               />
             <br/>
               <input type="password"
                 value={this.state.password}
                 onChange={this.update('password')}
                 placeholder="Password"
+                className="signup-input-field"
               />
             <br/>
-            <input type="submit" value="Submit" />
+            <input 
+              type="submit" 
+              value="Log In!" 
+              className="signup-login-button"
+            />
             {this.renderErrors()}
           </div>
         </form>

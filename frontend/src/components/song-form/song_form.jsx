@@ -32,7 +32,7 @@ class SongForm extends React.Component {
         }
 
         //rotates array until the chosen key is the first element
-        while (key != notes[0]) {
+        while (key !== notes[0]) {
             notes.push(notes.shift())
         }
 

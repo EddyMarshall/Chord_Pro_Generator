@@ -6,7 +6,7 @@ const Follow = require('../../models/Follow');
 router.get("/test", (req, res) => res.json({ msg: "This is the follows route" }));
 
 router.post("/",
-    // passport.authenticate("jwt",{session: false}),
+
     (req,res) => {
         const newFollow = new Follow({
             follower: req.body.follower,
@@ -19,15 +19,13 @@ router.post("/",
 );
 
 router.delete('/:id', (req, res) => {
-    // const { id } = req.params;
     
     Follow.findOneAndDelete({
         _id: req.params.id
     })
         .then(() => res.json({ msg: req.params.id }),
             () => res.json({ msg: "Error during unfollow attempt" }));
-    // Follow.delete(req.params.id);
-    // res.json({ msg: req.params.id })
+ 
 });
 
 

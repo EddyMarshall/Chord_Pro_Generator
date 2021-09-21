@@ -7,9 +7,10 @@ import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SongFormContainer from "./song-form/song_form_container";
+import '../stylesheets/application.scss';
 
 const App = () => (
-  <div>
+  <div className="background"> 
     <NavBarContainer />
     <Switch>
         <AuthRoute exact path="/" component={MainPage} />

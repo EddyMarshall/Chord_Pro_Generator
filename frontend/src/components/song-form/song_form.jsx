@@ -173,7 +173,7 @@ class SongForm extends React.Component {
     }
 
     radioChange(e) {
-        console.log(this.state.resolve);
+        // console.log(this.state.resolve);
         this.setState({ resolve: !this.state.resolve })
     }
 

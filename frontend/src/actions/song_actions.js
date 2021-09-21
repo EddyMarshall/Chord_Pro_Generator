@@ -28,19 +28,19 @@ export const removeSong = songId => ({
 export const fetchSongs = () => dispatch => (
     song_api_util.getSongs()
         .then(songs => dispatch(receiveSongs(songs)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const fetchUserSongs = id => dispatch => (
     song_api_util.getUserSongs(id)
         .then(songs => dispatch(receiveUserSongs(songs)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const composeSong = song => dispatch => (
     song_api_util.writeSong(song)
         .then(song => dispatch(receiveSong(song)))
-        .catch(err => console.log(err))
+        // .catch(err => console.log(err))
 );
 
 export const updateSong = song => dispatch => (

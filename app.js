@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 
 mongoose
     .connect(db, { useNewUrlParser: true })
-    .then(() => console.log("Connected to MongoDB successfully"))
-    .catch(err => console.log(err));
+    // .then(() => console.log("Connected to MongoDB successfully"))
+    // .catch(err => console.log(err));
 
 app.get("/", (req, res) => res.send("Hi World"));
 app.use("/api/users", users);
@@ -22,7 +22,7 @@ app.use("/api/songs", songs);
 
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server is running on port ${port}`));
+app.listen(port); //, () => console.log(`Server is running on port ${port}`)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('frontend/build'));

@@ -20,7 +20,7 @@
 // }
 
 .signup-login{
-   text-align: center;   
+   text-align: center; 
 }
 
 
@@ -38,6 +38,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      opacity: 0.8;  
+
    }
    .signup-input-field{
       @include roundedInputField(35%);

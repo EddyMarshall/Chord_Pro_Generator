@@ -161,7 +161,6 @@ class SongForm extends React.Component {
             chordProgression: chords,
             songwriterId: this.props.author_id
         }
-        debugger
         this.props.composeSong(song)
     }
 
@@ -174,7 +173,8 @@ class SongForm extends React.Component {
     }
 
     radioChange(e) {
-        this.setState({ resolve: e.target.value })
+        console.log(this.state.resolve);
+        this.setState({ resolve: !this.state.resolve })
     }
 
     render() {
@@ -218,100 +218,114 @@ class SongForm extends React.Component {
         this.chordMasterList = chordsToBuildFrom
 
         return (
-
-            <div className="song-build-container">
-                {chordList}
-
-                <div className="song-form-container">
-                    <form onSubmit={this.handleSubmit}>
-                        <input type="text"
+            <div className="song-build-container"> 
+                <div>
+                    <form onSubmit={this.handleSubmit} >
+                        <input 
+                            type="text"
                             className="song-form-input song-title-input"
                             id="song-title-input"
                             onChange={this.update('songTitle')}
-                            placeholder="Title" />
+                            placeholder="Title" 
+                        />
+                        <div className="song-form-container">
+                            <div className="song-build-col1">         
+                                <select 
+                                    name="keys"
+                                    id="key-selector-dropdown"
+                                    onChange={this.update('key')}
+                                    className="song-form-input">
+                                        
+                                    <option value="C">C Major</option>
+                                    <option value="B">B Major</option>
+                                    <option value="Bb">Bb Major</option>
+                                    <option value="A">A Major</option>
+                                    <option value="Ab">Ab Major</option>
+                                    <option value="G">G Major</option>
+                                    <option value="Gb">Gb Major</option>
+                                    <option value="F">F Major</option>
+                                    <option value="E">E Major</option>
+                                    <option value="Eb">Eb Major</option>
+                                    <option value="D">D Major</option>
+                                    <option value="Db">Db Major</option>
+                                </select>
 
-                        <select name="keys"
-                            id="key-selector-dropdown"
-                            onChange={this.update('key')}
-                        >
-                            <option value="C">C Major</option>
-                            <option value="B">B Major</option>
-                            <option value="Bb">Bb Major</option>
-                            <option value="A">A Major</option>
-                            <option value="Ab">Ab Major</option>
-                            <option value="G">G Major</option>
-                            <option value="Gb">Gb Major</option>
-                            <option value="F">F Major</option>
-                            <option value="E">E Major</option>
-                            <option value="Eb">Eb Major</option>
-                            <option value="D">D Major</option>
-                            <option value="Db">Db Major</option>
-                        </select>
+                                <select 
+                                    name="bar-count"
+                                    id="bar-count-selector-dropdown"
+                                    onChange={this.update('barCount')}
+                                    className="song-form-input"
+                                >
+                                    <option value="4">4 Bars</option>
+                                    <option value="8">8 Bars</option>
+                                    <option value="12">12 Bars</option>
+                                    <option value="16">16 Bars</option>
+                                    <option value="24">24 Bars</option>
+                                    <option value="32">32 Bars</option>
+                                </select>
+                                <div className="radio-button-container">
+                                    <label>
+                                        <input type="radio"
+                                            id="resolve-radio-button"
+                                            className="resolve-toggle"
+                                            value="true"
+                                            checked={this.state.resolve ? true : false}
+                                            onChange={this.radioChange}
+                                        /> Resolve
+                                    </label>
 
-                        <select name="bar-count"
-                            id="bar-count-selector-dropdown"
-                            onChange={this.update('barCount')}
-                        >
-                            <option value="4">4 Bars</option>
-                            <option value="8">8 Bars</option>
-                            <option value="12">12 Bars</option>
-                            <option value="16">16 Bars</option>
-                            <option value="24">24 Bars</option>
-                            <option value="32">32 Bars</option>
-                        </select>
-
-                        <label>Triads
-                            <input type="checkbox"
-                                id="triads-checkbox"
-                                className="checkbox"
-                                name="triads"
-                                onChange={() => this.updateCheckboxChange('triadsChecked')} />
-
-                        </label>
-
-                        <label>Extended Chords
-                            <input type="checkbox"
-                                id="-checkbox"
-                                className="checkbox"
-                                name="extended-chords"
-                                onChange={() => this.updateCheckboxChange('extendedChordsChecked')} />
-
-                        </label>
-
-                        <label>Secondary Dominants
-                            <input type="checkbox"
-                                id="-checkbox"
-                                className="checkbox"
-                                name="secondary-dominants"
-                                onChange={() => this.updateCheckboxChange('secondaryDominantsChecked')} />
-
-                        </label>
-
-                        <div className="radio-button-container">
-                            <label>Resolve
-                                <input type="radio"
-                                    id="resolve-radio-button"
-                                    className="resolve-toggle"
-                                    value="true"
-                                    checked={this.state.resolve === true}
-                                    onChange={this.radioChange}
-                                />
-                            </label>
-
-                            <label>Don't Resolve
-                                <input type="radio"
-                                    id="dont-resolve-radio-button"
-                                    className="resolve-toggle"
-                                    value="false"
-                                    checked={this.state.resolve === false}
-                                    onChange={this.radioChange}
-                                />
-                            </label>
+                                    <label>
+                                        <input type="radio"
+                                            id="dont-resolve-radio-button"
+                                            className="resolve-toggle"
+                                            value="false"
+                                            checked={!this.state.resolve ? true : false}
+                                            onChange={this.radioChange}
+                                        /> Don't Resolve
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="song-build-col2"> 
+                                <div className="checkboxes-container">
+                                    <label>
+                                        <input 
+                                            type="checkbox"
+                                            id="triads-checkbox"
+                                            className="checkbox"
+                                            name="triads"
+                                            onChange={() => this.updateCheckboxChange('triadsChecked')} 
+                                        /> Triads    
+                                    </label>
+                                    <label>
+                                        <input type="checkbox"
+                                            id="-checkbox"
+                                            className="checkbox"
+                                            name="extended-chords"
+                                            onChange={() => this.updateCheckboxChange('extendedChordsChecked')} 
+                                        /> Extended Chords
+                                    </label>
+                                    <label>
+                                        <input type="checkbox"
+                                            id="-checkbox"
+                                            className="checkbox"
+                                            name="secondary-dominants"
+                                            onChange={() => this.updateCheckboxChange('secondaryDominantsChecked')} 
+                                        /> Secondary Dominants
+                                    </label>
+                                </div>                                     
+                            </div>
+                            <div className="song-build-col3"> 
+                                <h1 className="available-chords">{chordList}</h1>
+                            </div>
                         </div>
-
-                        <input type="submit" className="song-form-submit" value="Compose" />
+                        <input 
+                            type="submit" 
+                            value="Compose" 
+                            className="song-form-submit" 
+                        />
                     </form>
                 </div>
+                
             </div>
         )
     }
@@ -319,4 +333,4 @@ class SongForm extends React.Component {
 
 }
 
-export default SongForm
+export default SongForm;

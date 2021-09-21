@@ -28,6 +28,34 @@ router.post('/',
     }
 )
 
+router.get('/:songId', (request, response) => {
+    //add peerReviews get here
+    Song.findById(request.params.songId)
+        .then(song => response.json(song))
+        .catch(error => response.status(404).json({ error: 'This song cannot be found'}))
+
+})
+
+router.put('/:songId', (request, response) => {
+    Song.findById(request.params.songId)
+        .then(oldSong => {
+            if (!oldSong) {
+                return response.status(404).json({ error: 'This song cannot be found' })
+            }
+
+
+            Object.assign(oldSong, request.body)
+            let changedSong = new Song(oldSong);
+            try {
+                changedSong.save()
+                response.json(changedSong)
+            } catch (err) {
+                response.status(500).send({ error: 'Cannot update this Song' })
+            }
+        })
+        }
+)
+
 router.delete('/:id', (request, response) => {
 
     Song.findOneAndDelete({

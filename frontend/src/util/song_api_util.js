@@ -17,7 +17,7 @@ export const writeSong = data => {
         )
 }
 
-export const udateSong = song => {
+export const updateSong = song => {
     return axios.patch(
         `/api/songs/${song.id}`,
         song

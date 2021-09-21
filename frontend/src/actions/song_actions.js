@@ -33,7 +33,7 @@ export const fetchSongs = () => dispatch => (
 
 export const fetchUserSongs = id => dispatch => (
     song_api_util.getUserSongs(id)
-        .then(songs => dispatch(receiveUserTweets(songs)))
+        .then(songs => dispatch(receiveUserSongs(songs)))
         .catch(err => console.log(err))
 );
 

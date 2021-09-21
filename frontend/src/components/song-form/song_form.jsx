@@ -159,7 +159,7 @@ class SongForm extends React.Component {
             title: this.state.songTitle,
             key: this.state.key,
             chordProgression: chords,
-            songwriterId: this.props.author_id
+            songwriter: this.props.author_id
         }
         this.props.composeSong(song)
     }

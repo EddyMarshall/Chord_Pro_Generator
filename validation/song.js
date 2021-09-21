@@ -13,9 +13,9 @@ module.exports = function validateBoardInput(song) {
     if (Validator.isEmpty(song.key)) {
         errors.key = 'Song needs a key';
     }
-    
-    song.chordProgression = validText(song.chordProgression) ? song.chordProgression : '';
-    if (Validator.isEmpty(song.chordProgression)) {
+
+    song.chordProgression = song.chordProgression ? song.chordProgression : [];
+    if (song.chordProgression.length === 0) {
         errors.chordProgression = 'Song needs a chord progression';
     }
     

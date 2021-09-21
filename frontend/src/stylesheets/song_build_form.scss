@@ -1,0 +1,68 @@
+.song-build-container{
+   // display: flex;
+   // flex-direction: column;
+   // align-items: center;
+   opacity: 0.8;
+   margin-top: 50vh;
+   background-color:purple;
+   height: 43vh; 
+   @include roundCorners(10px);  
+   ::placeholder {
+      color: red;
+   }
+   #song-title-input, .song-form-submit{
+      width: 20%;
+      // align-self: center;
+      // justify-self: center;
+      text-align: center;
+      font-size:30px;
+      // color: orange;
+      @include roundedInputField(25%);
+      @include roundCorners(10px);
+      margin: 10px;
+      
+   }
+   .song-form-container{
+      display: flex;
+      .song-build-col1{ 
+         margin-left: 10px;     
+         .song-form-input{
+            display: flex;
+            @include roundedInputField(100%);
+            @include roundCorners(20px);
+            // margin-left: 10px;
+         }
+         .radio-button-container{
+            display: flex;
+            flex-direction: column;
+            @include roundedInputField();
+            @include roundCorners(20px);
+            // width:100%;
+         }
+      }
+      .song-build-col2{
+         .checkboxes-container{
+            display: flex;
+            flex-direction: column;
+            @include roundedInputField(100%);
+            @include roundCorners(20px);
+            margin-left: 20px;
+            font-size: 25px;
+         }
+      }
+      .song-options-list{
+         .chord-list{
+            font-size: 30px;
+            display: flex;
+            margin-left: 30px;
+         }
+      }
+      .song-form-submit{
+         @include roundedInputField();
+         text-align: center;
+      }      
+      // .available-chords{
+
+      // }
+   }
+}

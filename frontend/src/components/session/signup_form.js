@@ -42,7 +42,7 @@ class SignupForm extends React.Component {
     };
 
     this.props.signup(user, this.props.history); 
-    this.props.history.push('/songs');
+    // this.props.history.push('/songs');
   }
 
   renderErrors() {
@@ -95,7 +95,7 @@ class SignupForm extends React.Component {
                 className="signup-input-field"
               />
             <br/>
-            <input type="signup-button" value="Sign Up!" className="signup-login-button"/>
+            <input type="submit" value="Sign Up!" className="signup-login-button"/>
             {this.renderErrors()}
           </div>
         </form>

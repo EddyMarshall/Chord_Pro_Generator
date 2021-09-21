@@ -11,8 +11,9 @@ export const getUserSongs = id => {
 };
 
 export const writeSong = data => {
+    debugger
     return axios.post(
-        '/api/songs/', 
+        '/api/songs', 
         data
         )
 }

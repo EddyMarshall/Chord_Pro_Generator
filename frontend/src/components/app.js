@@ -10,17 +10,23 @@ import SignupFormContainer from './session/signup_form_container';
 import SongFormContainer from "./song_form/song_form_container";
 import SongShowContainer from "./song_show/song_show_container"
 import '../stylesheets/application.scss';
+import UserShow from './session/user_show';
 
+
+// UserShow
 
 const App = () => (
   <div className="background"> 
-    <NavBarContainer />
+    {/* <NavBarContainer /> */}
     <Switch>
-        <AuthRoute exact path="/" component={MainPage} />
+        {/* <AuthRoute exact path="/" component={MainPage} /> */}
         <AuthRoute exact path="/login" component={LoginFormContainer} />
         <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        <Route exact path="/songs" component={SongFormContainer} />
-        <Route exact path="/songs/:songId" component={SongShowContainer} />
+        {/* <UserShow/> */}
+        <ProtectedRoute path="/users/userId" component={UserShow} />
+        {/* <ProtectedRoute path="/" component={UserShow}/> */}
+        {/* <Route exact path="/songs" component={SongFormContainer} />
+        <Route exact path="/songs/:songId" component={SongShowContainer} /> */}
     </Switch>
   </div>
 );

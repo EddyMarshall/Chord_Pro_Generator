@@ -16,9 +16,9 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) { // if authenticated, redirect to '/songs'
-    if (nextProps.currentUser === true) {
-      this.props.history.push('/songs');
-    }
+    // if (nextProps.currentUser === true) {
+    //   this.props.history.push('/songs');
+    // }
     this.setState({errors: nextProps.errors}) // Set or clear errors
   }
 
@@ -35,7 +35,8 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user); 
+    this.props.login(user)
+      .then(this.props.history.push("/users/userId"));
   }
 
   // Render the session errors if there are any

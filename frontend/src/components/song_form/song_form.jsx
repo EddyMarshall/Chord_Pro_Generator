@@ -159,9 +159,8 @@ class SongForm extends React.Component {
             title: this.state.songTitle,
             key: this.state.key,
             chordProgression: chords,
-            songwriterId: this.props.author_id
+            songwriter: this.props.author_id
         }
-        debugger
         this.props.composeSong(song)
     }
 
@@ -174,7 +173,6 @@ class SongForm extends React.Component {
     }
 
     radioChange(e) {
-        console.log(this.state.resolve);
         this.setState({ resolve: !this.state.resolve })
     }
 

@@ -6,6 +6,7 @@ const songs = require("./routes/api/songs");
 const follows = require("./routes/api/follows");
 const likes = require("./routes/api/likes");
 const peerreviews = require("./routes/api/peer_reviews");
+const bios = require("./routes/api/bios");
 const bodyParser = require('body-parser');
 
 const db = require('./config/keys').mongoURI;
@@ -33,6 +34,7 @@ app.use("/api/songs", songs);
 app.use("/api/follows", follows);
 app.use("/api/likes", likes);
 app.use("/api/peer_reviews", peerreviews);
+app.use("/api/bios", bios);
 
 
 const port = process.env.PORT || 5000;

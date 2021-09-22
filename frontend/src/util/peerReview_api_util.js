@@ -6,16 +6,16 @@ export const getPeerReviews = () => {
     )
 }
 
-export const writePeerReview = data => {
+export const createPeerReview = data => {
     return axios.post(
         '/api/peerreviews',
         data
     )
 }
 
-export const updatePeerReview = review => {
+export const updatePeerReview = peerReview => {
     return axios.patch(
-        `/api/peerreviews/${review.id}`
+        `/api/peerreviews/${peerReview.id}`
     )
 }
 

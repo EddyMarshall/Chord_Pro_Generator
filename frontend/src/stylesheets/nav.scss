@@ -1,0 +1,64 @@
+@import "variables";
+@import "mixins";
+
+.navbar-centering-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    height: 70px;
+    align-items: center;
+}
+
+.dropdown-logo {
+    position: relative;
+    display: inline-block
+}
+
+.show-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 120px;
+    align-items: center;
+    background: white;
+    border: 1px solid black;
+    @include roundCorners(20px);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+.clear {
+    display: none;
+}
+
+.dropdown-item {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.logout-button:hover {
+    cursor: pointer;
+}
+
+.dropdown-item:not(:last-child) {
+    border-bottom: 1px solid black;
+    border-radius: 19px 19px 0 0;
+}
+
+.dropdown-item:last-child{
+    border-radius: 0 0 19px 19px;
+}
+
+.dropdown-item:hover {
+    background-color: lightgray;
+}

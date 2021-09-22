@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom'
+import DropdownContainer from '../nav_dropdown/dropdown_container';
 // import './navbar.css'
 
 class NavBar extends React.Component {
@@ -20,12 +21,16 @@ class NavBar extends React.Component {
   getLinks() {
       if (this.props.loggedIn) {
         return (
-            <div>
-                <Link to={'/songs'}>All Songs</Link>
-                <Link to={'/profile'}>Profile</Link>
-                <Link to={'/new_song'}>Make a Song</Link>
-                <button onClick={this.logoutUser}>Logout</button>
-            </div>
+          <div className="navbar-centering-container">
+              <div className="navbar-container">
+                  <div className="nav-left">
+                    <Link className="all-songs-link" to={'/songs'}>LOGO</Link>
+                  </div>
+                  <div className="right-nav">
+                    <DropdownContainer/>
+                  </div>
+              </div>
+          </div>
         );
       } else {
         return (

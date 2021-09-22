@@ -5,6 +5,12 @@ export const getSongs = () => {
         '/api/songs')
 };
 
+export const getSong = (songId) => {
+    return axios.get(
+        `/api/songs/${songId}`
+    )
+}
+
 export const getUserSongs = id => {
     return axios.get(
         `/api/songs/user/${id}`)

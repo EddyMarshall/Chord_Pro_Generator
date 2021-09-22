@@ -5,6 +5,12 @@ export const getSongs = () => {
         '/api/songs')
 };
 
+export const getSong = (songId) => {
+    return axios.get(
+        `/api/songs/${songId}`
+    )
+}
+
 export const getUserSongs = id => {
     return axios.get(
         `/api/songs/user/${id}`)
@@ -12,7 +18,7 @@ export const getUserSongs = id => {
 
 export const writeSong = data => {
     return axios.post(
-        '/api/songs/', 
+        '/api/songs', 
         data
         )
 }

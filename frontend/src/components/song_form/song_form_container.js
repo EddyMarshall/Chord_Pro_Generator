@@ -4,8 +4,7 @@ import { composeSong } from '../../actions/song_actions'
 
 const mapStateToProps = state => {
     return {
-        //DOUBLE CHECK THAT THIS IS WHAT OUR STATE LOOKS LIKE
-        author_id: state.session.currentUser
+        author_id: state.session.user.id
     }
 }
 

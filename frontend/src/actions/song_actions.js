@@ -31,6 +31,11 @@ export const fetchSongs = () => dispatch => (
         .catch(err => console.log(err))
 );
 
+export const fetchSong = (song) => dispatch => {
+    return song_api_util.getSong(song)
+        .then(song => dispatch(receiveSong(song)))
+}
+
 export const fetchUserSongs = id => dispatch => (
     song_api_util.getUserSongs(id)
         .then(songs => dispatch(receiveUserSongs(songs)))

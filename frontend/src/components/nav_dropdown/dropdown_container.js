@@ -7,7 +7,14 @@ const mapStateToProps = state => ({
 })
 
 
+const mdtp = dispatch => {
+    return {
+        logout: () => dispatch(logout())
+    };
+};
+
+
 export default connect(
     mapStateToProps,
-    { logout }  
+    mdtp
 )(Dropdown)

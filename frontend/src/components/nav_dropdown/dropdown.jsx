@@ -7,18 +7,26 @@ class Dropdown extends React.Component {
         this.state = { visible: false }
 
         this.drop = this.drop.bind(this)
+        this.handleClick = this.handleClick.bind(this);
+
     }
 
     drop(e){
         this.setState({ visible: !this.state.visible })
     }
 
+    handleClick(e) {
+        // console.log("loggedout")
+        this.props.logout();
+        this.drop();
+    };
+
 
     render(){
         debugger
         return(
                  <div className="dropdown">
-                    <button id="dropdown-toggle" onClick={this.drop} onBlur={this.drop} className="dropdown-link">DROPDOWN</button>
+                    <button id="dropdown-toggle" onClick={this.drop} className="dropdown-link">DROPDOWN</button>
                     <div className="dropdown-container">
                         <ul onClick={e => e.stopPropagation()} className={this.state.visible ? "show-dropdown" : "clear"}>
                             <li className="dropdown-item">
@@ -26,7 +34,7 @@ class Dropdown extends React.Component {
                             </li>
                             <li className="dropdown-item">
                                 <button className="logout-button" 
-                                onClick={() => this.props.logout(this.props.currentUser)}>Logout</button>
+                                onClick={this.handleClick}>Logout</button>
                             </li>
                         </ul>
                     </div>

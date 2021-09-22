@@ -10,60 +10,63 @@ const validateSongInput = require('../../validation/song');
 
 router.post('/', 
 // passport.authenticate('jwt', { session: false }),
-    (request, response) => {
-        const { errors, isValid } = validateSongInput(request.body);
+    (req, res) => {
+        const { errors, isValid } = validateSongInput(req.body);
         if (!isValid) {
             console.log(errors)
-            return response.status(400).json(errors)
+            return res.status(400).json(errors)
         }
         let song = new Song({
-            title: request.body.title,
-            chordProgression: request.body.chordProgression,
-            key: request.body.key,
-            songwriter: request.body.songwriter,
+            title: req.body.title,
+            chordProgression: req.body.chordProgression,
+            key: req.body.key,
+            songwriter: req.body.songwriter,
         })
-   
         song.save()
-            .then(song => response.json(song));
+            .then(song => res.json(song));
     }
 )
 
-router.get('/:songId', (request, response) => {
-    //add peerReviews get here
-    Song.findById(request.params.songId)
-        .then(song => response.json(song))
-        .catch(error => response.status(404).json({ error: 'This song cannot be found'}))
-
+router.get('/:songId', (req, res) => {
+    Song.findById(req.params.songId)
+        .then(song => res.json(song))
+        .catch(error => res.status(404).json({ error: 'This song cannot be found'}))
 })
 
-router.put('/:songId', (request, response) => {
-    Song.findById(request.params.songId)
+router.get('/', (req, res) => {
+    Song.find({}, (err, songs) => {
+        var songMap = {};
+        songs.forEach((song) => {
+            songMap[song._id] = song;
+        });
+        res.send(songMap);
+    });
+});
+
+router.put('/:songId', (req, res) => {
+    Song.findById(req.params.songId)
         .then(oldSong => {
             if (!oldSong) {
-                return response.status(404).json({ error: 'This song cannot be found' })
+                return res.status(404).json({ error: 'This song cannot be found' })
             }
-
-
-            Object.assign(oldSong, request.body)
+            Object.assign(oldSong, req.body)
             let changedSong = new Song(oldSong);
             try {
                 changedSong.save()
-                response.json(changedSong)
+                res.json(changedSong)
             } catch (err) {
-                response.status(500).send({ error: 'Cannot update this Song' })
+                res.status(500).send({ error: 'Cannot update this Song' })
             }
         })
         }
 )
 
-router.delete('/:id', (request, response) => {
-
+router.delete('/:id', (req, res) => {
     Song.findOneAndDelete({
-        _id: request.params.id
+        _id: req.params.id
     })
-        .then(() => response.json({ msg: request.params.id }),
-            () => response.json({ msg: "Error during delete attempt" }));
-
+    .then(() => res.json({ msg: req.params.id }),
+        () => res.json({ msg: "Error during delete attempt" }));
 });
 
 module.exports = router;

@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import SongShow from './song_show'
 
 const mapStateToProps = (state, ownProps) => {
-    debugger
+    // debugger
     return {
         currentUser: state.session.user.id,
-        song: state.entities.songs[ownProps.match.params.songId]
+        song: state.entities.songs[ownProps.match.params.songId],
+        songId: ownProps.match.params.songId
     }
 }
 

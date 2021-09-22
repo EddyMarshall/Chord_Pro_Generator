@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require('mongoose');
 const users = require("./routes/api/users");
 const songs = require("./routes/api/songs");
+const bios = require("./routes/api/bios");
 const bodyParser = require('body-parser');
 
 const db = require('./config/keys').mongoURI;
@@ -19,6 +20,7 @@ mongoose
 app.get("/", (req, res) => res.send("Hi World"));
 app.use("/api/users", users);
 app.use("/api/songs", songs);
+app.use("/api/bios", bios);
 
 
 const port = process.env.PORT || 5000;

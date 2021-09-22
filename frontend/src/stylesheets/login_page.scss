@@ -3,14 +3,14 @@
 
 // https://photos.app.goo.gl/zjN6UXsTWkLo6Bpx7
 
-.background{
-   background-image: url("/stylesheets/background.JPG");
+.background1{
+   background-image: url("background.JPG");
    background-position: 100vw 250vh;
-   background-repeat: no-repeat;   
+   // background-repeat: no-repeat;   
    background-size: cover;
    width: 100vw;
    height: 100vh;
-   // background-color: purple;
+   background-color: purple;
 }
 
 // .background-img{

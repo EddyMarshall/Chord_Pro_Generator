@@ -13,7 +13,7 @@ import '../stylesheets/application.scss';
 
 
 const App = () => (
-  <div className="background"> 
+  <div className="background1"> 
     <NavBarContainer />
     <Switch>
         <AuthRoute exact path="/" component={MainPage} />

@@ -9,7 +9,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
       <Component {...props} />
     ) : (
         // Redirect to the songs page if the user is authenticated
-      <Redirect to="/songs" />
+      <Redirect to="/users/userId" />
     )
   )} />
 );

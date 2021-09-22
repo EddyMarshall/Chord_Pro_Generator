@@ -8,7 +8,7 @@ class SongForm extends React.Component {
             songTitle: "",
             key: "C",
             barCount: 4,
-            triadsChecked: false,
+            triadsChecked: true,
             extendedChordsChecked: false,
             secondaryDominantsChecked: false,
             resolve: true

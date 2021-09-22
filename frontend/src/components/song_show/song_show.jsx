@@ -7,15 +7,28 @@ class SongShow extends React.Component {
     }
 
     componentDidMount(){
-        if (this.props.song){
-            this.props.fetchSong(this.props.song)
-        }
+        this.props.fetchSong(this.props.songId);
     }
 
     render(){
-        debugger
+        let songExists = !!(this.props.song);
+        let songChords = null;
+        if(songExists){
+            songChords = <div>
+                <ul>
+                    {this.props.song.chordProgression.map((chord) => {
+                        return (<li>{chord}</li>)
+                    })}
+                </ul>
+                
+            </div>
+        }
         return(
-            <div>SONG SHOW PAGE LEGGGOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO</div>
+            <div>
+                <div>Song exists: {String(songExists)}</div>
+                {songChords}
+            </div>
+            
         )
     }
 }

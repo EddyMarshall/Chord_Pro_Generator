@@ -56,7 +56,7 @@ router.put('/:userId/bio', (req, res) => {
 
             let updatedUser = new User(oldUser);
 
-            oldUser.socialMedia = "heyy";
+            // oldUser.socialMedia = "heyy";
             oldUser.save();
 
             console.log("bio");

@@ -13,6 +13,12 @@ import '../stylesheets/application.scss';
 import UserShow from './session/user_show';
 
 
+
+
+
+
+import SongIndexcontainer from './song_index/song_index_container'
+
 // UserShow
 
 const App = () => (
@@ -25,7 +31,20 @@ const App = () => (
         {/* <UserShow/> */}
         <ProtectedRoute path="/users/userId" component={UserShow} />
         {/* <ProtectedRoute path="/" component={UserShow}/> */}
-        {/* <Route exact path="/songs" component={SongFormContainer} />
+
+
+
+
+
+        
+        <Route exact path="/songs" component={SongIndexcontainer} />
+
+
+
+
+
+
+
         <Route exact path="/songs/:songId" component={SongShowContainer} /> */}
     </Switch>
   </div>

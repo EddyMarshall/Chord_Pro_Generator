@@ -7,15 +7,15 @@ const SongsReducer = (oldState = [], action) => {
     switch (action.type) {
         case RECEIVE_SONGS:
             return action.songs.data;
-        case RECEIVE_USER_SONGS:
-            nextState.user = action.songs.data;
-            return nextState;
+        // case RECEIVE_USER_SONGS:
+        //     nextState.user = action.songs.data;
+        //     return nextState;
         case RECEIVE_SONG:
-            nextState.push = action.song.data
+            nextState[action.song.data._id] = action.song.data;
             return nextState;
         case REMOVE_SONG:
-            let deleted = nextState.filter(song => song._id != action.songId)
-            return deleted;
+            delete nextState[action.song.data._id];
+            return nextState;
         default:
             return oldState;
     }

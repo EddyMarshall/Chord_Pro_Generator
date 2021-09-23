@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 class PeerReviewForm extends React.Component {
     constructor(props) {
@@ -47,26 +48,41 @@ class PeerReviewForm extends React.Component {
     }
 
     render() {
+
+        const peerReviewList = (this.props.reviews.length != 0) ? (
+            <ul>
+                {this.props.reviews.map((review) => {
+                    return <li key={review._id} className="review-item">
+                        <Link to={`users/${review.reviewer}`} className="review-username">
+                            {this.usernameGrabber(this.props.users, review)}
+                        </Link>
+                        <div className="review-body">
+                            {review.body}
+                        </div>
+                    </li>
+                })}
+            </ul>
+        ) : (
+            <div className="no-reviews-announcement">No review yet, you can be the first!</div>
+        )
+        
+
         return (
             <div className="peer-review-container">
                 <div className="peer-review-container-proper">
 
                 <h1 className="peer-review-header">Peer Reviews:</h1>
-                <ul>
-                    {this.props.reviews.map((review) => {
-                        return <li key={review._id}>
-                            <div className="review-username">
-                                {this.usernameGrabber(this.props.users, review)}
-                            </div>
-                            <div className="review-body">    
-                                {review.body}
-                            </div>
-                        </li>
-                    })}
-                </ul>
-                    <form onSubmit={this.handleSubmit}>
-                        <textarea onChange={this.update('body')} placeholder="Share your thoughts."></textarea>
-                        <input type="submit" />
+                    {peerReviewList}
+                    <form onSubmit={this.handleSubmit} classname="review-form-container">
+                        <textarea 
+                            onChange={this.update('body')} 
+                            placeholder="Share your thoughts."
+                            className="peer-review-input"    
+                        ></textarea>
+                        <input 
+                        type="submit" 
+                        className="peer-review-submit"
+                        />
                     </form>
                 </div>
             </div>

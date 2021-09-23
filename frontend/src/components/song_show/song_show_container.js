@@ -1,4 +1,5 @@
 import { fetchSong } from "../../actions/song_actions";
+import { getSongLikes} from "../../actions/like_actions";
 import { connect } from 'react-redux';
 import SongShow from './song_show'
 
@@ -12,7 +13,8 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = dispatch => {
     return {
-        fetchSong: (song) => dispatch(fetchSong(song))
+        fetchSong: (song) => dispatch(fetchSong(song)),
+        getSongLikes: (songId) => dispatch(getSongLikes(songId))
     }
 };
 

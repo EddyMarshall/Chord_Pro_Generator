@@ -6,6 +6,12 @@ export const getLikes = () => {
     )
 };
 
+export const getSongLikes = (songId) => {
+    return axios.get(
+        `/api/likes/song/${songId}`
+    )
+};
+
 export const likeSong = data => {
     return axios.post(
         '/api/likes',

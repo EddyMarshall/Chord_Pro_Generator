@@ -23,9 +23,7 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e => this.setState({ [field]: e.currentTarget.value });
   }
 
   handleSubmit(e) {
@@ -83,6 +81,6 @@ class LoginForm extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default withRouter(LoginForm);

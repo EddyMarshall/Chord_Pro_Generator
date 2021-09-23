@@ -8,10 +8,6 @@ export const getBio = (bioId) => {
     );
 };
 
-
-
-
-
 // router.put('/:bioId'
 export const updateBio = (bio) => {
     return axios.put(
@@ -19,9 +15,6 @@ export const updateBio = (bio) => {
         bio
     );
 };
-
-
-
 
 // router.post('/',
 export const createBio = (bio) => {

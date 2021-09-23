@@ -1,6 +1,5 @@
 import React from "react";
 
-
 class BioForm extends React.Component {
 
     constructor(props) {

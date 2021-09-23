@@ -22,9 +22,7 @@ module.exports = function validateBoardInput(song) {
     song.songwriter = validText(song.songwriter) ? song.songwriter : '';
     if (Validator.isEmpty(song.songwriter)) {
         errors.songwriter = 'Song needs a songwriter';
-    }
-    
-
+    } 
 
     return {
         errors,

@@ -9,9 +9,10 @@ const LikeSchema = new Schema({
     parent_song: {
         type: Schema.Types.ObjectId,
         ref: 'songs'
+    }}, 
+    {
+        timestamps: true
     }
-}, {
-    timestamps: true
-});
+);
 
 module.exports = Like = mongoose.model('likes', LikeSchema);

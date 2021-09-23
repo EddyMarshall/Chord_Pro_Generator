@@ -1,9 +1,6 @@
-// src/components/nav/navbar.js
-
 import React from 'react';
 import { Link } from 'react-router-dom'
 import DropdownContainer from '../nav_dropdown/dropdown_container';
-// import './navbar.css'
 
 class NavBar extends React.Component {
   constructor(props) {

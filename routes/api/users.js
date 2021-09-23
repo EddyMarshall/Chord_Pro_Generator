@@ -19,11 +19,9 @@ router.post('/register', (req, res) => {
     
     User.findOne({ email: req.body.email })
         .then(user => {
-            if (user) {
-                
+            if (user) {                
                 return res.status(400).json({ email: "A user has already registered with this address" })
-            } else {
-                
+            } else {                
                 const newUser = new User({
                     handle: req.body.handle,
                     email: req.body.email,
@@ -59,7 +57,6 @@ router.post('/login', (req, res) => {
             if (!user) {
                 return res.status(404).json({ email: 'This user does not exist' });
             }
-
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
@@ -78,8 +75,7 @@ router.post('/login', (req, res) => {
                                     token: "Bearer " + token
                                 });
                             }
-                        )
-                    
+                        )                    
                     } else {
                         return res.status(400).json({ password: 'Incorrect password' });
                     }

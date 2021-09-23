@@ -68,8 +68,7 @@ router.put('/:songId', (req, res) => {
                 res.status(500).send({ error: 'Cannot update this Song' })
             }
         })
-        }
-)
+});
 
 router.delete('/:id', (req, res) => {
     Song.findOneAndDelete({

@@ -15,12 +15,12 @@ class SongIndex extends React.Component {
             <div className="song-index-container">
                 <ul className="song-index-proper">
                 {
-                songs.map((song, i) => (<SongIndexItem key={i} song={song}/>))
+                    songs.map((song, i) => (<SongIndexItem key={i} song={song}/>))
                 }
                 </ul>
             </div>
         )
     }
-}
+};
 
-export default SongIndex
+export default SongIndex;

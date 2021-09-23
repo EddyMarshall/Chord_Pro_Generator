@@ -22,7 +22,7 @@ class BioShow extends React.Component {
                 } else {
                     this.setState({ formType: 1 });
                 };
-                });
+            });
     };
 
     handleClick(e) {
@@ -33,8 +33,7 @@ class BioShow extends React.Component {
     resetContainer() {
         this.setState({formType: 0})
     };
-
-
+    
 
     render() {
         

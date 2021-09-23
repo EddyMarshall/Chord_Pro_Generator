@@ -37,10 +37,9 @@ class SongShow extends React.Component {
             <div>
                 {/* <div>Song exists: {String(songExists)}</div> */}
                 {songChords}
-            </div>
-            
+            </div>            
         )
     }
-}
+};
 
-export default SongShow
+export default SongShow;

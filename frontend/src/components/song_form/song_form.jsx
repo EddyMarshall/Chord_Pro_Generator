@@ -333,8 +333,6 @@ class SongForm extends React.Component {
             </div>
         )
     }
-
-
-}
+};
 
 export default SongForm;

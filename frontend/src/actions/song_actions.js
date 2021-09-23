@@ -51,9 +51,9 @@ export const composeSong = song => dispatch => (
 export const updateSong = song => dispatch => (
     song_api_util.updateSong(song)
         .then((song) => dispatch(receiveSong(song)))
-)
+);
 
 export const deleteSong = songId => dispatch => (
     song_api_util.deleteSong(songId)
         .then(() => dispatch(removeSong(songId)))
-)
+);

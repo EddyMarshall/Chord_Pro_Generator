@@ -21,9 +21,7 @@ router.get('/:likeId', (req, res) => {
         .catch(error => res.status(404).json({ error: 'This like cannot be found' }))
 })
 
-router.post("/",
-
-    (req, res) => {
+router.post("/", (req, res) => {
         const newLike = new Like({
             liker: req.body.liker,
             parent_song: req.body.parent_song
@@ -35,15 +33,11 @@ router.post("/",
 );
 
 router.delete('/:id', (req, res) => {
-
     Like.findOneAndDelete({
         _id: req.params.id
     })
         .then(() => res.json({ msg: req.params.id }),
             () => res.json({ msg: "Error during unlike attempt" }));
-
 });
-
-
 
 module.exports = router;

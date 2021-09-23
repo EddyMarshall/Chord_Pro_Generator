@@ -21,9 +21,7 @@ router.get('/:followId', (req, res) => {
         .catch(error => res.status(404).json({ error: 'This follow cannot be found' }))
 })
 
-router.post("/",
-
-    (req,res) => {
+router.post("/", (req,res) => {
         const newFollow = new Follow({
             follower: req.body.follower,
             followed: req.body.followed
@@ -34,16 +32,12 @@ router.post("/",
     }
 );
 
-router.delete('/:id', (req, res) => {
-    
+router.delete('/:id', (req, res) => {    
     Follow.findOneAndDelete({
         _id: req.params.id
     })
         .then(() => res.json({ msg: req.params.id }),
-            () => res.json({ msg: "Error during unfollow attempt" }));
- 
+            () => res.json({ msg: "Error during unfollow attempt" })); 
 });
-
-
 
 module.exports = router;

@@ -52,12 +52,13 @@
     cursor: pointer;
 }
 
-.dropdown-item:not(:last-child) {
+.dropdown-item:first-child {
     border-bottom: 1px solid black;
     border-radius: 19px 19px 0 0;
 }
 
 .dropdown-item:last-child{
+    border-top: 1px solid black;
     border-radius: 0 0 19px 19px;
 }
 

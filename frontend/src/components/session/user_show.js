@@ -20,7 +20,7 @@ class UserShow extends React.Component {
 
     render(){
 
-        const form = (this.props.currentUser === this.props.userId) ? (
+        const form = (this.props.userId === (this.props.currentUser._id ||this.props.currentUser.id) ) ? (
             <SongFormContainer />
         ) : (
             ""
@@ -40,7 +40,7 @@ class UserShow extends React.Component {
 const mSTP = (state, ownProps) => ({
     userId: ownProps.match.params.userId,
     songs: state.entities.songs,
-    currentUser: state.session.user.id
+    currentUser: state.session.user
 })
 
 const mDTP = (dispatch) => ({

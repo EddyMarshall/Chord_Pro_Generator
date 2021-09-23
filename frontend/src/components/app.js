@@ -19,13 +19,13 @@ const App = () => (
   <div className="background1"> 
     <NavBarContainer />
     <Switch>
-        {/* <AuthRoute exact path="/" component={MainPage} /> */}
-        <AuthRoute exact path="/login" component={LoginFormContainer} />
-        <AuthRoute exact path="/signup" component={SignupFormContainer} />
-        {/* <UserShow/> */}
-        <ProtectedRoute path="/users/userId" component={UserShow} />
-        {/* <ProtectedRoute path="/" component={UserShow}/> */}
-        {/* <Route exact path="/songs" component={SongFormContainer} />
+      {/* <AuthRoute exact path="/" component={MainPage} /> */}
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      {/* <UserShow/> */}
+      <ProtectedRoute path="/users/userId" component={UserShow} />
+      {/* <ProtectedRoute path="/" component={UserShow}/> */}
+      {/* <Route exact path="/songs" component={SongFormContainer} />
         <Route exact path="/songs/:songId" component={SongShowContainer} /> */}
     </Switch>
   </div>

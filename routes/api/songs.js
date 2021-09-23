@@ -43,6 +43,16 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/user/:userId', (req,res) => {
+    Song.find({songwriter: req.params.userId}, (err, songs) => {
+        var songMap = {};
+        songs.forEach((song) => {
+            songMap[song._id] = song;
+        });
+        res.send(songMap);
+    });
+});
+
 router.put('/:songId', (req, res) => {
     Song.findById(req.params.songId)
         .then(oldSong => {

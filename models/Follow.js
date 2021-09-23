@@ -14,4 +14,4 @@ const FollowSchema = new Schema({
         timestamps: true
 });
 
-module.exports = Follow = mongoose.model('followers', FollowSchema);
+module.exports = Follow = mongoose.model('follows', FollowSchema);

@@ -4,7 +4,7 @@ import { composeSong } from '../../actions/song_actions'
 
 const mSTP = state => {
     return {
-        author_id: state.session.user.id
+        author_id: (state.session.user._id || state.session.user.id)
     }
 };
 

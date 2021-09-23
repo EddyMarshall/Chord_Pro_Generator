@@ -27,7 +27,8 @@ const mstp = (state) => {
 
 const mdtp = (dispatch, ownProps) => {
     return {
-        action: (bio) => dispatch(createBio(bio))
+        action: (bio) => dispatch(createBio(bio)),
+        resetContainer: ownProps.resetContainer
     };
 };
 

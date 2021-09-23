@@ -2,20 +2,37 @@
    // display: flex;
    // flex-direction: column;
    // align-items: center;
-   opacity: 0.8;
+   // opacity: 0.8;
    margin-top: 50vh;
-   background-color:purple;
+   background-color: rgba(134, 175, 236, 0.336);
+
    height: 43vh; 
    @include roundCorners(10px);  
    ::placeholder {
-      color: red;
+      color: gold;
    }
-   #song-title-input, .song-form-submit{
+   .song-form-top-bar{
+      display: flex;
+      // width: 100vw;
+      .song-title-input, .available-chords-title{
+         align-self: center;
+         // justify-self: center;
+         text-align: center;
+         font-size: 180%;
+         // color: orange;
+         @include roundedInputField(45vw);
+         @include roundCorners(8px);
+         margin: 1%;
+         margin-left: 5%;
+         margin-right: 5%;
+      }
+   }
+   .song-form-submit{
       width: 20%;
       // align-self: center;
       // justify-self: center;
       text-align: center;
-      font-size:30px;
+      font-size:200%;
       // color: orange;
       @include roundedInputField(25%);
       @include roundCorners(10px);
@@ -51,9 +68,22 @@
          }
       }
       .song-options-list{
+         display: flex;
+         // flex-direction: column;
+         // width: 40%;
+         // flex-wrap: wrap;
+         font-size: 30px;
+         margin-left: 10%;
          .chord-list{
             font-size: 30px;
+            // display: flex;
+            margin-left: 30px;
+         }
+         .available-chord{
             display: flex;
+            flex-direction: row;
+            width: 40%;
+            flex-wrap: wrap;
             margin-left: 30px;
          }
       }

@@ -3,7 +3,6 @@ import PeerReviewForm from './peer_review_form';
 import { createPeerReview, fetchPeerReviews } from '../../actions/peer_review_actions';
 
 const mSTP = (state, ownProps) => {
-    // debugger
     return {
         reviewer_id: state.session.user.id,
         parent_song_id: ownProps.songId,

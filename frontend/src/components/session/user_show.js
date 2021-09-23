@@ -10,8 +10,8 @@ const UserShow = (props) => {
     return (
         <div>
             <p> THIS IS USERSHOW  </p>
-            <NavBarContainer />
-            {/* <BioShowContainer /> */}
+            {/* <NavBarContainer /> */}
+            <BioShowContainer />
             <SongFormContainer />
         </div>
     )

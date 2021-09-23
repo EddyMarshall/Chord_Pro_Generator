@@ -220,7 +220,6 @@ class SongForm extends React.Component {
             <div className="song-build-container"> 
                 <div>
                     <form onSubmit={this.handleSubmit} >
-                            <div className="song-form-container">
                         <div className="song-form-top-bar">
                             <input 
                                 type="text"
@@ -229,6 +228,7 @@ class SongForm extends React.Component {
                                 placeholder="Song Title" 
                             />
                         </div>
+                            <div className="song-form-container">
                             <div className="song-form-title-and-options"></div>
                                 <div className="song-build-col1">         
                                     <select 

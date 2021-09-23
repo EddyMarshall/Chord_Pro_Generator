@@ -162,6 +162,9 @@ class SongForm extends React.Component {
             songwriter: this.props.author_id
         }
         this.props.composeSong(song)
+
+        //clears the form
+        e.target.reset();
     }
 
     updateCheckboxChange(checkBox) {

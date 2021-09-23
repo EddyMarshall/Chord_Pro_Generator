@@ -1,7 +1,6 @@
 
 // REMOVE POSITION ABSOLUTE WHEN BRINGING IN BIO
 .repertoire-container {
-    position: absolute;
     display: flex;
     justify-content: left;
     background-color: white;
@@ -22,6 +21,9 @@
     width: 100%;
     padding: 15px 0 15px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    &:last-child {
+        border-bottom: 0px;
+    }
 }
 
 .repertoire-title{

@@ -8,7 +8,7 @@ const Repertoire = props => {
         <div className="repertoire-container">
             <ul className="repertoire-list-proper">
                 {
-                songsArray.map(song => (<RepertoireItem song={song}/>))
+                songsArray.map((song, i) => (<RepertoireItem key={i} song={song}/>))
                 }
             </ul>
         </div>

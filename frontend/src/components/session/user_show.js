@@ -26,12 +26,18 @@ class UserShow extends React.Component {
         ) : (
             ""
         )
+        
+        const repertoire = (Object.values(this.props.songs).length === 0) ? (
+            ""
+        ) : (
+            <Repertoire songs={this.props.songs} />
+        )
 
         return (
             <div>
                 <p> THIS IS USERSHOW  </p>
                 {/* <BioShowContainer /> */}
-                <Repertoire songs={this.props.songs}/>
+                {repertoire}
                 {form}
             </div>
         )

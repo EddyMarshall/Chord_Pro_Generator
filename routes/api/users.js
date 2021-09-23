@@ -8,7 +8,16 @@ const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+router.get('/', (req, res) => {
+    User.find({}, (err, users) => {
+        var userMap = {};
+        users.forEach((user) => {
+            userMap[user._id] = user;
+        });
+        res.send(userMap);
+    });
+});
+
 
 router.post('/register', (req, res) => {
     const {errors, isValid} = validateRegisterInput(req.body);

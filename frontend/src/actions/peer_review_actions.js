@@ -35,11 +35,11 @@ export const createPeerReview = peerReview => dispatch => (
         .catch(error => console.log(error))
 );
 
-export const updatePeerReview = peerReview => dispatch => {
+export const updatePeerReview = peerReview => dispatch => (
     peerReview_api_util.updatePeerReview(peerReview)
         .then((peerReview) => dispatch(receivePeerReview(peerReview)))
         .catch(error => console.log(error))
-};
+);
 
 export const deletePeerReview = peerReviewId => dispatch => (
     peerReview_api_util.deletePeerReview(peerReviewId)

@@ -7,7 +7,7 @@ import { Route } from 'react-router-dom/cjs/react-router-dom.min';
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
-import SongFormContainer from "./song_form/song_form_container";
+import SongIndexContainer from "./song_index/song_index_container";
 import SongShowContainer from "./song_show/song_show_container"
 import '../stylesheets/application.scss';
 import UserShow from './session/user_show';
@@ -27,8 +27,8 @@ const App = () => (
       {/* <UserShow/> */}
       <ProtectedRoute exact path="/users/:userId" component={UserShow} />
       {/* <ProtectedRoute path="/" component={UserShow}/> */}
-    <ProtectedRoute exact path="/songs" component={SongFormContainer} />
-        <ProtectedRoute exact path="/songs/:songId" component={SongShowContainer} />
+      <ProtectedRoute exact path="/songs" component={SongIndexContainer} />
+      <ProtectedRoute exact path="/songs/:songId" component={SongShowContainer} />
   </div>
 );
 

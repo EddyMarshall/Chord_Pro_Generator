@@ -79,3 +79,14 @@
 
    }
 }
+
+
+.peer-review-container{
+   border-radius: 19px 19px 19px 19px;
+   bottom: 20px;
+   background-color: rgb(190, 105, 105);
+   display: grid;
+   grid-template-columns: repeat(4, 25%);
+   margin-left: 3vw;
+   margin-right: 3vw;
+}

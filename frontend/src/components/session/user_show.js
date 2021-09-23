@@ -5,6 +5,7 @@ import NavBar from "../nav/navbar";
 import NavBarContainer from "../nav/navbar_container";
 import SongFormContainer from "../song_form/song_form_container";
 import { fetchUserSongs } from "../../actions/song_actions"
+import Repertoire from "../repertoire/repertoire";
 
 
 class UserShow extends React.Component {
@@ -25,11 +26,18 @@ class UserShow extends React.Component {
         ) : (
             ""
         )
+        
+        const repertoire = (Object.values(this.props.songs).length === 0) ? (
+            ""
+        ) : (
+            <Repertoire songs={this.props.songs} />
+        )
 
         return (
             <div>
                 <p> THIS IS USERSHOW  </p>
                 {/* <BioShowContainer /> */}
+                {repertoire}
                 {form}
             </div>
         )

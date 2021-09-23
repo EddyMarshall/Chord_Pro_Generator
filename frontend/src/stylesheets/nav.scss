@@ -34,6 +34,7 @@
     border: 1px solid black;
     @include roundCorners(20px);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .clear {

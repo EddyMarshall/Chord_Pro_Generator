@@ -3,7 +3,6 @@ import { RECEIVE_SONGS, RECEIVE_USER_SONGS, RECEIVE_SONG, REMOVE_SONG } from '..
 const SongsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState);
-
     switch (action.type) {
         case RECEIVE_SONGS:
             return action.songs.data;

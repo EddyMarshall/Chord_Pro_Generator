@@ -1,0 +1,39 @@
+
+// REMOVE POSITION ABSOLUTE WHEN BRINGING IN BIO
+.repertoire-container {
+    position: absolute;
+    display: flex;
+    justify-content: left;
+    background-color: white;
+    right: 0;
+    width: 50%;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    border-radius: 19px 0px 0px 19px;
+    padding: 10px 0 10px 10px;
+}
+
+.repertoire-list-proper {
+    width: 90%;
+}
+
+.repertoire-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.repertoire-title{
+    font-weight: bolder;
+}
+
+.repertoire-key{
+    font-weight: lighter;
+    color: grey;
+}
+
+
+
+
+

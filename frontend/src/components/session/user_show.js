@@ -19,15 +19,18 @@ class UserShow extends React.Component {
     }
 
     render(){
-        // console.log("----------");
-        // console.log(this.props);
-        // // console.log(this.props.songs);
-        // // console.log(this.props.userId);
+
+        const form = (this.props.currentUser === this.props.userId) ? (
+            <SongFormContainer />
+        ) : (
+            ""
+        )
+
         return (
             <div>
                 <p> THIS IS USERSHOW  </p>
                 {/* <BioShowContainer /> */}
-                <SongFormContainer />
+                {form}
             </div>
         )
     }
@@ -36,7 +39,8 @@ class UserShow extends React.Component {
 
 const mSTP = (state, ownProps) => ({
     userId: ownProps.match.params.userId,
-    songs: state.entities.songs
+    songs: state.entities.songs,
+    currentUser: state.session.user.id
 })
 
 const mDTP = (dispatch) => ({

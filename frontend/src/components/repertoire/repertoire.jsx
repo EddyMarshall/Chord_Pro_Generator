@@ -6,6 +6,9 @@ const Repertoire = props => {
     const songsArray = Object.values(props.songs)
     return (
         <div className="repertoire-container">
+            <div className="title-container">
+                <h1 className="repertoire-title">Repertoire</h1>
+            </div>
             <ul className="repertoire-list-proper">
                 {
                 songsArray.map((song, i) => (<RepertoireItem key={i} song={song}/>))

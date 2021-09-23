@@ -1,14 +1,22 @@
 
 // REMOVE POSITION ABSOLUTE WHEN BRINGING IN BIO
 .repertoire-container {
-    display: flex;
+    margin-left: 50%;
     justify-content: left;
     background-color: white;
-    right: 0;
     width: 50%;
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
     border-radius: 19px 0px 0px 19px;
     padding: 10px 0 10px 10px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0 5px 0;
+    font-weight: bolder;
+    font-size: 1.6em;
 }
 
 .repertoire-list-proper {
@@ -27,7 +35,7 @@
 }
 
 .repertoire-title{
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .repertoire-key{

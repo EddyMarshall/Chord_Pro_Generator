@@ -16,7 +16,7 @@ import UserShow from './session/user_show';
 // UserShow
 
 const App = () => (
-  <div className="background1">
+  <div className="background1"> 
     <NavBarContainer />
     <Switch>
       {/* <AuthRoute exact path="/" component={MainPage} /> */}

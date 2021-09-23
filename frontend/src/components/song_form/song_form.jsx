@@ -217,16 +217,22 @@ class SongForm extends React.Component {
         this.chordMasterList = chordsToBuildFrom
 
         return (
+            <div className="song-build-centering">
+
             <div className="song-build-container"> 
+                <div className="form-header-container">
+                    <h1 className="song-build-header">Build Your Next Song</h1>
+                </div>
                 <div>
-                    <form onSubmit={this.handleSubmit} >
-                        <div className="song-form-top-bar">
+                    <form onSubmit={this.handleSubmit} className="song-form">
+                        <div className="song-form-top-bar">                          
                             <input 
                                 type="text"
                                 className="song-title-input"
                                 onChange={this.update('songTitle')}
                                 placeholder="Song Title" 
-                            />
+                                />
+                            <h1 className="available-chords-title">Available Chords</h1>
                         </div>
                             <div className="song-form-container">
                             <div className="song-form-title-and-options"></div>
@@ -235,7 +241,7 @@ class SongForm extends React.Component {
                                         name="keys"
                                         id="key-selector-dropdown"
                                         onChange={this.update('key')}
-                                        className="song-form-input">
+                                        className="song-form-input col-1-item">
                                             
                                         <option value="C">C Major</option>
                                         <option value="B">B Major</option>
@@ -255,16 +261,15 @@ class SongForm extends React.Component {
                                         name="bar-count"
                                         id="bar-count-selector-dropdown"
                                         onChange={this.update('barCount')}
-                                        className="song-form-input"
-                                    >
-                                        <option value="4">4 Bars</option>
+                                        className="song-form-input col-1-item"
+                                        >
                                         <option value="8">8 Bars</option>
                                         <option value="12">12 Bars</option>
                                         <option value="16">16 Bars</option>
                                         <option value="24">24 Bars</option>
                                         <option value="32">32 Bars</option>
                                     </select>
-                                    <div className="radio-button-container">
+                                    <div className="radio-button-container col-1-item">
                                         <label>
                                             <input type="radio"
                                                 id="resolve-radio-button"
@@ -272,7 +277,7 @@ class SongForm extends React.Component {
                                                 value="true"
                                                 checked={this.state.resolve ? true : false}
                                                 onChange={this.radioChange}
-                                            /> Resolve
+                                                /> Resolve
                                         </label>
 
                                         <label>
@@ -282,7 +287,7 @@ class SongForm extends React.Component {
                                                 value="false"
                                                 checked={!this.state.resolve ? true : false}
                                                 onChange={this.radioChange}
-                                            /> Don't Resolve
+                                                /> Don't Resolve
                                         </label>
                                     </div>
                                 </div>
@@ -295,7 +300,7 @@ class SongForm extends React.Component {
                                                 className="checkbox"
                                                 name="triads"
                                                 onChange={() => this.updateCheckboxChange('triadsChecked')} 
-                                            /> Triads    
+                                                /> Triads    
                                         </label>
                                         <label>
                                             <input type="checkbox"
@@ -303,7 +308,7 @@ class SongForm extends React.Component {
                                                 className="checkbox"
                                                 name="extended-chords"
                                                 onChange={() => this.updateCheckboxChange('extendedChordsChecked')} 
-                                            /> Extended Chords
+                                                /> Extended Chords
                                         </label>
                                         <label>
                                             <input type="checkbox"
@@ -311,23 +316,23 @@ class SongForm extends React.Component {
                                                 className="checkbox"
                                                 name="secondary-dominants"
                                                 onChange={() => this.updateCheckboxChange('secondaryDominantsChecked')} 
-                                            /> Secondary Dominants
+                                                /> Secondary Dominants
                                         </label>
-                                    </div>                                     
+                                    </div>
+                                <input
+                                    type="submit"
+                                    value="Compose"
+                                    className="song-form-submit"
+                                    />
                                 </div>  
                             <div className="song-form-available-chords">                          
-                                <h1 className="available-chords-title">Available Chords</h1>
                                 <div className="song-build-col3"> 
                                     <h1 className="available-chords">{chordList}</h1>
                                 </div>
                             </div>
                         </div>
-                        <input 
-                            type="submit" 
-                            value="Compose" 
-                            className="song-form-submit" 
-                        />
                     </form>
+                </div>
                 </div>
                 
             </div>

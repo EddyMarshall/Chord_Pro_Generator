@@ -1,63 +1,76 @@
-.song-build-container{
-   // display: flex;
-   // flex-direction: column;
-   // align-items: center;
-   // opacity: 0.8;
-   margin-top: 50vh;
-   background-color: rgba(134, 175, 236, 0.336);
 
-   height: 43vh; 
-   @include roundCorners(10px);  
+.song-build-centering {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   padding-bottom: 20px;
+}
+
+.song-build-container{
+   margin-top: 20px;
+   background-color: white;
+   width: 95%;
+   padding-bottom: 20px;
+
+   border-radius: 19px 19px 19px 19px; 
    ::placeholder {
-      color: gold;
+      color: white;
    }
+
+   .song-build-header {
+      display: flex;
+      justify-content: center;
+      font-size: xxx-large;
+      font-weight: bolder;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 20px 0 20px 0;
+      margin-bottom: 20px;
+   }
+
    .song-form-top-bar{
       display: flex;
-      // width: 100vw;
-      .song-title-input, .available-chords-title{
+      align-items: center;
+      .song-title-input{
          align-self: center;
-         // justify-self: center;
          text-align: center;
          font-size: 180%;
-         // color: orange;
-         @include roundedInputField(45vw);
+         @include roundedInputField(45%);
          @include roundCorners(8px);
          margin: 1%;
-         margin-left: 5%;
-         margin-right: 5%;
+         margin-left: 16px;
+      }
+
+      .available-chords-title {
+         padding-top: 30px;
+         margin-left: 20px;
+         font-size: xx-large;
+         font-weight: bold;
       }
    }
-   .song-form-submit{
-      width: 20%;
-      // align-self: center;
-      // justify-self: center;
-      text-align: center;
-      font-size:200%;
-      // color: orange;
-      @include roundedInputField(25%);
-      @include roundCorners(10px);
-      margin: 10px;
-      
-   }
+
    .song-form-container{
       display: flex;
       .song-build-col1{ 
+         width: 15%;
          margin-left: 10px;     
          .song-form-input{
             display: flex;
             @include roundedInputField(100%);
             @include roundCorners(20px);
-            // margin-left: 10px;
          }
          .radio-button-container{
             display: flex;
             flex-direction: column;
+            min-width: 100%;
             @include roundedInputField();
             @include roundCorners(20px);
-            // width:100%;
          }
       }
+
+
+
       .song-build-col2{
+         width: 29%;
          .checkboxes-container{
             display: flex;
             flex-direction: column;
@@ -65,34 +78,55 @@
             @include roundCorners(20px);
             margin-left: 20px;
             font-size: 25px;
+            width: 100%;
+            box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
          }
       }
+
+      .song-form-available-chords {
+         width: 45%;
+         margin-left: 35px;
+      }
+
+      .song-build-col3{
+         width: 100%;
+         border: 1px solid black;
+         border-radius: 19px 19px 19px 19px;
+         box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+      }
+
       .song-options-list{
          display: flex;
-         // flex-direction: column;
-         // width: 40%;
-         // flex-wrap: wrap;
          font-size: 30px;
-         margin-left: 10%;
-         .chord-list{
-            font-size: 30px;
-            // display: flex;
-            margin-left: 30px;
-         }
+         height: 290px;
          .available-chord{
+            width: 100%;
+            margin: 0 20px 3px 5px;
+         }
+         .chord-list {
             display: flex;
-            flex-direction: row;
-            width: 40%;
+            flex-direction: column;
             flex-wrap: wrap;
-            margin-left: 30px;
+            margin-top: 7px;
          }
       }
-      .song-form-submit{
-         @include roundedInputField();
-         text-align: center;
-      }      
-      // .available-chords{
 
-      // }
+      .col-1-item{
+         margin-bottom: 18px;
+         box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+      }
+
+      .song-form-submit{
+         text-align: center;
+         text-align: center;
+         width: 100%;
+         margin: 10px;
+         @include roundedInputField(100%);
+         @include roundCorners(20px);
+         font-size: 25px;
+         margin-left: 20px;
+         box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+      }      
+      
    }
 }

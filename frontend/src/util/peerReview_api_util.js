@@ -2,26 +2,26 @@ import axios from 'axios';
 
 export const getPeerReviews = () => {
     return axios.get(
-        '/api/peerreviews'
+        '/api/peer_reviews'
     )
 }
 
-export const writePeerReview = data => {
+export const createPeerReview = data => {
     return axios.post(
-        '/api/peerreviews',
+        '/api/peer_reviews',
         data
     )
 }
 
-export const updatePeerReview = review => {
+export const updatePeerReview = peerReview => {
     return axios.patch(
-        `/api/peerreviews/${review.id}`
+        `/api/peer_reviews/${peerReview.id}`
     )
 }
 
 export const deletePeerReview = peerReviewId => {
     return axios.destroy(
-        `/api/peerreviews/${peerReviewId}`
+        `/api/peer_reviews/${peerReviewId}`
     )
 }
 

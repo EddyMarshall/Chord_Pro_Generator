@@ -5,6 +5,22 @@ const PeerReview = require('../../models/PeerReview');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the peer-reviews route" }));
 
+router.get('/', (req, res) => {
+    PeerReview.find({}, (err, peerreviews) => {
+        var peerreviewMap = {};
+        peerreviews.forEach((peerreview) => {
+            peerreviewMap[peerreview._id] = peerreview;
+        });
+        res.send(peerreviewMap);
+    });
+});
+
+router.get('/:peerreviewId', (req, res) => {
+    PeerReview.findById(req.params.peerreviewId)
+        .then(peerreview => res.json(peerreview))
+        .catch(error => res.status(404).json({ error: 'This peerreview cannot be found' }))
+})
+
 router.post("/",
 
     (req, res) => {

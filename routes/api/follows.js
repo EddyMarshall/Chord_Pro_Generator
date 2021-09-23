@@ -5,6 +5,22 @@ const Follow = require('../../models/Follow');
 
 router.get("/test", (req, res) => res.json({ msg: "This is the follows route" }));
 
+router.get('/', (req, res) => {
+    Follow.find({}, (err, follows) => {
+        var followMap = {};
+        follows.forEach((follow) => {
+            followMap[follow._id] = follow;
+        });
+        res.send(followMap);
+    });
+});
+
+router.get('/:followId', (req, res) => {
+    Follow.findById(req.params.followId)
+        .then(follow => res.json(follow))
+        .catch(error => res.status(404).json({ error: 'This follow cannot be found' }))
+})
+
 router.post("/",
 
     (req,res) => {

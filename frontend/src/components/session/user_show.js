@@ -2,7 +2,7 @@ import React from "react";
 import BioShowContainer from "../bio/bio_show_container";
 import NavBar from "../nav/navbar";
 import NavBarContainer from "../nav/navbar_container";
-import SongForm from "../song_form/song_form";
+import SongFormContainer from "../song_form/song_form_container";
 
 
 const UserShow = (props) => {
@@ -11,8 +11,7 @@ const UserShow = (props) => {
             <p> THIS IS USERSHOW  </p>
             <NavBarContainer />
             <BioShowContainer />
-            <SongForm />
-
+            <SongFormContainer />
         </div>
     )
 };

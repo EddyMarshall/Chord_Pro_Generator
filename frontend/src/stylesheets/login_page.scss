@@ -3,14 +3,23 @@
 
 // https://photos.app.goo.gl/zjN6UXsTWkLo6Bpx7
 
-.background{
-   background-image: url("/stylesheets/background.JPG");
-   background-position: 100vw 250vh;
-   background-repeat: no-repeat;   
-   background-size: cover;
-   width: 100vw;
-   height: 100vh;
+.background1{
+   background-image: url("background.JPG");
+   // background-position: 100vw 250vh;
+   // position: fixed;
+   // top: 0;
+   // left: 0;
+   // background-repeat: no-repeat;   
+   // background-size: cover;
+   // width: 100vw;
+   min-height: 100vh;
    // background-color: purple;
+   height: 100%;
+   width: 100%;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 // .background-img{

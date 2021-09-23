@@ -17,9 +17,9 @@ class BioForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state);
-        // debugger;
-        // console.log("thunk action creator go here!")
+        debugger;
+        this.props.action(this.state)
+            .then(() => this.props.resetContainer());
     };
 
 
@@ -54,7 +54,7 @@ class BioForm extends React.Component {
                         onChange={this.update('socialMedia')}
                     />
                 </label>
-                <input type="submit" value="edit bio" />
+                <input type="submit" value={this.props.formType} />
             </form>
         );
     };

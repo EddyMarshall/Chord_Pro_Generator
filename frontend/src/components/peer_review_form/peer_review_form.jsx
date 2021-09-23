@@ -30,9 +30,8 @@ class PeerReviewForm extends React.Component {
 
     render() {
         return (
-            <div>
-                Hello, from the Peer Review Form.
-                ----------------------
+            <div className="peer-review-container">
+                <h1>Peer Reviews:</h1>
                 <ul>
                     {this.props.reviews.map((review) => {
                         return <li key={review._id}>{review.body}</li>

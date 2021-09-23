@@ -29,11 +29,8 @@ class Dropdown extends React.Component {
                             <Link className="profile-link" to="/">Profile</Link>
                         </li>
                         <li className="dropdown-item">
-                            <Link className="profile-link" to="/songs">All Songs</Link>
+                            <Link className="all-songs-link" to="/songs">All Songs</Link>
                         </li>
-                        {/* <li className="dropdown-item">
-                            <Link className="profile-link" to="/songs">All Songs</Link>
-                        </li> */}
                         <li className="dropdown-item">
                             <button className="logout-button" 
                             onClick={this.handleClick}>Logout</button>

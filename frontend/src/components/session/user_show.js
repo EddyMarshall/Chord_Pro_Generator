@@ -9,7 +9,7 @@ const UserShow = (props) => {
     return (
         <div>
             <p> THIS IS USERSHOW  </p>
-            <NavBarContainer />
+            {/* <NavBarContainer /> */}
             <BioShowContainer />
             <SongFormContainer />
         </div>

@@ -20,26 +20,25 @@ class EditBioContainer extends React.Component {
                 action={action}
                 formType={formType}
                 bio={bio}
+                // formType={this.props.formType}
+                resetContainer={this.props.resetContainer}
             />
         );
     };
 };
 
 // IMPORTANT CHANGE bio: state.entitities.bio[state.session.user.id] TO USE OWNPARAMS
-const mstp = (state, ownProps) => {
-    // debugger;
+const mstp = (state) => {
     return ({
         bio: state.entities.bios[state.session.user.id],
         formType: "edit bio",
         currentUser: state.session.user,
-        resetContainer: ownProps.resetContainer
     });
 };
 
 const mdtp = (dispatch, ownProps) => {
-    // debugger;
     return ({
-        // resetContainer: ownProps.banana,
+        resetContainer: ownProps.resetContainer,
         action: (bio) => dispatch(updateBio(bio)),
         fetchBio: userId => dispatch(fetchBio(userId))
     });

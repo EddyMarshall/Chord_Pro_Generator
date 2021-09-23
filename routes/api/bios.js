@@ -26,13 +26,12 @@ router.post('/',
     }
 );
 
-router.get('/:bioId', (request, response) => {
+router.get('/:userId', (req, response) => {
 
-    Bio.findById(request.params.bioId)
+    Bio.findOne({user: req.params.userId})
         .then(bio => response.json(bio))
         .catch((error) => response.status(404).json({ error: `Bio not found error: ${error}` }))
-
-})
+});
 
 router.put('/:bioId', (request, response) => {
     Song.findById(request.params.bioId)

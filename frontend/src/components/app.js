@@ -13,7 +13,10 @@ import '../stylesheets/application.scss';
 import UserShow from './session/user_show';
 
 
-// UserShow
+
+// getSongs
+// window.getBio = getBio;
+// window.getSongs = getSongs;
 
 const App = () => (
   <div className="background1"> 

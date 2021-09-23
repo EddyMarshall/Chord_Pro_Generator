@@ -24,7 +24,7 @@ const App = (props) => (
       <ProtectedRoute exact path="/" >
         <Redirect to={`/login`}/>
       </ProtectedRoute>
-      <ProtectedRoute path={`/users`} component={UserShow} />
+      <ProtectedRoute path={`/users/:userId`} component={UserShow} />
 
       {/* <AuthRoute exact path="/" component={MainPage} /> */}
       <AuthRoute exact path="/login" component={LoginFormContainer} />

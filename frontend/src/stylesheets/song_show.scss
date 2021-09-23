@@ -8,23 +8,23 @@
    text-align: center;
    // margin-top: 1vw;
    background-color: white;
-   margin-left: 1vw;
-   margin-right: 1vw;
+   margin-left: 3vw;
+   margin-right: 3vw;
 }
 .song-author{
    font-size: 4vw;
    text-align: center;
    // margin-top: 1vw;
    background-color: white;
-   margin-left: 1vw;
-   margin-right: 1vw;
+   margin-left: 3vw;
+   margin-right: 3vw;
 }
 .whole-song{
    border-radius: 0 0 19px 19px;
    bottom: 20px;
    background-color: white;
    display: grid;
-   grid-template-columns: repeat(4, 20%);
+   grid-template-columns: repeat(4, 25%);
    // display: flex;
    // // justify-content:space-between;
    // width: 70%;
@@ -32,8 +32,8 @@
    // margin-left: 15%;
    // margin-right: 15%;
    // flex-direction: row; 
-   margin-left: 1vw;
-   margin-right: 1vw;
+   margin-left: 3vw;
+   margin-right: 3vw;
    // border: 30px solid black;
 
    .chord{
@@ -53,7 +53,7 @@
       // // width: 100vw;
       // // height: 100vh;
       // // background-color: purple;
-      margin-left: 10vw;
+      margin-left: 2vw;
 
    }
    .bars4{
@@ -62,8 +62,10 @@
       // font-size: 250%;
       background-image: url("croppedBar1.png");
       background-repeat: no-repeat; 
+      // object-fit: cover;
+      background-size: 100%;
       // background-position: 0% 1%;
-      width: 394px;
+      // width: 394px;
       height: 20vh;
 
       // width: 394px;
@@ -73,7 +75,7 @@
       // align-self: center;
       // margin-left: 15%;
       // margin-right: 15%;
-      margin-left: 8vw;
+      // margin-left: 0vw;
 
    }
 }

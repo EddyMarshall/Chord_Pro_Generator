@@ -7,19 +7,17 @@ export const REMOVE_PEERREVIEW = "REMOVE_PEERREVIEW"
 export const receiveAllPeerReviews = (peerReviews) => ({
     type: RECEIVE_ALL_PEERREVIEWS,
     peerReviews
-})
+});
 
 export const receivePeerReview = peerReview => ({
     type: RECEIVE_PEERREVIEW,
     peerReview
-})
+});
 
 export const removePeerReview = peerReviewId => ({
     type: REMOVE_PEERREVIEW,
     peerReviewId
-})
-
-
+});
 
 export const fetchPeerReviews = () => dispatch => (
     peerReview_api_util.getPeerReviews()
@@ -29,21 +27,21 @@ export const fetchPeerReviews = () => dispatch => (
             )
         )
     )
-)
+);
 
 export const createPeerReview = peerReview => dispatch => (
     peerReview_api_util.createPeerReview(peerReview)
         .then((peerReview => dispatch(receivePeerReview(peerReview))))
         .catch(error => console.log(error))
-)
+);
 
-export const updatePeerReview = peerReview => dispatch => {
+export const updatePeerReview = peerReview => dispatch => (
     peerReview_api_util.updatePeerReview(peerReview)
         .then((peerReview) => dispatch(receivePeerReview(peerReview)))
         .catch(error => console.log(error))
-}
+);
 
 export const deletePeerReview = peerReviewId => dispatch => (
     peerReview_api_util.deletePeerReview(peerReviewId)
         .then(() => dispatch(deletePeerReview(peerReviewId)))
-)
+);

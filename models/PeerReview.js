@@ -13,9 +13,10 @@ const PeerReviewSchema = new Schema({
     body: {
         type: String,
         required: true
-    },
-}, {
-    timestamps: true
-});
+    }}, 
+    {
+        timestamps: true
+    }
+);
 
 module.exports = PeerReview = mongoose.model('peerreviews', PeerReviewSchema);

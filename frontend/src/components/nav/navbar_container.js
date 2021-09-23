@@ -16,3 +16,4 @@ export default connect(
   mapStateToProps,
   mdtp
 )(NavBar);
+// export default connect(mapStateToProps, null)(NavBar);

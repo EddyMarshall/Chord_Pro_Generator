@@ -6,7 +6,9 @@
     width: 100%;
     justify-content: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-
+    background: seaGreen;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
+    margin-bottom: 20px;
 }
 
 .navbar-container {
@@ -50,12 +52,13 @@
     cursor: pointer;
 }
 
-.dropdown-item:not(:last-child) {
+.dropdown-item:first-child {
     border-bottom: 1px solid black;
     border-radius: 19px 19px 0 0;
 }
 
 .dropdown-item:last-child{
+    border-top: 1px solid black;
     border-radius: 0 0 19px 19px;
 }
 

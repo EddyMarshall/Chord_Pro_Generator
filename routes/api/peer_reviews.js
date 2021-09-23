@@ -21,9 +21,7 @@ router.get('/:peerreviewId', (req, res) => {
         .catch(error => res.status(404).json({ error: 'This peerreview cannot be found' }))
 })
 
-router.post("/",
-
-    (req, res) => {
+router.post("/", (req, res) => {
         const newPeerReview = new PeerReview({
             reviewer: req.body.reviewer,
             parent_song: req.body.parent_song,
@@ -32,17 +30,14 @@ router.post("/",
         newPeerReview
             .save()
             .then(peerreview => res.json(peerreview))
-    }
-);
+});
 
 router.delete('/:id', (req, res) => {
-
     PeerReview.findOneAndDelete({
         _id: req.params.id
     })
         .then(() => res.json({ msg: req.params.id }),
             () => res.json({ msg: "Error during delete post attempt" }));
-
 });
 
 router.put('/:id', (req, res) => {
@@ -61,9 +56,6 @@ router.put('/:id', (req, res) => {
                 res.status(500).send({ error: 'Cannot update this peer review' })
             }
         })
-}
-)
-
-
+});
 
 module.exports = router;

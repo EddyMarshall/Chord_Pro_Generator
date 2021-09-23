@@ -1,4 +1,5 @@
 import React from 'react'
+import PeerReviewFormContainer from "../peer_review_form/peer_review_form_container"
 
 
 class SongShow extends React.Component {
@@ -30,17 +31,16 @@ class SongShow extends React.Component {
                         })}
                     </div>
                 </ul>
-                
+                <PeerReviewFormContainer songId={this.props.song.id}/>
             </div>
         }
         return(
             <div>
                 {/* <div>Song exists: {String(songExists)}</div> */}
-                {songChords}
-            </div>
-            
+                {songChords},
+            </div>            
         )
     }
-}
+};
 
-export default SongShow
+export default SongShow;

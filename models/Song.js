@@ -22,7 +22,6 @@ const SongSchema = new Schema({
         type: Date,
         default: Date.now
     }
-
 })
 
 module.exports = Song = mongoose.model('song', SongSchema);

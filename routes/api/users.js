@@ -8,7 +8,16 @@ const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-router.get("/test", (req, res) => res.json({ msg: "This is the users route" }));
+router.get('/', (req, res) => {
+    User.find({}, (err, users) => {
+        var userMap = {};
+        users.forEach((user) => {
+            userMap[user._id] = user;
+        });
+        res.send(userMap);
+    });
+});
+
 
 router.post('/register', (req, res) => {
     const {errors, isValid} = validateRegisterInput(req.body);
@@ -19,11 +28,9 @@ router.post('/register', (req, res) => {
     
     User.findOne({ email: req.body.email })
         .then(user => {
-            if (user) {
-                
+            if (user) {                
                 return res.status(400).json({ email: "A user has already registered with this address" })
-            } else {
-                
+            } else {                
                 const newUser = new User({
                     handle: req.body.handle,
                     email: req.body.email,
@@ -59,7 +66,6 @@ router.post('/login', (req, res) => {
             if (!user) {
                 return res.status(404).json({ email: 'This user does not exist' });
             }
-
             bcrypt.compare(password, user.password)
                 .then(isMatch => {
                     if (isMatch) {
@@ -78,8 +84,7 @@ router.post('/login', (req, res) => {
                                     token: "Bearer " + token
                                 });
                             }
-                        )
-                    
+                        )                    
                     } else {
                         return res.status(400).json({ password: 'Incorrect password' });
                     }

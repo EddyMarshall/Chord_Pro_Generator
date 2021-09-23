@@ -4,13 +4,40 @@
     justify-content: center;
 }
 
+.song-index-proper {
+    background: white;
+    padding: 20px;
+    border-radius: 19px 19px 19px 19px;
+    width: 90%;
+}
+
 .song-index-item {
     display: flex;
-    justify-content: space-between;
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .song-index-song-link {
     display: flex;
     justify-content: space-between;
+    width: 33%;
 }
 
+.song-index-song-link {
+    font-weight: bolder;
+}
+
+.song-index-song-key-link {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-index-user-link {
+    width: 33%;
+    display: flex;
+    justify-content: right;
+    font-weight: bolder;
+    align-items: center;
+}

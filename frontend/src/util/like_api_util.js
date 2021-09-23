@@ -2,7 +2,8 @@ import axios from 'axios';
 
 export const getLikes = () => {
     return axios.get(
-        '/api/likes')
+        '/api/likes'
+    )
 };
 
 export const likeSong = data => {

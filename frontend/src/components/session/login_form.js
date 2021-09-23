@@ -23,9 +23,7 @@ class LoginForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e => this.setState({ [field]: e.currentTarget.value });
   }
 
   handleSubmit(e) {
@@ -36,7 +34,7 @@ class LoginForm extends React.Component {
     };
 
     this.props.login(user)
-      .then(this.props.history.push("/users/userId"));
+      // .then(this.props.history.push(`/users/${this.props.userId}`));
   }
 
   // Render the session errors if there are any
@@ -83,6 +81,6 @@ class LoginForm extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default withRouter(LoginForm);

@@ -3,9 +3,7 @@ import React from 'react'
 class PeerReviewForm extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            body: ""
-        }
+        this.state = { body: "" }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
 
@@ -19,8 +17,6 @@ class PeerReviewForm extends React.Component {
         });
     }
 
-
-    //form update and submit functions
     handleSubmit(e) {
         let review = {
             body: this.state.body,
@@ -32,12 +28,10 @@ class PeerReviewForm extends React.Component {
     }
 
 
-
     render() {
         return (
-            <div>
-                Hello, from the Peer Review Form.
-                ----------------------
+            <div className="peer-review-container">
+                <h1>Peer Reviews:</h1>
                 <ul>
                     {this.props.reviews.map((review) => {
                         return <li key={review._id}>{review.body}</li>
@@ -50,8 +44,6 @@ class PeerReviewForm extends React.Component {
             </div>
         )
     }
-
-
 }
 
 export default PeerReviewForm;

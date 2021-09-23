@@ -37,7 +37,6 @@ const mstp = (state, ownProps) => {
 };
 
 const mdtp = (dispatch, ownProps) => {
-    // debugger;
     return ({
         // resetContainer: ownProps.banana,
         action: (bio) => dispatch(updateBio(bio)),

@@ -2,18 +2,18 @@ import { fetchSong } from "../../actions/song_actions";
 import { connect } from 'react-redux';
 import SongShow from './song_show'
 
-const mapStateToProps = (state, ownProps) => {
+const mSTP = (state, ownProps) => {
     return {
         currentUser: state.session.user.id,
         song: state.entities.songs[ownProps.match.params.songId],
         songId: ownProps.match.params.songId
     }
-}
+};
 
-const mapDispatchToProps = dispatch => {
+const mDTP = dispatch => {
     return {
         fetchSong: (song) => dispatch(fetchSong(song))
     }
-}
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SongShow)
+export default connect(mSTP, mDTP)(SongShow);

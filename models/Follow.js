@@ -9,9 +9,10 @@ const FollowSchema = new Schema({
     followed: {
         type: Schema.Types.ObjectId,
         ref: 'users'
-    }
-}, {
+    }},
+    {
         timestamps: true
-});
+    }
+);
 
 module.exports = Follow = mongoose.model('follows', FollowSchema);

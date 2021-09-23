@@ -2,19 +2,16 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Dropdown from './dropdown'
 
-const mapStateToProps = state => ({
+const mSTP = state => ({
     currentUser: state.session.user.id
-})
+});
 
 
-const mdtp = dispatch => {
+const mDTP = dispatch => {
     return {
         logout: () => dispatch(logout())
     };
 };
 
 
-export default connect(
-    mapStateToProps,
-    mdtp
-)(Dropdown)
+export default connect(mSTP, mDTP)(Dropdown);

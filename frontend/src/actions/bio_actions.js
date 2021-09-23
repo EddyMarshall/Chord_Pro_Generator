@@ -1,11 +1,6 @@
-// import * as bioApiUtil
-
 import * as bioApiUtil from "../util/bio_api_util";
 
-
-
 export const RECEIVE_BIO = "RECEIVE_BIO";
-
 
 const receiveBio = bio => {
     return {
@@ -14,11 +9,11 @@ const receiveBio = bio => {
     };
 };
 
-
 export const fetchBio = (userId) => dispatch => {
-    return (bioApiUtil.getBio(userId)
-        .then((bio) => dispatch(receiveBio(bio)))
-        .catch((err) => console.log(`error in fetchbio: ${err}`))
+    return (
+        bioApiUtil.getBio(userId)
+            .then((bio) => dispatch(receiveBio(bio)))
+            .catch((err) => console.log(`error in fetchbio: ${err}`))
     );
 };
 

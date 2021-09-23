@@ -20,7 +20,7 @@ router.post('/',
             socialMedia: req.body.socialMedia,
             user: req.body.user
         });
-
+        
         bio.save()
             .then(bio => res.json(bio));
     }

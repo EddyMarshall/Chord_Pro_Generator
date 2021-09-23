@@ -24,6 +24,6 @@ const SongIndexItem = props => {
             </Link>
         </li>
     )
-}
+};
 
-export default SongIndexItem
+export default SongIndexItem;

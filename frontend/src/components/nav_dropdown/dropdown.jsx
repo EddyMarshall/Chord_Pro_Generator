@@ -22,12 +22,18 @@ class Dropdown extends React.Component {
     render(){
         return(
             <div className="dropdown">
-                <button id="dropdown-toggle" onClick={this.drop} className="dropdown-link">DROPDOWN</button>
+                <button id="dropdown-toggle" onClick={this.drop} className="dropdown-link">MENU</button>
                 <div className="dropdown-container">
                     <ul onClick={e => e.stopPropagation()} className={this.state.visible ? "show-dropdown" : "clear"}>
                         <li className="dropdown-item">
-                            <Link className="profile-link" to="#">Profile</Link>
+                            <Link className="profile-link" to="/">Profile</Link>
                         </li>
+                        <li className="dropdown-item">
+                            <Link className="profile-link" to="/songs">All Songs</Link>
+                        </li>
+                        {/* <li className="dropdown-item">
+                            <Link className="profile-link" to="/songs">All Songs</Link>
+                        </li> */}
                         <li className="dropdown-item">
                             <button className="logout-button" 
                             onClick={this.handleClick}>Logout</button>

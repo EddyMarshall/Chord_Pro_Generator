@@ -21,7 +21,10 @@ function SessionReducer (state = initialState, action) {
     case RECEIVE_USER_SIGN_IN:
       return {
         ...state,
-        isAuthenticated: true
+        isAuthenticated: !!action.currentUser,
+        user: action.currentUser
+        // ...state,
+        // isAuthenticated: true
       }
     default:
       return state;

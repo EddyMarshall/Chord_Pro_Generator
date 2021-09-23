@@ -23,7 +23,6 @@ class Dropdown extends React.Component {
 
 
     render(){
-        debugger
         return(
                  <div className="dropdown">
                     <button id="dropdown-toggle" onClick={this.drop} className="dropdown-link">DROPDOWN</button>

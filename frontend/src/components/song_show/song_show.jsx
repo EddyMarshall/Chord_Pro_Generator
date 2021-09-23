@@ -1,5 +1,6 @@
-import React from 'react'
-import PeerReviewFormContainer from "../peer_review_form/peer_review_form_container"
+import React from 'react';
+import PeerReviewFormContainer from "../peer_review_form/peer_review_form_container";
+import LikeButtonContainer from "../like_button/like_button";
 
 
 class SongShow extends React.Component {
@@ -9,11 +10,14 @@ class SongShow extends React.Component {
 
     componentDidMount(){
         this.props.fetchSong(this.props.songId);
+        this.props.getSongLikes(this.props.songId);
     }
 
     render(){
         let songExists = !!(this.props.song);
         let songChords = null; 
+        let peerReviewForm = null;
+        let likeButton = null;
         if(songExists){
             songChords = <div>
                 <ul className="sheet">
@@ -31,13 +35,19 @@ class SongShow extends React.Component {
                         })}
                     </div>
                 </ul>
-                <PeerReviewFormContainer songId={this.props.song.id}/>
+                
+                
             </div>
+            peerReviewForm = <PeerReviewFormContainer songId={this.props.song._id} />;
+            likeButton = <LikeButtonContainer songId={this.props.song._id} getSongLikes={this.props.getSongLikes}/>;
+
         }
         return(
             <div>
                 {/* <div>Song exists: {String(songExists)}</div> */}
-                {songChords},
+                {songChords}
+                {peerReviewForm}
+                {likeButton}
             </div>            
         )
     }

@@ -19,7 +19,27 @@ router.get('/:likeId', (req, res) => {
     Like.findById(req.params.likeId)
         .then(like => res.json(like))
         .catch(error => res.status(404).json({ error: 'This like cannot be found' }))
-})
+});
+
+router.get('/user/:userId', (req, res) => {
+    Like.find({ liker: req.params.userId }, (err, likes) => {
+        var likeMap = {};
+        likes.forEach((like) => {
+            likeMap[like._id] = like;
+        });
+        res.send(likeMap);
+    });
+});
+
+router.get('/song/:songId', (req, res) => {
+    Like.find({ parent_song: req.params.songId }, (err, likes) => {
+        var likeMap = {};
+        likes.forEach((like) => {
+            likeMap[like._id] = like;
+        });
+        res.send(likeMap);
+    });
+});
 
 router.post("/", (req, res) => {
         const newLike = new Like({

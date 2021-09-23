@@ -9,6 +9,7 @@ class PeerReviewForm extends React.Component {
 
     componentDidMount() {
         this.props.fetchPeerReviews();
+        this.props.fetchUsers();
     }
 
     update(field) {
@@ -27,20 +28,47 @@ class PeerReviewForm extends React.Component {
         this.props.createPeerReview(review);
     }
 
+    usernameGrabber(users, review) {
+        let reviewerName = ""
+        let i = 0;
+        while (i < users.length) {
+            if (users[i]._id === review.reviewer) {
+                reviewerName = users[i].handle
+                i += users.length
+            } else {
+                i += 1
+            }
+        }
+
+        if (reviewerName === "") {
+            reviewerName = "Anonymous"
+        }
+        return reviewerName
+    }
 
     render() {
         return (
             <div className="peer-review-container">
-                <h1>Peer Reviews:</h1>
+                <div className="peer-review-container-proper">
+
+                <h1 className="peer-review-header">Peer Reviews:</h1>
                 <ul>
                     {this.props.reviews.map((review) => {
-                        return <li key={review._id}>{review.body}</li>
+                        return <li key={review._id}>
+                            <div className="review-username">
+                                {this.usernameGrabber(this.props.users, review)}
+                            </div>
+                            <div className="review-body">    
+                                {review.body}
+                            </div>
+                        </li>
                     })}
                 </ul>
-                <form onSubmit={this.handleSubmit}>
-                    <textarea onChange={this.update('body')} placeholder="Enter review here."></textarea>
-                    <input type="submit" />
-                </form>
+                    <form onSubmit={this.handleSubmit}>
+                        <textarea onChange={this.update('body')} placeholder="Share your thoughts."></textarea>
+                        <input type="submit" />
+                    </form>
+                </div>
             </div>
         )
     }

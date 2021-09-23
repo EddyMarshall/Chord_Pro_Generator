@@ -82,11 +82,21 @@
 
 
 .peer-review-container{
+   display: flex;
+   justify-content: center;
    border-radius: 19px 19px 19px 19px;
    bottom: 20px;
-   background-color: rgb(190, 105, 105);
-   display: grid;
+   background-color: white;
    grid-template-columns: repeat(4, 25%);
    margin-left: 3vw;
    margin-right: 3vw;
+   margin-top: 10px;
+}
+
+.peer-review-container-proper {
+   width: 90%;
+}
+
+.peer-review-header {
+   font-size: xx-large;
 }

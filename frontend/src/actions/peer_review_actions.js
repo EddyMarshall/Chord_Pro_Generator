@@ -2,6 +2,7 @@ import * as peerReview_api_util from '../util/peerReview_api_util'
 
 export const RECEIVE_ALL_PEERREVIEWS = "RECEIVE_ALL_PEERREVIEWS"
 export const RECEIVE_PEERREVIEW = "RECEIVE_PEERREVIEW"
+export const RECEIVE_SONG_REVIEWS = "RECEIVE_SONG_REVIEWS"
 export const REMOVE_PEERREVIEW = "REMOVE_PEERREVIEW"
 
 export const receiveAllPeerReviews = (peerReviews) => ({
@@ -12,6 +13,11 @@ export const receiveAllPeerReviews = (peerReviews) => ({
 export const receivePeerReview = peerReview => ({
     type: RECEIVE_PEERREVIEW,
     peerReview
+});
+
+export const receiveSongReviews = reviews => ({
+    type: RECEIVE_SONG_REVIEWS,
+    reviews
 });
 
 export const removePeerReview = peerReviewId => ({
@@ -27,6 +33,16 @@ export const fetchPeerReviews = () => dispatch => (
             )
         )
     )
+);
+
+export const fetchSongReviews = (songId) => dispatch => (
+    peerReview_api_util.getSongReviews(songId)
+        .then(reviews => dispatch(
+            receiveSongReviews(
+                reviews
+            )
+        )
+        )
 );
 
 export const createPeerReview = peerReview => dispatch => (

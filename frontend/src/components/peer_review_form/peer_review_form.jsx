@@ -9,7 +9,8 @@ class PeerReviewForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchPeerReviews();
+        console.log(this.props.parent_song_id);
+        this.props.fetchSongReviews(this.props.parent_song_id);
         this.props.fetchUsers();
     }
 
@@ -73,7 +74,7 @@ class PeerReviewForm extends React.Component {
 
                 <h1 className="peer-review-header">Peer Reviews:</h1>
                     {peerReviewList}
-                    <form onSubmit={this.handleSubmit} classname="review-form-container">
+                    <form onSubmit={this.handleSubmit} className="review-form-container">
                         <textarea 
                             onChange={this.update('body')} 
                             placeholder="Share your thoughts."

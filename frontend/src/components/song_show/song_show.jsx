@@ -46,8 +46,8 @@ class SongShow extends React.Component {
             <div>
                 {/* <div>Song exists: {String(songExists)}</div> */}
                 {songChords}
-                {peerReviewForm}
                 {likeButton}
+                {peerReviewForm}
             </div>            
         )
     }

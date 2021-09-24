@@ -20,6 +20,15 @@
       cursor: pointer;
    }
 }
+@mixin placeholderColor(){
+   ::placeholder{
+      color: red;
+   }
+}
+
+@mixin boxShadow($shad: 5px){
+   box-shadow: 0 0 $shad;
+}
 
 // @include hoverColor();
 

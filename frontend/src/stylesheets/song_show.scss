@@ -87,8 +87,11 @@
 .peer-review-header {
    font-weight: bolder;
    font-size: xx-large;
-   margin-bottom: 10px;
+   margin-bottom: 25px;
    margin-top: 10px;
+   margin-left: -15px;
+   text-decoration: underline;
+
 }
 
 .review-item {
@@ -106,6 +109,11 @@
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
+}
+
+.review-body{
+   margin: 5px;
+   font-size: 25px;
 }
 
 .peer-review-input {
@@ -133,7 +141,6 @@
 }
 
 .peer-review-submit {
-   text-align: center;
    text-align: center;
    @include roundedInputField(100%);
    @include roundCorners(20px);

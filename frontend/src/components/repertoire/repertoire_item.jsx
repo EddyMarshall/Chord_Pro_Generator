@@ -6,7 +6,7 @@ export const RepertoireItem = props => {
     debugger
     return (
        <li className="repertoire-item">
-            <Link to={`songs/${props.song._id}`} className="repertoire-title">
+            <Link to={`/songs/${props.song._id}`} className="repertoire-title">
                 {props.song.title}
            </Link>
            <div className="repertoire-key">
@@ -14,6 +14,6 @@ export const RepertoireItem = props => {
            </div>  
        </li>
     )
-}
+};
 
-export default RepertoireItem
+export default RepertoireItem;

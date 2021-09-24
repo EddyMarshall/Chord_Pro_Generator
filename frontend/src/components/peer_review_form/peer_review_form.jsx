@@ -54,7 +54,7 @@ class PeerReviewForm extends React.Component {
                     let deleteButton = null;
                     // let editButton = null;
                     if (review.reviewer === this.props.reviewer_id){
-                        deleteButton = <button onClick={() => this.props.deletePeerReview(review._id)}>DELETE POST</button>
+                        deleteButton = <button onClick={() => this.props.deletePeerReview(review._id)} className="delete-post">DELETE POST</button>
                         // editButton = <button>EDIT POST</button>
                     }
                     return <li key={review._id} className="review-item">

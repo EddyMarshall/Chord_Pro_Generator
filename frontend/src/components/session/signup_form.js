@@ -99,6 +99,8 @@ class SignupForm extends React.Component {
             {this.renderErrors()}
           </div>
         </form>
+        <h1 id="login-logo"></h1>
+
       </div>
     );
   }

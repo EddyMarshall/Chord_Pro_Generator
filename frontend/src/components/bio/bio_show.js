@@ -43,7 +43,7 @@ class BioShow extends React.Component {
         if (this.state.formType === 0 && bio) {
             return (
                 <div className="bio-form-container">
-                    <p> Bio show form </p>
+                    {/* <p> Bio show form </p> */}
                     about: {bio.about}
                     <br />
                     location: {bio.location}

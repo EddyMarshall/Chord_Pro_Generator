@@ -31,7 +31,7 @@ class NavBar extends React.Component {
           <div className="navbar-centering-container">
               <div className="navbar-container">
                   <div className="nav-left">
-                    <Link className="all-songs-link" to={'/songs'}>LOGO</Link>
+                    <Link className="all-songs-link2" to={'/songs'}><h1 id="nav-bar-logo"></h1></Link>
                   </div>
                   <div className="right-nav">
                     <DropdownContainer/>
@@ -41,11 +41,14 @@ class NavBar extends React.Component {
         );
       } else {
         return (
+          <div className="login-title-bar">
+            <button onClick={this.handleClick} className="demo">Demo User</button> 
             <div className="signup-login">
                 <Link to={'/signup'} className="Signup">Signup</Link>
                 <Link to={'/login'} className="Login">Login</Link>
-                <button onClick={this.handleClick}>Demo User</button>
+
             </div>
+          </div>
         );
       }
   }
@@ -53,7 +56,7 @@ class NavBar extends React.Component {
   render() {
       return (
         <div>
-            { this.getLinks() }
+            { this.getLinks() }            
         </div>
       );
   }

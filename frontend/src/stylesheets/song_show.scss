@@ -3,10 +3,21 @@
 }
 
 .song-title{
+   padding-top: 10px;
+   padding-bottom: 10px;
    border-radius: 19px 19px 0 0;
    font-size: 4vw;
    text-align: center;
-   // margin-top: 1vw;
+   background-color: white;
+   margin-left: 3vw;
+   margin-right: 3vw;
+   text-decoration: underline;
+}
+.song-author-container {
+   display: flex;
+   justify-content: flex-end;
+   font-size: 4vw;
+   text-align: center;
    background-color: white;
    margin-left: 3vw;
    margin-right: 3vw;
@@ -14,10 +25,13 @@
 .song-author{
    font-size: 4vw;
    text-align: center;
-   // margin-top: 1vw;
    background-color: white;
    margin-left: 3vw;
    margin-right: 3vw;
+   font-size: 2.5vw;
+   font-weight: bolder;
+   padding-bottom: 10px;
+   text-decoration: underline;
 }
 .whole-song{
    border-radius: 0 0 19px 19px;
@@ -25,59 +39,32 @@
    background-color: white;
    display: grid;
    grid-template-columns: repeat(4, 25%);
-   // display: flex;
-   // // justify-content:space-between;
-   // width: 70%;
-   // flex-wrap: wrap;
-   // margin-left: 15%;
-   // margin-right: 15%;
-   // flex-direction: row; 
    margin-left: 3vw;
    margin-right: 3vw;
-   // border: 30px solid black;
 
    .chord{
-      // display: grid;
-      // grid-template-columns: repeat(4, 25px);
-      // background-color: rgb(112, 30, 30);
-      // color: rgb(223, 15, 15);
       font-size: 2vw;
-      // // display: flex;
-      // margin-left: 3vw;
-      // width: 16vw;
-
-      // // background-image: url("sheetMusicBar.png");
-      // // background-position: 0% 1%;
-      // // background-repeat: no-repeat;   
-      // // background-size: cover;
-      // // width: 100vw;
-      // // height: 100vh;
-      // // background-color: purple;
       margin-left: 2vw;
 
    }
    .bars4{
-      // display: grid;
-      // grid-template-columns: repeat(6, 25vw);
-      // font-size: 250%;
       background-image: url("croppedBar1.png");
       background-repeat: no-repeat; 
-      // object-fit: cover;
       background-size: 100%;
-      // background-position: 0% 1%;
-      // width: 394px;
       height: 20vh;
-
-      // width: 394px;
-      // height: 157px;
-
-      // justify-content:center;
-      // align-self: center;
-      // margin-left: 15%;
-      // margin-right: 15%;
-      // margin-left: 0vw;
+      border-radius: 0 0 19px 19px;
 
    }
+}
+
+.like-unlike{
+   font-size:40px;
+   @include roundCorners();
+   @include roundedInputField(10%);
+   text-align: center;
+   margin-left: 5%;
+   margin-top: 1%;
+   margin-bottom: 1%;
 }
 
 
@@ -100,8 +87,11 @@
 .peer-review-header {
    font-weight: bolder;
    font-size: xx-large;
-   margin-bottom: 10px;
+   margin-bottom: 25px;
    margin-top: 10px;
+   margin-left: -15px;
+   text-decoration: underline;
+
 }
 
 .review-item {
@@ -121,6 +111,11 @@
    justify-content: flex-start;
 }
 
+.review-body{
+   margin: 5px;
+   font-size: 25px;
+}
+
 .peer-review-input {
    border: 1px solid black;
    min-height: 50px;
@@ -128,16 +123,31 @@
    padding-left: 10px;
    padding-top: 5px;
    border-radius: 19px 19px 19px 19px; 
+   margin-top: 10px;
+
+}
+
+.delete-post{
+   text-align: center;
+   text-align: center;
+   @include roundedInputField(100%);
+   @include roundCorners(20px);
+   font-size: 13px;
+   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+   margin-bottom: 1px;
+   margin-top: 1px;
+   width: 110px;
+   margin-left: 0;
 }
 
 .peer-review-submit {
-   text-align: center;
    text-align: center;
    @include roundedInputField(100%);
    @include roundCorners(20px);
    font-size: 25px;
    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
    margin-bottom: 10px;
+   margin-top: 10px;
    width: 100px;
    margin-left: 0;
 }

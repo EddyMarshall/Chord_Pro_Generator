@@ -36,7 +36,7 @@ class UserShow extends React.Component {
         return (
             <div>
                 <p> THIS IS USERSHOW  </p>
-                {/* <BioShowContainer /> */}
+                <BioShowContainer />
                 {repertoire}
                 {form}
             </div>

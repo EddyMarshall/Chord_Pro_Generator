@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux"
+import { connect } from "react-redux"
 import BioShowContainer from "../bio/bio_show_container";
 import NavBar from "../nav/navbar";
 import NavBarContainer from "../nav/navbar_container";
@@ -9,8 +9,8 @@ import Repertoire from "../repertoire/repertoire";
 
 
 class UserShow extends React.Component {
-    
-    constructor(props){
+
+    constructor(props) {
         super(props);
     }
 
@@ -19,7 +19,7 @@ class UserShow extends React.Component {
         this.props.fetchUserSongs(this.props.userId);
     }
 
-    render(){
+    render() {
 
         const form = (this.props.userId === (this.props.currentUser._id ||this.props.currentUser.id) ) ? (
             <SongFormContainer />
@@ -36,7 +36,7 @@ class UserShow extends React.Component {
         return (
             <div>
                 <p> THIS IS USERSHOW  </p>
-                {/* <BioShowContainer /> */}
+                <BioShowContainer />
                 {repertoire}
                 {form}
             </div>

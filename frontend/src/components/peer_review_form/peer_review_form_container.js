@@ -5,7 +5,6 @@ import { fetchUsers } from '../../actions/user_actions'
 
 
 const mSTP = (state, ownProps) => {
-    // debugger
     return {
         reviewer_id: state.session.user.id,
         parent_song_id: ownProps.songId,

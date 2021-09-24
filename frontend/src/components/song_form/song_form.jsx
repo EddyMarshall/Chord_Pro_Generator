@@ -302,6 +302,7 @@ class SongForm extends React.Component {
                                                 id="triads-checkbox"
                                                 className="checkbox"
                                                 name="triads"
+                                                checked= {this.state.triadsChecked ? true : false}
                                                 onChange={() => this.updateCheckboxChange('triadsChecked')} 
                                                 /> Triads    
                                         </label>

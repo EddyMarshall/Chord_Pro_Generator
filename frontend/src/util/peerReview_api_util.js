@@ -26,7 +26,7 @@ export const updatePeerReview = peerReview => {
 };
 
 export const deletePeerReview = peerReviewId => {
-    return axios.destroy(
+    return axios.delete(
         `/api/peer_reviews/${peerReviewId}`
     )
 };

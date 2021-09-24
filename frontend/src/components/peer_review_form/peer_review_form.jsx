@@ -53,6 +53,12 @@ class PeerReviewForm extends React.Component {
         const peerReviewList = (this.props.reviews.length != 0) ? (
             <ul>
                 {this.props.reviews.map((review) => {
+                    let deleteButton = null;
+                    // let editButton = null;
+                    if (review.reviewer === this.props.reviewer_id){
+                        deleteButton = <button onClick={() => this.props.deletePeerReview(review._id)}>DELETE POST</button>
+                        // editButton = <button>EDIT POST</button>
+                    }
                     return <li key={review._id} className="review-item">
                         <Link to={`users/${review.reviewer}`} className="review-username">
                             {this.usernameGrabber(this.props.users, review)}
@@ -60,6 +66,8 @@ class PeerReviewForm extends React.Component {
                         <div className="review-body">
                             {review.body}
                         </div>
+                        {deleteButton}
+                        {/* {editButton} */}
                     </li>
                 })}
             </ul>

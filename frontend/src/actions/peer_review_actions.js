@@ -59,5 +59,5 @@ export const updatePeerReview = peerReview => dispatch => (
 
 export const deletePeerReview = peerReviewId => dispatch => (
     peerReview_api_util.deletePeerReview(peerReviewId)
-        .then(() => dispatch(deletePeerReview(peerReviewId)))
+        .then(() => dispatch(removePeerReview(peerReviewId)))
 );

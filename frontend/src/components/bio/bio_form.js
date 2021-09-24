@@ -25,7 +25,7 @@ class BioForm extends React.Component {
     render() {
         return (
 
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="bio-form-container">
                 <label>About
                     <textarea
                         type="text"
@@ -40,7 +40,7 @@ class BioForm extends React.Component {
                     <input
                         type="text"
                         value={this.state.location}
-                        onChange={this.update('location')}
+                        onChange={this.update('location')}                        
                     />
                 </label>
 
@@ -53,7 +53,7 @@ class BioForm extends React.Component {
                         onChange={this.update('socialMedia')}
                     />
                 </label>
-                <input type="submit" value={this.props.formType} />
+                <input type="submit" value="Save" className="edit-bio-button"/>
             </form>
         );
     };

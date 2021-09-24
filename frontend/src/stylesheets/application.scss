@@ -29,4 +29,8 @@
  
  .background1{
     font-family: 'Roboto', sans-serif;
- }
+ };
+
+ button{
+    @include hoverColor();
+ };

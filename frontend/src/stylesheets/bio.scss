@@ -1,3 +1,8 @@
+.bio-and-repertoire{
+    display:flex;
+}
+
+
 .bio-form-container {
     background: white;
     width: 50%;
@@ -19,4 +24,7 @@
     line-height: 20px;
     height: 38px;
     width: 80px;
+    font-size: 24px;
+    text-align: center;
+    color: white;
 }

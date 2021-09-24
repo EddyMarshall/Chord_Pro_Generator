@@ -19,7 +19,17 @@ router.get('/:followId', (req, res) => {
     Follow.findById(req.params.followId)
         .then(follow => res.json(follow))
         .catch(error => res.status(404).json({ error: 'This follow cannot be found' }))
-})
+});
+
+router.get('/user/:userId', (req, res) => {
+    Follow.find({ followed: req.params.userId }, (err, follows) => {
+        var followMap = {};
+        follows.forEach((follow) => {
+            followMap[follow._id] = follow;
+        });
+        res.send(followMap);
+    });
+});
 
 router.post("/", (req,res) => {
         const newFollow = new Follow({

@@ -5,6 +5,12 @@ export const getFollows = () => {
         '/api/follows')
 };
 
+export const getUserFollows = (userId) => {
+    return axios.get(
+        `/api/follows/user/${userId}`)
+};
+
+
 export const followUser = data => {
     return axios.post(
         '/api/follows',
@@ -13,7 +19,7 @@ export const followUser = data => {
 };
 
 export const unfollowUser = followId => {
-    return axios.destroy(
+    return axios.delete(
         `/api/follows/${followId}`
     )
 };

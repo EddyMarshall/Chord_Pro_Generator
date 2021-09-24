@@ -6,7 +6,7 @@
     width: 100%;
     justify-content: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    background: seaGreen;
+    background: rgba(150, 89, 89, 0.3);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.4);
     margin-bottom: 20px;
 }
@@ -21,7 +21,14 @@
 
 .dropdown-logo {
     position: relative;
-    display: inline-block
+    display: inline-block;
+}
+
+.dropdown-link{
+    font-size: 30px;
+    @include roundedInputField(95%);
+    @include hoverColor(rgb(224, 205, 176));
+
 }
 
 .show-dropdown {

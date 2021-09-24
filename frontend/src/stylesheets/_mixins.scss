@@ -11,15 +11,18 @@
    width: $w;
    margin-left: $marginL;
    background-color: $backgroundColor;
-   @include hoverColor();
 }
 
 @mixin hoverColor($color: white) {
    &:hover{
       background-color: $color;
       transition: 0.4s;
+      cursor: pointer;
    }
 }
+
+// @include hoverColor();
+
 
 // @mixin inputField() {
 //    box-sizing: border-box;

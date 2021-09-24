@@ -1,6 +1,7 @@
 import React from 'react';
 import PeerReviewFormContainer from "../peer_review_form/peer_review_form_container";
 import LikeButtonContainer from "../like_button/like_button";
+import { Link } from 'react-router-dom';
 
 
 class SongShow extends React.Component {
@@ -9,7 +10,8 @@ class SongShow extends React.Component {
     }
 
     componentDidMount(){
-        this.props.fetchSong(this.props.songId);
+        this.props.fetchSong(this.props.songId)
+            .then((song) => this.props.fetchUser(song.song.data.songwriter))
         this.props.getSongLikes(this.props.songId);
     }
 
@@ -22,7 +24,11 @@ class SongShow extends React.Component {
             songChords = <div>
                 <ul className="sheet">
                     <h1 className="song-title">{this.props.song.title}</h1>
-                    <h1 className="song-author">{this.props.song.songwriter}</h1>
+                    <div className="song-author-container">
+                        <Link to={`/users/${this.props.song.songwriter}`}>
+                            <h1 className="song-author">{this.props.composer}</h1>
+                        </Link>
+                    </div>
                     <div className="whole-song">
                         {this.props.song.chordProgression.map((chord, i) => {
                             return (

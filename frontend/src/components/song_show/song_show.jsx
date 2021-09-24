@@ -39,14 +39,14 @@ class SongShow extends React.Component {
                 
             </div>
             peerReviewForm = <PeerReviewFormContainer songId={this.props.song._id} />;
-            likeButton = <LikeButtonContainer songId={this.props.song._id} getSongLikes={this.props.getSongLikes}/>;
+            likeButton = <LikeButtonContainer songId={this.props.song._id} getSongLikes={this.props.getSongLikes} className="like-unlike"/>;
 
         }
         return(
             <div>
                 {/* <div>Song exists: {String(songExists)}</div> */}
                 {songChords}
-                {likeButton}
+                {/* <h1 className="like-unlike">{likeButton}</h1> */}
                 {peerReviewForm}
             </div>            
         )

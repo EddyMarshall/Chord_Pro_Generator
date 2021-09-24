@@ -80,6 +80,16 @@
    }
 }
 
+.like-unlike{
+   font-size:40px;
+   @include roundCorners();
+   @include roundedInputField(10%);
+   text-align: center;
+   margin-left: 5%;
+   margin-top: 1%;
+   margin-bottom: 1%;
+}
+
 
 .peer-review-container{
    display: flex;

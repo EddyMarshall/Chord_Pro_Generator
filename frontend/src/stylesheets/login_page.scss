@@ -34,15 +34,32 @@
 
 
 .Signup, .Login{
+   text-align: center; 
+
    color: gold;
    font-size: 45px;
    margin: 5px;
    @include roundedInputField();
    @include roundCorners(20px);
 }
+.demo{
+   position:center;
+   // display:flex;
+   // width: 100vw;
+   justify-content: center;
+   align-self: center;
+   color: gold;
+   font-size: 45px;
+   margin: 5px;
+   @include roundedInputField(20%);
+   @include roundCorners(20px);
+   // transform: translate(50%, 0%);   
+
+}
 
 .whole-signup-login-form{
    // display: relative;
+   
    .signup-login-form{
       display: flex;
       flex-direction: column;
@@ -60,5 +77,29 @@
       @include roundedInputField(20%);
       text-align: center;
    } 
+
+
+   
 }
- 
+
+#login-logo{
+   background-image: url("logo.png");
+   margin-left: auto;
+   margin-right: auto;
+   font-size: 400px;
+   background-repeat: no-repeat; 
+   // object-fit: cover;
+   background-size: 100%;
+   background-position: 0% 1%;
+   width: 1200px;
+   // width: 100%;
+   //   height: 20vh;
+   min-height: 55vh;
+   // background-color: purple;
+   height: 100%;
+   // width: 100%;
+   // background-attachment: fixed;
+   // background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}

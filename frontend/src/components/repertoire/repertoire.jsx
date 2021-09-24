@@ -4,6 +4,7 @@ import RepertoireItem from './repertoire_item'
 
 const Repertoire = props => {
     const songsArray = Object.values(props.songs)
+    
     return (
         <div className="repertoire-container">
             <div className="title-container">

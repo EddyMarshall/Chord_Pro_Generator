@@ -5,3 +5,8 @@ export const fetchUsers = () => {
         '/api/users'
     )
 }
+export const fetchUser = userId => {
+    return axios.get(
+        `/api/users/${userId}`
+    )
+}

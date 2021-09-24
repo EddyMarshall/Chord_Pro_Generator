@@ -4,9 +4,11 @@
    justify-content: center;
    width: 100%;
    padding-bottom: 20px;
+
 }
 
 .song-build-container{
+   box-shadow: 0 0 40px;
    margin-top: 20px;
    background-color: white;
    width: 95%;
@@ -41,8 +43,8 @@
       }
 
       .available-chords-title {
-         padding-top: 30px;
-         margin-left: 20px;
+         padding-top: 10px;
+         margin-left: 120px;
          font-size: xx-large;
          font-weight: bold;
       }
@@ -85,7 +87,7 @@
 
       .song-form-available-chords {
          width: 45%;
-         margin-left: 35px;
+         margin-left: 125px;
       }
 
       .song-build-col3{

@@ -42,10 +42,10 @@ class NavBar extends React.Component {
       } else {
         return (
           <div className="login-title-bar">
+            <button onClick={this.handleClick} className="demo">Demo User</button> 
             <div className="signup-login">
                 <Link to={'/signup'} className="Signup">Signup</Link>
                 <Link to={'/login'} className="Login">Login</Link>
-                <button onClick={this.handleClick} className="demo">Demo User</button> 
 
             </div>
           </div>

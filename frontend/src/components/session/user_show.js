@@ -15,7 +15,6 @@ class UserShow extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.userId);
         this.props.fetchUserSongs(this.props.userId);
     }
 

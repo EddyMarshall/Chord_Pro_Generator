@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export const RepertoireItem = props => {
 
-    debugger
     return (
        <li className="repertoire-item">
             <Link to={`/songs/${props.song._id}`} className="repertoire-title">

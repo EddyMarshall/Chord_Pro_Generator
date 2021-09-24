@@ -9,7 +9,6 @@ class PeerReviewForm extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.parent_song_id);
         this.props.fetchSongReviews(this.props.parent_song_id);
         this.props.fetchUsers();
     }
@@ -26,7 +25,6 @@ class PeerReviewForm extends React.Component {
             parent_song: this.props.parent_song_id,
             reviewer: this.props.reviewer_id
         }
-        console.log(review);
         this.props.createPeerReview(review);
     }
 

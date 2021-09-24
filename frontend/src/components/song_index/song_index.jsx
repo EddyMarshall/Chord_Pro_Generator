@@ -7,7 +7,6 @@ class SongIndex extends React.Component {
 
     componentDidMount(){
         this.props.fetchSongs();
-        console.log("HELLO")
         this.props.fetchUsers();
     }
 

@@ -6,6 +6,12 @@ export const getPeerReviews = () => {
     )
 };
 
+export const getSongReviews = (songId) => {
+    return axios.get(
+        `/api/peer_reviews/song/${songId}`
+    )
+};
+
 export const createPeerReview = data => {
     return axios.post(
         '/api/peer_reviews',

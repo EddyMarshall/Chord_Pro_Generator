@@ -19,7 +19,17 @@ router.get('/:peerreviewId', (req, res) => {
     PeerReview.findById(req.params.peerreviewId)
         .then(peerreview => res.json(peerreview))
         .catch(error => res.status(404).json({ error: 'This peerreview cannot be found' }))
-})
+});
+
+router.get('/song/:songId', (req, res) => {
+    PeerReview.find({ parent_song: req.params.songId }, (err, reviews) => {
+        var reviewMap = {};
+        reviews.forEach((review) => {
+            reviewMap[review._id] = review;
+        });
+        res.send(reviewMap);
+    });
+});
 
 router.post("/", (req, res) => {
         const newPeerReview = new PeerReview({

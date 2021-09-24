@@ -12,6 +12,7 @@
  * 
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
 
  @import "variables";
  @import "mixins";
@@ -23,9 +24,13 @@
  @import "song_show";
  @import "song_index";
  @import "bio";
- @import "repertoire"
+ @import "repertoire";
 
  
-//  body {
-//     font-family: $fontdefault;
-//  }
+ .background1{
+    font-family: 'Roboto', sans-serif;
+ };
+
+ button{
+    @include hoverColor();
+ };

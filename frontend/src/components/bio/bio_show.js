@@ -42,7 +42,7 @@ class BioShow extends React.Component {
 
         if (this.state.formType === 0 && bio) {
             return (
-                <div>
+                <div className="bio-form-container">
                     <p> Bio show form </p>
                     about: {bio.about}
                     <br />
@@ -52,7 +52,7 @@ class BioShow extends React.Component {
                     <br />
                     user: {bio.user}
                     <br />
-                    <button onClick={this.handleClick}>Edit</button>
+                    <button onClick={this.handleClick} className="edit-bio-button">Edit</button>
                 </div>
             );
         }

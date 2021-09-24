@@ -14,6 +14,6 @@ export const RepertoireItem = props => {
            </div>  
        </li>
     )
-}
+};
 
-export default RepertoireItem
+export default RepertoireItem;

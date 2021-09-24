@@ -4,22 +4,25 @@
    cursor: pointer;
 }
 
-@mixin roundedInputField($w: 86%, $pad: 10px, $borderRadius: 40px, $marginL: 5px, $backgroundColor: $inputBackground){
+@mixin roundedInputField($w: 86%, $pad: 10px, $borderRadius: 40px, $marginL: 5px, $backgroundColor: $mainBrown){
    box-sizing: border-box;
    padding: $pad;
    border-radius: $borderRadius;
    width: $w;
    margin-left: $marginL;
    background-color: $backgroundColor;
-   @include hoverColor();
 }
 
-@mixin hoverColor($color: white) {
+@mixin hoverColor($color: $lightBox) {
    &:hover{
       background-color: $color;
       transition: 0.4s;
+      cursor: pointer;
    }
 }
+
+// @include hoverColor();
+
 
 // @mixin inputField() {
 //    box-sizing: border-box;

@@ -33,7 +33,6 @@ class UserShow extends React.Component {
         let followsArray = Object.values(this.props.follows);
         for (let i = 0; i < followsArray.length; i++) {
             const follow = followsArray[i];
-            // console.log(follow._id);
             if (follow.follower === this.props.currentUser.id) {
                 this.props.unfollowUser(follow._id);
                 break;
@@ -55,13 +54,17 @@ class UserShow extends React.Component {
             <Repertoire songs={this.props.songs} />
         )
 
-        let followButton = <button onClick={this.handleFollowUser}>Follow user</button>;
+        let followButton = <button onClick={this.handleFollowUser} className={"follow-button"}>Follow user</button>;
         let followsArray = Object.values(this.props.follows);
         for (let i = 0; i < followsArray.length; i++) {
             const follow = followsArray[i];
             if(follow.follower === this.props.currentUser.id){
-                followButton = <button onClick={this.handleUnfollowUser}>Unfollow user</button>;
+                followButton = <button onClick={this.handleUnfollowUser} className={"follow-button"}>Unfollow user</button>;
             }
+        }
+
+        if (this.props.userId === this.props.currentUser.id) {
+            followButton = null;
         }
         
         
@@ -73,7 +76,7 @@ class UserShow extends React.Component {
                     {repertoire}
                 </div>
                 {form}
-                {followButton}
+                <h1>{followButton}</h1>
             </div>
         )
     }

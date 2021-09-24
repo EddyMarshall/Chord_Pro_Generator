@@ -13,7 +13,8 @@ const PeerReviewsReducer = (oldState = [], action) => {
             nextState = action.reviews.data;
             return nextState;
         case REMOVE_PEERREVIEW:
-            delete nextState[action.peerReview.data._id];
+            console.log(action.peerReviewId);
+            delete nextState[action.peerReviewId];
             return nextState;
         default:
             return oldState;

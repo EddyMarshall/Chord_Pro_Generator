@@ -29,7 +29,7 @@
 <br></br>
 
 # Code
-* The problem: how does one create a chord progression that sounds good and is still somewhat random? The solution, which I am proud of here is that I combined my knowledge of  harmonic functions in music theory with my knowledge of efficient algorithmic thinking to create two functions that work in tandem. One takes in a key and returns all of the chords in that key and the second well as organizes them by their harmonic functions so they can be used to create dynamic and varied chord progressions that always sound great. 
+* The problem: how does one create a chord progression that sounds good and is still somewhat random? The solution, which I am proud of here is that I combined my knowledge of  harmonic functions in music theory with my knowledge of efficient algorithmic thinking to create two functions that work in tandem. One takes in a key and returns all of the chords in that key and the second organizes them by their harmonic functions so they can be used to create dynamic and varied chord progressions that always sound great. 
   ```
    //function to build four part chords
     buildExtendedChords(scale) {

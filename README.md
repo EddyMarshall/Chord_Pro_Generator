@@ -87,10 +87,34 @@
 ```
 <br></br>
 
+
+## The user interface for composing a song:
+<center>
+  <img align="center" width="580" height="280" src="frontend/src/stylesheets/Build_song.png">
+</center>
+<br></br>
+
+## The song show-page presented as sheet music to the user:
+<center>
+  <img align="center" width="580" height="280" src="frontend/src/stylesheets/ss_song.png">
+</center>
+
+<br></br>
+
+
+
 # Resources
 
+- The Github icon is from Github themselves!:
+   - https://github.com/logos
+
+
+- Linkedin icon is by artist: https://www.freepik.com
+   - at: https://www.flaticon.com/free-icon/linkedin_1384072
+
+
 # Contributers
-## Evan EvanCzako
+## Evan Czako
 [Github](https://github.com/EvanCzako) | 
 [LinkedIn](https://www.linkedin.com/in/evan-czako/)
 
@@ -103,5 +127,5 @@
 [LinkedIn](https://www.linkedin.com/in/eddy-marshall-092ba6b9/)
 
 ## Amin Babar
-[Github]() | 
-[LinkedIn]()
+[Github](https://github.com/aminbabar) | 
+[LinkedIn](https://www.linkedin.com/in/arbabar)

@@ -18,6 +18,12 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:userId', (req, res) => {
+    User.findById(req.params.userId)
+        .then(user => res.json(user))
+        .catch(error => res.status(404).json({ error: 'This user cannot be found'}))
+})
+
 
 router.post('/register', (req, res) => {
     const {errors, isValid} = validateRegisterInput(req.body);

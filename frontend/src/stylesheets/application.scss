@@ -25,10 +25,13 @@
  @import "song_index";
  @import "bio";
  @import "repertoire";
+ @import "footer";
 
  
  .background1{
-    font-family: 'Roboto', sans-serif;
+   font-family: 'Roboto', sans-serif;
+   height: 100%;
+   margin: 0;
  };
 
  button{

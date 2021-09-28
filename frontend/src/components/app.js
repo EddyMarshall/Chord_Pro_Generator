@@ -21,7 +21,8 @@ import UserShow from './session/user_show';
 
 const App = (props) => (
   <div className="background1"> 
-    <NavBarContainer />
+    <div className="body">
+      <NavBarContainer />
       <ProtectedRoute exact path="/" >
         <Redirect to={`/login`}/>
       </ProtectedRoute>
@@ -34,7 +35,8 @@ const App = (props) => (
       {/* <ProtectedRoute path="/" component={UserShow}/> */}
       <ProtectedRoute exact path="/songs" component={SongIndexContainer} />
       <ProtectedRoute exact path="/songs/:songId" component={SongShowContainer} />
-      <Footer />
+    </div>  
+    <Footer />
   </div>
 );
 

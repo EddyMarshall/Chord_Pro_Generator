@@ -1,3 +1,13 @@
+<p align="center">
+  <img width="680" height="480" src="frontend\src\stylesheets\logo.png">
+</p>
+<br></br>
+
+<p align="center">
+  <img src="https://media.giphy.com/media/HuojSGA9t4hYegnZCK/giphy.gif?cid=790b7611aeeb715120afa12a6ad655a8768268611763b29e&rid=giphy.gif&ct=g" alt="animated" />
+</p>
+<br></br>
+
 # [Chord Pro Generator](https://chord-pro-generator.herokuapp.com/#/login)
 
 ## Chord Pro Generator is a songwriting app that provides a road map for songwriters who are looking to write their next hit single! The app will generate templates upon which musicians can build their own unique masterpieces.
@@ -89,15 +99,15 @@
 
 
 ## The user interface for composing a song:
-<center>
-  <img align="center" width="580" height="280" src="frontend/src/stylesheets/Build_song.png">
-</center>
+<p align="center">
+  <img width="580" height="280" src="frontend/src/stylesheets/Build_song.png">
+</p>
 <br></br>
 
 ## The song show-page presented as sheet music to the user:
-<center>
-  <img align="center" width="580" height="280" src="frontend/src/stylesheets/ss_song.png">
-</center>
+<p align="center">
+  <img width="580" height="280" src="frontend/src/stylesheets/ss_song.png">
+</p>
 
 <br></br>
 

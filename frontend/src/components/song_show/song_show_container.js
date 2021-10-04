@@ -4,20 +4,13 @@ import { connect } from 'react-redux';
 import SongShow from './song_show'
 import { fetchUser } from "../../actions/user_actions";
 
-const mSTP = (state, ownProps) => {
-
-    const composer = (Object.values(state.entities.users).length != 0 ) ? (
-        Object.values(state.entities.users)[0].handle
-    ) : (
-        ""
-    )
-    
+const mSTP = (state, ownProps) => {   
 
     return {
         currentUser: state.session.user.id,
         song: state.entities.songs[ownProps.match.params.songId],
         songId: ownProps.match.params.songId,
-        composer: composer
+        users: state.entities.users
     }
 };
 

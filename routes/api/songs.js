@@ -8,6 +8,8 @@ const Song = require('../../models/Song');
 const User = require('../../models/User')
 const validateSongInput = require('../../validation/song');
 
+
+// create song
 router.post('/', 
 // passport.authenticate('jwt', { session: false }),
     (req, res) => {
@@ -42,6 +44,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// get the repertoire of current user
 router.get('/user/:userId', (req,res) => {
     Song.find({songwriter: req.params.userId}, (err, songs) => {
         var songMap = {};

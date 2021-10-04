@@ -2,9 +2,9 @@ import axios from 'axios';
 
 
 // router.get('/:bioId'
-export const getBio = (bioId) => {
+export const getBio = (userId) => {
     return axios.get(
-        `/api/bios/${bioId}`
+        `/api/bios/${userId}`
     );
 };
 

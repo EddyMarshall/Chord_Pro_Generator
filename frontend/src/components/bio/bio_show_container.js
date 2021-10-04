@@ -3,10 +3,12 @@ import { fetchBio } from "../../actions/bio_actions";
 import BioShow from "./bio_show";
 
 
-const mstp = (state)  => {
+const mstp = (state, ownProps)  => {
+    // debugger;
     return ({
-        bio: state.entities.bios[state.session.user.id],
-        currentUser: state.session.user.id
+        bio: state.entities.bios[ownProps.match.params.userId],
+        currentUser: state.session.user.id,
+        userId: ownProps.match.params.userId
     });
 };
 

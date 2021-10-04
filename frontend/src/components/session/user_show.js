@@ -22,6 +22,12 @@ class UserShow extends React.Component {
         this.props.getUserFollows(this.props.userId);
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.userId !== this.props.userId) {
+            this.props.fetchUserSongs(this.props.userId);
+        };
+    };
+
     handleFollowUser(){
         this.props.followUser({
             follower: this.props.currentUser.id,
@@ -51,7 +57,7 @@ class UserShow extends React.Component {
         const repertoire = (Object.values(this.props.songs).length === 0) ? (
             ""
         ) : (
-            <Repertoire songs={this.props.songs} />
+            <Repertoire songs={this.props.songs} userId={this.props.userId} />
         )
 
         let followButton = <button onClick={this.handleFollowUser} className={"follow-button"}>Follow user</button>;
@@ -72,7 +78,7 @@ class UserShow extends React.Component {
             <div>
                 {/* <p> THIS IS USERSHOW  </p> */}
                 <div className="bio-and-repertoire">
-                    <BioShowContainer />
+                    <BioShowContainer {...this.props} />
                     {repertoire}
                 </div>
                 {form}

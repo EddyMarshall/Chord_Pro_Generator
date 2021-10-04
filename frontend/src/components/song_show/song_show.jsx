@@ -26,7 +26,7 @@ class SongShow extends React.Component {
                     <h1 className="song-title">{this.props.song.title}</h1>
                     <div className="song-author-container">
                         <Link to={`/users/${this.props.song.songwriter}`}>
-                            <h1 className="song-author">{this.props.composer}</h1>
+                            <h1 className="song-author">{this.props.users[this.props.song.songwriter].handle}</h1>
                         </Link>
                     </div>
                     <div className="whole-song">

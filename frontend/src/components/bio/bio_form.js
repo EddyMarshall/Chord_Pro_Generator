@@ -26,39 +26,38 @@ class BioForm extends React.Component {
         return (
 
             <form onSubmit={this.handleSubmit} className="bio-form-container">
-                <label>About
+                <label className="bio-input-label">About
                     <textarea
+                        className="bio-about-input"
                         type="text"
                         value={this.state.about}
                         onChange={this.update('about')}
                     />
-
                 </label>
 
-                <br />
-                <label>Location
+                <label className="bio-input-label">Location
                     <input
+                        className="bio-location-input"
                         type="text"
                         value={this.state.location}
                         onChange={this.update('location')}                        
                     />
                 </label>
 
-                <br />
-
-                <label>Social Media
-                    <input
+                <label className="bio-input-label">Social Media
+                    <textarea
+                        className="bio-socialMedia-input"
                         type="text"
                         value={this.state.socialMedia}
                         onChange={this.update('socialMedia')}
                     />
                 </label>
+
                 <input type="submit" value="Save" className="edit-bio-button"/>
             </form>
         );
     };
 };
-
 
 
 export default BioForm;

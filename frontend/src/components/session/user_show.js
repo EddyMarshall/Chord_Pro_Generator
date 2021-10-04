@@ -55,6 +55,7 @@ class UserShow extends React.Component {
         )
 
         let followButton = <button onClick={this.handleFollowUser} className={"follow-button"}>Follow user</button>;
+        let followCount = Object.values(this.props.follows).length;
         let followsArray = Object.values(this.props.follows);
         for (let i = 0; i < followsArray.length; i++) {
             const follow = followsArray[i];
@@ -77,6 +78,7 @@ class UserShow extends React.Component {
                 </div>
                 {form}
                 <h1>{followButton}</h1>
+                <h1>{followCount}</h1>
             </div>
         )
     }

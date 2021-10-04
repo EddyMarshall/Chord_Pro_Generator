@@ -19,13 +19,72 @@
     border-style: solid;
     border-width: 0px;
     border-radius: 99em;
-    background: green;
+    background: rgba(165, 42, 42, 0.63);
     padding: 7px 16px 9px;
-    color: seaGreen;
     line-height: 20px;
     height: 38px;
     width: 80px;
     font-size: 24px;
     text-align: center;
     color: white;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+.edit-bio-button:hover {
+    cursor: pointer;
+}
+
+.bio-user {
+    font-size: 1.6em;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.bio-section-item {
+    margin-bottom: 30px;
+}
+
+.bio-section-label {
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.bio-section-content {
+    border: 0px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.bio-input-label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.bio-about-input {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.bio-location-input {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.bio-socialMedia-input {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+    padding: 5px 5px 5px 5px;
+    font-size: 16px;
+    font-weight: normal;
 }

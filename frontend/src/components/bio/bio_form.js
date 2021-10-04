@@ -26,7 +26,7 @@ class BioForm extends React.Component {
         return (
 
             <form onSubmit={this.handleSubmit} className="bio-form-container">
-                <label className="bio-input-label">About
+                <label className="bio-input-label">About:
                     <textarea
                         className="bio-about-input"
                         type="text"
@@ -35,7 +35,7 @@ class BioForm extends React.Component {
                     />
                 </label>
 
-                <label className="bio-input-label">Location
+                <label className="bio-input-label">Location:
                     <input
                         className="bio-location-input"
                         type="text"
@@ -44,7 +44,7 @@ class BioForm extends React.Component {
                     />
                 </label>
 
-                <label className="bio-input-label">Social Media
+                <label className="bio-input-label">Social Media:
                     <textarea
                         className="bio-socialMedia-input"
                         type="text"

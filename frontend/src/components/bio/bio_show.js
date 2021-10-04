@@ -57,34 +57,80 @@ class BioShow extends React.Component {
     };
 
     render() {
-        const emptyBio = (<div>
-            Bio show else
-            <br />
-            about:
-            <br />
-            location:
-            <br />
-            socialMedia:
-            <br />
+        const emptyBio = (
+        <div className="bio-form-container">
+            <div className="bio-form">
+                
+                <div className="bio-section-item">
+                    <div className="bio-section-label">
+                        About:
+                    </div>
+
+                    <p className="bio-section-content">
+                        
+                    </p>
+                </div>
+                
+                <div className="bio-section-item">
+                    <div className="bio-section-label">
+                        location:
+                    </div>
+
+                    <p className="bio-section-content">
+                        
+                    </p>
+                </div>
+                
+                <div className="bio-section-item">
+                    <div className="bio-section-label">
+                        socialMedia:
+                    </div>
+
+                    <p className="bio-section-content">
+                        
+                    </p>
+                </div>
+            </div>
+            
+            
         </div>)
         const {bio } = this.props;
-        console.log(this.props.userId);
         if (this.state.formType === null) return null;
 
         if (this.state.formType === 0 && bio) {
             return (
                 <div className="bio-form-container">
-                    {/* <p> Bio show form </p> */}
                     <div className="bio-form">
-                        <div className="bio-about">
-                            about: {bio.about}
+                        <div className="bio-section-item">
+                            <div className="bio-section-label">
+                                About: 
+                                <p className="bio-section-content">
+                                    {bio.about}
+                                </p>
+                            </div>
                         </div>
-                        <div className="bio-location">
-                            location: {bio.location}
+
+                        <div className="bio-section-item">
+                            <div className="bio-section-label">
+                                Location:
+                            </div>
+
+                            <p className="bio-section-content">
+                                {bio.location}
+                            </p>
                         </div>
-                        <div className="bio-socialMedia">
-                            socialMedia: {bio.socialMedia}
+
+
+                        <div className="bio-section-item">
+                            <div className="bio-section-label">
+                                Social Media:
+                            </div>
+
+                            <p className="bio-section-content">
+                                {bio.socialMedia}
+                            </p>
                         </div>
+
                         {this.props.currentUser === this.props.userId ? 
                             <button onClick={this.handleClick} className="edit-bio-button">Edit</button> :
                             "" }

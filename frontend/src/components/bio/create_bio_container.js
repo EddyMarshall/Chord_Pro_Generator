@@ -2,7 +2,7 @@ import { fetchBio, createBio } from "../../actions/bio_actions";
 import {connect} from "react-redux";
 import BioForm from "./bio_form";
 
-const mstp = (state) => {
+const mstp = (state, ownProps) => {
     // IMPORTANT CHANGE THIS
     // let currentUserId = state.session.user.id;
     // let bio = null;
@@ -18,7 +18,8 @@ const mstp = (state) => {
             about: "",
             location: "",
             socialMedia: "",
-            user: state.session.user.id
+            user: state.session.user.id,
+            // userId: ownProps.match.params.userId
         },
         formType: "create bio"
     };

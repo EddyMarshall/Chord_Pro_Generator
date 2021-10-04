@@ -15,11 +15,14 @@ class BioShow extends React.Component {
 
 
     componentDidMount() {
-        this.props.fetchBio(this.props.currentUser)
-            .then((user) => {
-                if (user && user.bio.data) {
+        this.props.fetchBio(this.props.userId)
+            .then((bio) => {
+                // debugger;
+                if (bio && bio.bio.data) {
+                    console.log("1");
                     this.setState({ formType: 0 });
                 } else {
+                    console.log("2");
                     this.setState({ formType: 1 });
                 };
             });
@@ -35,9 +38,37 @@ class BioShow extends React.Component {
     };
     
 
+    componentDidUpdate(prevProps) {
+        // Typical usage (don't forget to compare props):
+        if (this.props.userId !== prevProps.userId) {
+            this.props.fetchBio(this.props.userId)
+            .then((bio) => {
+                if (bio && bio.bio.data) {
+                    console.log("1");
+                    this.setState({ formType: 0 });
+                    this.setState({ ele: this.state.ele + 1 });
+                } else {
+                    console.log("2");
+                    this.setState({ formType: 1 });
+                    this.setState({ ele: this.state.ele + 1 });
+                };
+            });
+        };
+    };
+
     render() {
-        
+        const emptyBio = (<div>
+            Bio show else
+            <br />
+            about:
+            <br />
+            location:
+            <br />
+            socialMedia:
+            <br />
+        </div>)
         const {bio } = this.props;
+        console.log(this.props.userId);
         if (this.state.formType === null) return null;
 
         if (this.state.formType === 0 && bio) {
@@ -54,21 +85,36 @@ class BioShow extends React.Component {
                         <div className="bio-socialMedia">
                             socialMedia: {bio.socialMedia}
                         </div>
-                        <div className="bio-user">
-                            user: {bio.user}
-                        </div>
-                        <button onClick={this.handleClick} className="edit-bio-button">Edit</button>
+                        {this.props.currentUser === this.props.userId ? 
+                            <button onClick={this.handleClick} className="edit-bio-button">Edit</button> :
+                            "" }
                     </div>
                 </div>
             );
         }
         else if (this.state.formType === 1) {
-            return(<CreateBioContainer resetContainer={this.resetContainer}/>);
+            if (this.props.currentUser !== this.props.userId) {
+                return emptyBio;
+            }
+            else {
+                return(<CreateBioContainer resetContainer={this.resetContainer} {...this.props}/>);
+            };
         }
 
         else if (this.state.formType === 2) {
-            return (<EditBioContainer  resetContainer={this.resetContainer}/>);
+            if (this.props.currentUser !== this.props.userId) {
+                return emptyBio;
+            }
+            else {
+                return (<EditBioContainer resetContainer={this.resetContainer} {...this.props} />);
+            };
         }
+
+        else {
+            return (
+                emptyBio
+            );
+        };
         // return (<CreateBioContainer />);
         
     }

@@ -20,11 +20,13 @@ class PeerReviewForm extends React.Component {
     }
 
     handleSubmit(e) {
+        e.preventDefault();
         let review = {
             body: this.state.body,
             parent_song: this.props.parent_song_id,
             reviewer: this.props.reviewer_id
         }
+        this.setState({body: ""});
         this.props.createPeerReview(review);
     }
 
@@ -84,7 +86,8 @@ class PeerReviewForm extends React.Component {
                         <textarea 
                             onChange={this.update('body')} 
                             placeholder="Share your thoughts."
-                            className="peer-review-input"    
+                            className="peer-review-input"
+                            value={this.state.body}
                         ></textarea>
                         <input 
                         type="submit" 

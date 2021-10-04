@@ -73,7 +73,7 @@ class BioShow extends React.Component {
                 
                 <div className="bio-section-item">
                     <div className="bio-section-label">
-                        location:
+                        Location:
                     </div>
 
                     <p className="bio-section-content">
@@ -83,7 +83,7 @@ class BioShow extends React.Component {
                 
                 <div className="bio-section-item">
                     <div className="bio-section-label">
-                        social Media:
+                        Social Media:
                     </div>
 
                     <p className="bio-section-content">

@@ -44,15 +44,21 @@ class BioShow extends React.Component {
             return (
                 <div className="bio-form-container">
                     {/* <p> Bio show form </p> */}
-                    about: {bio.about}
-                    <br />
-                    location: {bio.location}
-                    <br />
-                    socialMedia: {bio.socialMedia}
-                    <br />
-                    user: {bio.user}
-                    <br />
-                    <button onClick={this.handleClick} className="edit-bio-button">Edit</button>
+                    <div className="bio-form">
+                        <div className="bio-about">
+                            about: {bio.about}
+                        </div>
+                        <div className="bio-location">
+                            location: {bio.location}
+                        </div>
+                        <div className="bio-socialMedia">
+                            socialMedia: {bio.socialMedia}
+                        </div>
+                        <div className="bio-user">
+                            user: {bio.user}
+                        </div>
+                        <button onClick={this.handleClick} className="edit-bio-button">Edit</button>
+                    </div>
                 </div>
             );
         }

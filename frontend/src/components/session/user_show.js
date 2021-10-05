@@ -42,6 +42,7 @@ class UserShow extends React.Component {
             if (follow.follower === this.props.currentUser.id) {
                 this.props.unfollowUser(follow._id);
                 break;
+                
             }
         }
     }

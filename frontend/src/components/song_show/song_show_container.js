@@ -1,4 +1,4 @@
-import { fetchSong } from "../../actions/song_actions";
+import { fetchSong, updateSong } from "../../actions/song_actions";
 import { getSongLikes} from "../../actions/like_actions";
 import { connect } from 'react-redux';
 import SongShow from './song_show'
@@ -19,7 +19,8 @@ const mDTP = dispatch => {
     return {
         fetchSong: (song) => dispatch(fetchSong(song)),
         getSongLikes: (songId) => dispatch(getSongLikes(songId)),
-        fetchUser: (user) => dispatch(fetchUser(user))
+        fetchUser: (user) => dispatch(fetchUser(user)),
+        editSong: (song) => dispatch(updateSong(song))
     }
 };
 

@@ -58,7 +58,6 @@ class BioShow extends React.Component {
 
     render() {
         const pageUser = this.props.users[this.props.userId];
-        debugger;
         const emptyBio = (
         <div className="bio-form-container">
             <div className="bio-form">

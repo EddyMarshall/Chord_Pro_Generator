@@ -57,9 +57,14 @@ class BioShow extends React.Component {
     };
 
     render() {
+        const pageUser = this.props.users[this.props.userId];
+        debugger;
         const emptyBio = (
         <div className="bio-form-container">
             <div className="bio-form">
+                <div className="bio-user">
+                    {pageUser ? pageUser.handle : null}
+                </div>
                 
                 <div className="bio-section-item">
                     <div className="bio-section-label">
@@ -95,11 +100,19 @@ class BioShow extends React.Component {
             
         </div>)
         const {bio } = this.props;
+
+
+       
+
+
         if (this.state.formType === null) return null;
 
         if (this.state.formType === 0 && bio) {
             return (
                 <div className="bio-form-container">
+                    <div className="bio-user">
+                        {pageUser ? pageUser.handle : null}
+                    </div>
                     <div className="bio-form">
                         <div className="bio-section-item">
                             <div className="bio-section-label">

@@ -26,7 +26,9 @@ class SongShow extends React.Component {
                     <h1 className="song-title">{this.props.song.title}</h1>
                     <div className="song-author-container">
                         <Link to={`/users/${this.props.song.songwriter}`}>
-                            <h1 className="song-author">{this.props.users[this.props.song.songwriter].handle}</h1>
+                            <div className="song-author">
+                                {this.props.users[this.props.song.songwriter] ? this.props.users[this.props.song.songwriter].handle : null}
+                            </div>
                         </Link>
                     </div>
                     <div className="whole-song">
@@ -50,7 +52,7 @@ class SongShow extends React.Component {
             <div>
                 {/* <div>Song exists: {String(songExists)}</div> */}
                 {songChords}
-                {/* <h1 className="like-unlike">{likeButton}</h1> */}
+                <h1 className="like-unlike">{likeButton}</h1>
                 {peerReviewForm}
             </div>            
         )

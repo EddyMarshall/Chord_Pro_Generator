@@ -14,21 +14,28 @@ class RepertoireItem extends React.Component {
         this.props.deleteSong(id)
     }
 
-    render(){
-        return (
-            <li className="repertoire-item">
-            <Link to={`/songs/${this.props.song._id}`} className="repertoire-title">
-                {this.props.song.title}
-            </Link>
-            <div className="repertoire-key">
-                {`${this.props.song.key} Major`}
-            </div>
+    render() {
+
+        const deleteButton = this.props.user === this.props.song.songwriter ? (
             <button onClick={() => this.handleDelete(this.props.song._id)} className="song-delete-button">
                 Delete
             </button>
-        </li>
-    )
-}
+        ) : (
+            ""
+        )
+
+        return (
+            <li className="repertoire-item">
+                <Link to={`/songs/${this.props.song._id}`} className="repertoire-title">
+                    {this.props.song.title}
+                </Link>
+                <div className="repertoire-key">
+                    {`${this.props.song.key} Major`}
+                </div>
+                {deleteButton}
+            </li>
+        )
+    }
 };
 
 const mapdispatchToProps = dispatch => ({

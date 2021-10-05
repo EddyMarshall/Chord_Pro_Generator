@@ -72,7 +72,7 @@
    color: gold;
    font-size: 20px;
    margin: 5px;
-   @include roundedInputField(7%);
+   @include roundedInputField(120px);
    @include roundCorners(20px);  
 }
 

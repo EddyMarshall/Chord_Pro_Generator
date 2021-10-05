@@ -25,16 +25,16 @@ class LikeButton extends React.Component {
 
         let button = null;
         let likes = Object.values(this.props.likes);
-        button = <input type="button" value="like" className="like-button" onClick={this.handleLike}/>;
+        button = <input type="button" value="like" className="like-unlike" onClick={this.handleLike}/>;
         for (let i = 0; i < likes.length; i++) {
             const like = likes[i];
             if(like.liker === this.props.currentUser){
-                button = <input type="button" value="unlike" className="unlike-button" onClick={() => this.props.unlikeSong(like._id)}/>;
+                button = <input type="button" value="unlike" className="like-unlike" onClick={() => this.props.unlikeSong(like._id)}/>;
             }
         }
 
         return (
-            <div className="like-button-div">
+            <div>
                 {button}
             </div>
         )

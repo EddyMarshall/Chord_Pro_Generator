@@ -24,8 +24,8 @@ export const writeSong = data => {
 };
 
 export const updateSong = song => {
-    return axios.patch(
-        `/api/songs/${song.id}`,
+    return axios.put(
+        `/api/songs/${song._id}`,
         song
     )
 };

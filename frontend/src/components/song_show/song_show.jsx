@@ -6,25 +6,94 @@ import { Link } from 'react-router-dom';
 
 class SongShow extends React.Component {
     constructor(props){
-        super(props)
-    }
+        super(props);
+        // if (this.props.song) {
+        //     this.setState({name: this.props.song.name})
+        // };
+        // debugger;
+        // this.state = this.props.song;
+        // this.setState ({edit: 0});
+        this.state = { edit: 0, title: "" };
+        this.update = this.update.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    };
 
     componentDidMount(){
         this.props.fetchSong(this.props.songId)
             .then((song) => this.props.fetchUser(song.song.data.songwriter))
         this.props.getSongLikes(this.props.songId);
-    }
+    };
+
+    componentDidUpdate(prevProps) {
+        if ( prevProps.song !== this.props.song) {
+            this.setState({title: this.props.song.title});
+        };
+    };
+
+    handleEdit(e) {
+        this.setState({ edit: 1 });
+    };
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.setState({edit: 0});
+        let song = this.props.song;
+        song.title = this.state.title;
+        this.props.editSong(song);
+    };
+
+    update(field) {
+        return (e) => {
+            this.setState({ [field]: e.currentTarget.value })
+        };
+    };
+
 
     render(){
         let songExists = !!(this.props.song);
         let songChords = null; 
         let peerReviewForm = null;
         let likeButton = null;
+        debugger;
+        let editButton;
+        let name;
+        if (songExists) {
+            // this.setState({name: this.props.song.name});
+            // debugger;
+
+
+            if (this.state.edit === 0 && this.props.currentUser === this.props.song.songwriter) {
+                editButton = <button className="song-edit-button" onClick={() => this.handleEdit()}>Edit</button>
+            } else {
+                editButton = (<div className="song-edit-button"></div>);
+            };
+
+
+            if (this.state.edit === 0) {
+                name = <h1 className="song-title">{this.props.song.title}</h1>
+            } else {
+                name = (
+                    <form>
+                        <input type="text" 
+                            placeholder={this.props.song.title}
+                            value={this.state.title}
+                            onChange={this.update('title')}
+                        />
+                        <button onClick={this.handleSubmit}>Save</button>
+
+                    </form>
+                )
+            }
+        }
+
+
         if(songExists){
             songChords = <div>
                 <div className="sheet">
-                    <h1 className="song-title">{this.props.song.title}</h1>
+
                     <div className="song-author-container">
+                        {name}
+                        {editButton}
                         <Link to={`/users/${this.props.song.songwriter}`}>
                             <div className="song-author">
                                 {this.props.users[this.props.song.songwriter] ? this.props.users[this.props.song.songwriter].handle : null}
@@ -60,3 +129,5 @@ class SongShow extends React.Component {
 };
 
 export default SongShow;
+
+

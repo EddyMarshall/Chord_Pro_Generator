@@ -20,25 +20,8 @@
       cursor: pointer;
    }
 }
-@mixin placeholderColor(){
-   ::placeholder{
-      color: red;
-   }
-}
+
 
 @mixin boxShadow($shad: 5px){
    box-shadow: 0 0 $shad;
 }
-
-// @include hoverColor();
-
-
-// @mixin inputField() {
-//    box-sizing: border-box;
-//    padding: $pad;
-//    border-radius: $borderRadius;
-//    width: $w;
-//    margin-left: $marginL;
-//    background-color: $backgroundColor;
-//    @include hoverColor();
-// }

@@ -60,7 +60,7 @@ class PeerReviewForm extends React.Component {
                         // editButton = <button>EDIT POST</button>
                     }
                     return <li key={review._id} className="review-item">
-                        <Link to={`users/${review.reviewer}`} className="review-username">
+                        <Link to={`/users/${review.reviewer}`} className="review-username">
                             {this.usernameGrabber(this.props.users, review)}
                         </Link>
                         <div className="review-body">

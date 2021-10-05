@@ -5,6 +5,7 @@ import NavBar from "../nav/navbar";
 import NavBarContainer from "../nav/navbar_container";
 import SongFormContainer from "../song_form/song_form_container";
 import { fetchUserSongs } from "../../actions/song_actions";
+import { fetchUser } from "../../actions/user_actions";
 import { getUserFollows, followUser, unfollowUser } from "../../actions/follow_actions";
 import Repertoire from "../repertoire/repertoire";
 
@@ -18,6 +19,7 @@ class UserShow extends React.Component {
     }
 
     componentDidMount() {
+        this.props.fetchUser(this.props.userId);
         this.props.fetchUserSongs(this.props.userId);
         this.props.getUserFollows(this.props.userId);
     }
@@ -105,7 +107,8 @@ const mDTP = (dispatch) => ({
     fetchUserSongs: (userId) => dispatch(fetchUserSongs(userId)),
     getUserFollows: (userId) => dispatch(getUserFollows(userId)),
     followUser: (follow) => dispatch(followUser(follow)),
-    unfollowUser: (followId) => dispatch(unfollowUser(followId))
+    unfollowUser: (followId) => dispatch(unfollowUser(followId)),
+    fetchUser: (user) => dispatch(fetchUser(user))
 })
 
 export default connect(mSTP, mDTP)(UserShow);

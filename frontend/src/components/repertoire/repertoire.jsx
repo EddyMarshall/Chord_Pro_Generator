@@ -12,7 +12,11 @@ const Repertoire = props => {
             </div>
             <ul className="repertoire-list-proper">
                 {
+<<<<<<< Updated upstream
                 songsArray.map((song, i) => (<RepertoireItem key={i} song={song}/>))
+=======
+                    songsArray.map((song, i) => (<RepertoireItem key={i} song={song} user={props.userId}/>))
+>>>>>>> Stashed changes
                 }
             </ul>
         </div>

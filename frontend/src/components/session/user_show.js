@@ -54,7 +54,7 @@ class UserShow extends React.Component {
         const form = (this.props.userId === (this.props.currentUser._id ||this.props.currentUser.id) ) ? (
             <SongFormContainer />
         ) : (
-            ""
+            <div className="form-placeholder"></div>
         )
         
         const repertoire = (Object.values(this.props.songs).length === 0) ? (
@@ -85,12 +85,12 @@ class UserShow extends React.Component {
                     <BioShowContainer {...this.props} />
                     {repertoire}
                 </div>
-                {form}
                 <h1>{followButton}</h1>
                 <div className="follows">
                     <h1>Followers: </h1>
                     <h1>{followCount}</h1>
                 </div>
+                {form}
             </div>
         )
     }

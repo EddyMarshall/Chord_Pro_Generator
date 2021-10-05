@@ -36,7 +36,6 @@
 
 
 .whole-signup-login-form{
-   // display: relative;
    
    .signup-login-form{
       display: flex;
@@ -62,22 +61,19 @@
    
 }
 
+::placeholder {
+   color: aquamarine;
+}
+
 .demo{
    text-align: center;
    margin-left: auto;
    margin-right: auto;
-   // position:center;
-   // display:flex;
-   // width: 100vw;
-   // justify-content: center;
-   // align-self: center;
    color: gold;
    font-size: 20px;
    margin: 5px;
    @include roundedInputField(7%);
-   @include roundCorners(20px);
-   // transform: translate(50%, 0%);   
-
+   @include roundCorners(20px);  
 }
 
 #login-logo{
@@ -91,7 +87,4 @@
    background-repeat: no-repeat;
    background-size: 40%;
    object-fit: cover;
-   // min-height: 60vh;
-   // background-attachment: fixed;
-
 }

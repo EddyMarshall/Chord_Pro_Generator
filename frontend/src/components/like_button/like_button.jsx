@@ -7,7 +7,7 @@ class LikeButton extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getSongLikes(this.props.songId);
+        // this.props.getSongLikes(this.props.songId);
     }
 
     render() {

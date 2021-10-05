@@ -15,6 +15,15 @@ class RepertoireItem extends React.Component {
     }
 
     render() {
+
+        const deleteButton = this.props.user === this.props.song.songwriter ? (
+            <button onClick={() => this.handleDelete(this.props.song._id)} className="song-delete-button">
+                Delete
+            </button>
+        ) : (
+            ""
+        )
+
         return (
             <li className="repertoire-item">
                 <Link to={`/songs/${this.props.song._id}`} className="repertoire-title">
@@ -23,9 +32,7 @@ class RepertoireItem extends React.Component {
                 <div className="repertoire-key">
                     {`${this.props.song.key} Major`}
                 </div>
-                <button onClick={() => this.handleDelete(this.props.song._id)} className="song-delete-button">
-                    Delete
-                </button>
+                {deleteButton}
             </li>
         )
     }

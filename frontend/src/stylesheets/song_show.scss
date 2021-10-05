@@ -59,14 +59,31 @@
    }
 }
 
-.like-unlike{
-   font-size:40px;
+
+.likes{
+   display: flex;
+   @include roundedInputField(90px);
    @include roundCorners();
-   @include roundedInputField(10%);
+   margin: 10px;
+   margin-left: 3%;
+   @include boxShadow();
+   cursor: default;
+   font-size: 20px;
+   font-weight: bold;
+   justify-content: space-between;
+}
+
+.like-unlike{
+   font-size:30px;
+   @include roundCorners();
+   @include roundedInputField(100px);
    text-align: center;
    margin-left: 5%;
    margin-top: 1%;
    margin-bottom: 1%;
+   cursor: pointer;
+   @include boxShadow();
+   @include hoverColor();
 }
 
 
@@ -148,6 +165,7 @@
    text-align: center;
    @include roundedInputField(100%);
    @include roundCorners(20px);
+   @include hoverColor();
    font-size: 25px;
    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
    margin-bottom: 10px;

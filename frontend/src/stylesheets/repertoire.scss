@@ -47,16 +47,3 @@
     font-weight: lighter;
     color: grey;
 }
-
-.follow-button{
-    @include roundedInputField(7%);
-    @include roundCorners();
-    margin: 10px;
-    margin-left: 3%;
-    @include boxShadow();
-}
-
-
-
-
-

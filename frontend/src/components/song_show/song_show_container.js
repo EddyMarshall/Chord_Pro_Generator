@@ -10,7 +10,8 @@ const mSTP = (state, ownProps) => {
         currentUser: state.session.user.id,
         song: state.entities.songs[ownProps.match.params.songId],
         songId: ownProps.match.params.songId,
-        users: state.entities.users
+        users: state.entities.users,
+        likes: state.entities.likes
     }
 };
 

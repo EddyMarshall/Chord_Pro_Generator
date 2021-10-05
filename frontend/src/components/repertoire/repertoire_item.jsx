@@ -20,12 +20,12 @@ class RepertoireItem extends React.Component {
             <Link to={`/songs/${this.props.song._id}`} className="repertoire-title">
                 {this.props.song.title}
             </Link>
-            <button onClick={() => this.handleDelete(this.props.song._id)} className="song-delete-button">
-                Delete
-            </button>
             <div className="repertoire-key">
                 {`${this.props.song.key} Major`}
             </div>
+            <button onClick={() => this.handleDelete(this.props.song._id)} className="song-delete-button">
+                Delete
+            </button>
         </li>
     )
 }

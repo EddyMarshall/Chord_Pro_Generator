@@ -20,7 +20,7 @@ export const likeSong = data => {
 };
 
 export const unlikeSong = likeId => {
-    return axios.destroy(
-        `/api/like/${likeId}`
+    return axios.delete(
+        `/api/likes/${likeId}`
     )
 };

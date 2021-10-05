@@ -84,7 +84,10 @@ class UserShow extends React.Component {
                 </div>
                 {form}
                 <h1>{followButton}</h1>
-                <h1>{followCount}</h1>
+                <div className="follows">
+                    <h1>Followers: </h1>
+                    <h1>{followCount}</h1>
+                </div>
             </div>
         )
     }

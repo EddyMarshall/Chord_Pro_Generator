@@ -16,6 +16,7 @@ class SongShow extends React.Component {
     }
 
     render(){
+        let likesCount = Object.values(this.props.likes).length;
         let songExists = !!(this.props.song);
         let songChords = null; 
         let peerReviewForm = null;
@@ -24,6 +25,7 @@ class SongShow extends React.Component {
             songChords = <div>
                 <div className="sheet">
                     <h1 className="song-title">{this.props.song.title}</h1>
+                    
                     <div className="song-author-container">
                         <Link to={`/users/${this.props.song.songwriter}`}>
                             <div className="song-author">
@@ -45,14 +47,18 @@ class SongShow extends React.Component {
                 </div>         
             </div>
             peerReviewForm = <PeerReviewFormContainer songId={this.props.song._id} />;
-            likeButton = <LikeButtonContainer songId={this.props.song._id} getSongLikes={this.props.getSongLikes} className="like-unlike"/>;
+            likeButton = <LikeButtonContainer songId={this.props.song._id} getSongLikes={this.props.getSongLikes} />;
 
         }
         return(
             <div>
                 {/* <div>Song exists: {String(songExists)}</div> */}
                 {songChords}
-                <h1 className="like-unlike">{likeButton}</h1>
+                <div className="likes">
+                    <h1>Likes: </h1>
+                    <h1> {likesCount}</h1>
+                </div>
+                <h1>{likeButton}</h1>
                 {peerReviewForm}
             </div>            
         )

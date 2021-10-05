@@ -12,7 +12,7 @@ const Repertoire = props => {
             </div>
             <ul className="repertoire-list-proper">
                 {
-                songsArray.map((song, i) => (<RepertoireItem key={i} song={song}/>))
+                songsArray.map((song, i) => (<RepertoireItem key={i} song={song}/>)).reverse()
                 }
             </ul>
         </div>

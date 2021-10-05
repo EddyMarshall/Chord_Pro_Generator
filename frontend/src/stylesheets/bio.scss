@@ -97,7 +97,7 @@
 
 .follows{
     display: flex;
-    @include roundedInputField(7%);
+    @include roundedInputField(130px);
     @include roundCorners();
     margin: 10px;
     margin-left: 3%;
@@ -105,5 +105,13 @@
     cursor: default;
     font-size: 20px;
     font-weight: bold;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.follow-button{
+    @include roundedInputField(120px);
+    @include roundCorners();
+    margin: 10px;
+    margin-left: 3%;
+    @include boxShadow();
 }

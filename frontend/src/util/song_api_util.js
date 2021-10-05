@@ -31,7 +31,7 @@ export const updateSong = song => {
 };
 
 export const deleteSong = songId => {
-    return axios.destroy(
+    return axios.delete(
         `/api/songs/${songId}`,
         
     )

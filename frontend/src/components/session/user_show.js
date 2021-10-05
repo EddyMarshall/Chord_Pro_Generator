@@ -44,6 +44,7 @@ class UserShow extends React.Component {
             if (follow.follower === this.props.currentUser.id) {
                 this.props.unfollowUser(follow._id);
                 break;
+                
             }
         }
     }
@@ -59,7 +60,7 @@ class UserShow extends React.Component {
         const repertoire = (Object.values(this.props.songs).length === 0) ? (
             ""
         ) : (
-            <Repertoire songs={this.props.songs} userId={this.props.userId} />
+            <Repertoire songs={this.props.songs} userId={this.props.currentUser.id} />
         )
 
         let followButton = <button onClick={this.handleFollowUser} className={"follow-button"}>Follow user</button>;

@@ -34,13 +34,16 @@
     &:last-child {
         border-bottom: 0px;
     }
+    align-items: center;
 }
 
 .repertoire-title{
     font-weight: bold;
+    width: 33%;
+    overflow: hidden;
 }
 
-.repertoire-key{
+.song-delete-button{
     font-weight: lighter;
     color: grey;
 }

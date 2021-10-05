@@ -4,7 +4,6 @@ import RepertoireItem from './repertoire_item'
 
 const Repertoire = props => {
     const songsArray = Object.values(props.songs)
-    
     return (
         <div className="repertoire-container">
             <div className="title-container">
@@ -12,7 +11,7 @@ const Repertoire = props => {
             </div>
             <ul className="repertoire-list-proper">
                 {
-                songsArray.map((song, i) => (<RepertoireItem key={i} song={song}/>))
+                songsArray.map((song, i) => (<RepertoireItem key={i} song={song} />))
                 }
             </ul>
         </div>

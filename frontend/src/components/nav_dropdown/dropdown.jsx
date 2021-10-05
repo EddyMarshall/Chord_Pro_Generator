@@ -22,19 +22,24 @@ class Dropdown extends React.Component {
     render(){
         return(
             <div className="dropdown">
-                <button id="dropdown-toggle" onClick={this.drop} className="dropdown-link">MENU</button>
+                <button id="dropdown-toggle" onClick={this.drop} onBlur={() => setTimeout(this.drop, 50)} className="dropdown-link">MENU</button>
                 <div className="dropdown-container">
                     <ul onClick={e => e.stopPropagation()} className={this.state.visible ? "show-dropdown" : "clear"}>
-                        <li className="dropdown-item">
-                            <Link className="profile-link" to="/">Profile</Link>
-                        </li>
-                        <li className="dropdown-item">
-                            <Link className="all-songs-link" to="/songs">All Songs</Link>
-                        </li>
-                        <li className="dropdown-item">
-                            <button className="logout-button" 
-                            onClick={this.handleClick}>Logout</button>
-                        </li>
+                        <Link className="dropdown-item" to="/">
+                            <li className="profile-link">
+                                Profile        
+                            </li>
+                         </Link>
+                        <Link className="dropdown-item" to="/songs">
+                            <li className="all-songs-link">
+                                Feed
+                            </li>
+                        </Link>
+                        <button className="dropdown-item" onClick={this.handleClick}>
+                            <li className="logout-button">
+                                Logout
+                            </li>
+                        </button>
                     </ul>
                 </div>
             </div>

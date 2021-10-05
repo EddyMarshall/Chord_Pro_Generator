@@ -12,6 +12,7 @@
    margin-left: 3vw;
    margin-right: 3vw;
    text-decoration: underline;
+   cursor: default;
 }
 .song-author-container {
    display: flex;
@@ -41,6 +42,7 @@
    grid-template-columns: repeat(4, 25%);
    margin-left: 3vw;
    margin-right: 3vw;
+   cursor: default;
 
    .chord{
       font-size: 2vw;

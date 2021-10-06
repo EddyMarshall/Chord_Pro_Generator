@@ -13,11 +13,11 @@
    background-color: $backgroundColor;
 }
 
-@mixin hoverColor($color: $lightBox, $shad: 20px) {
+@mixin hoverColor($color: $lightBox, $shad: 20px, $cursor: pointer) {
    &:hover{
       background-color: $color;
       transition: 0.4s;
-      cursor: pointer;
+      cursor: $cursor;
       box-shadow: 0 0 $shad;
    }
 }

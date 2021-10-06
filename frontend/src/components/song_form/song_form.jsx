@@ -7,7 +7,7 @@ class SongForm extends React.Component {
         this.state = {
             songTitle: "",
             key: "C",
-            barCount: 4,
+            barCount: 8,
             triadsChecked: true,
             extendedChordsChecked: false,
             secondaryDominantsChecked: false,
@@ -245,7 +245,7 @@ class SongForm extends React.Component {
                                         id="key-selector-dropdown"
                                         onChange={this.update('key')}
                                         className="song-form-input col-1-item">
-                                            
+                                           
                                         <option value="C">C Major</option>
                                         <option value="B">B Major</option>
                                         <option value="Bb">Bb Major</option>

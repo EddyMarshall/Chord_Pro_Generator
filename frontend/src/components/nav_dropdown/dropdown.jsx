@@ -4,47 +4,54 @@ import { Link } from 'react-router-dom';
 class Dropdown extends React.Component {
     constructor(props){
         super(props)
-        this.state = { visible: false }
-        this.drop = this.drop.bind(this)
-        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            show: false
+        };
+        this.changeState = this.changeState.bind(this);
+        this.closeDropdown = this.closeDropdown.bind(this);
     }
 
-    drop(e){
-        this.setState({ visible: !this.state.visible })
-    }
-
-    handleClick(e) {
-        this.props.logout();
-        this.drop();
+    changeState() {
+        let newState = !this.state.show;
+        this.setState({ show: newState });
     };
 
+    closeDropdown(e) {
+        this.setState({ show: false });
+    };
+
+    logout(e) {
+        this.props.logout();
+    };
 
     render(){
+        let cName = this.state.show ? "show-dropdown" : "clear";
         return(
             <div className="dropdown">
-                <button id="dropdown-toggle" onClick={this.drop} onBlur={() => setTimeout(this.drop, 100)} className="dropdown-link">MENU</button>
-                <div className="dropdown-container">
-                    <ul onClick={e => e.stopPropagation()} className={this.state.visible ? "show-dropdown" : "clear"}>
-                        <Link className="dropdown-item" to="/">
-                            <li className="profile-link">
-                                Profile        
-                            </li>
-                         </Link>
-                        <Link className="dropdown-item" to="/songs">
-                            <li className="all-songs-link">
-                                Feed
-                            </li>
-                        </Link>
-                        <button className="dropdown-item" onClick={this.handleClick}>
-                            <li className="logout-button">
+
+                <button id="dropdown-toggle" onClick={this.changeState} onBlur={this.closeDropdown} className="dropdown-container">
+                    Menu
+                    <ul onClick={e => e.stopPropagation()} className={cName} >
+
+                          
+                            <Link className="dropdown-item" to="/" onMouseDown={(e) => e.preventDefault()} onClick={(e) => this.closeDropdown(e)}>
+                                <li className="profile-link" >
+                                        Profile
+                                </li>
+                            </Link>
+                            <Link className="dropdown-item" to="/songs" onMouseDown={(e) => e.preventDefault()} onClick={(e) => this.closeDropdown(e)}>
+                                <li className="all-songs-link">
+                                                Feed
+                                </li>
+                            </Link>
+                            <li className="dropdown-item" onClick={this.props.logout}>
                                 Logout
                             </li>
-                        </button>
                     </ul>
-                </div>
+                </button>
             </div>
-        )
-    }
+        );
+    };
 };
 
 export default Dropdown;

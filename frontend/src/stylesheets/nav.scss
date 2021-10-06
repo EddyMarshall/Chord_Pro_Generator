@@ -56,6 +56,10 @@
     // border-color: white;
 }
 
+#dropdown-toggle{
+    @include button(100px);
+}
+
 .show-dropdown {
     position: absolute;
     display: flex;

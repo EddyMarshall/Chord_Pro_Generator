@@ -9,6 +9,7 @@ class Dropdown extends React.Component {
         };
         this.changeState = this.changeState.bind(this);
         this.closeDropdown = this.closeDropdown.bind(this);
+        this.logout = this.logout.bind(this);
     }
 
     changeState() {
@@ -20,7 +21,7 @@ class Dropdown extends React.Component {
         this.setState({ show: false });
     };
 
-    logout(e) {
+    logout() {
         this.props.logout();
     };
 
@@ -29,8 +30,8 @@ class Dropdown extends React.Component {
         return(
             <div className="dropdown">
 
-                <button id="dropdown-toggle" onClick={this.changeState} onBlur={this.closeDropdown} className="dropdown-container">
-                    Menu
+                <button id="dropdown-toggle" onClick={this.changeState} onBlur={this.closeDropdown} className="dropdown-container">Menu</button>
+                    
                     <ul onClick={e => e.stopPropagation()} className={cName} >
 
                           
@@ -44,11 +45,11 @@ class Dropdown extends React.Component {
                                                 Feed
                                 </li>
                             </Link>
-                            <li className="dropdown-item" onClick={this.props.logout}>
+                            <button className="dropdown-item" onMouseDown={(e) => e.preventDefault()} onClick={this.props.logout}>
                                 Logout
-                            </li>
+                            </button>
                     </ul>
-                </button>
+                
             </div>
         );
     };

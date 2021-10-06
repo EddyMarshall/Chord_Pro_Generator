@@ -13,16 +13,28 @@
    margin-right: 3vw;
    text-decoration: underline;
    cursor: default;
+   width: 40%;
 }
+
 .song-author-container {
    display: flex;
-   justify-content: flex-end;
+   align-items: center;
+   justify-content: space-between;
    font-size: 4vw;
    text-align: center;
    background-color: white;
    margin-left: 3vw;
    margin-right: 3vw;
+   padding-bottom: 3vw;
+   border-radius: 10px 10px 0px 0px;
 }
+
+.song-edit-form-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
 .song-author{
    font-size: 4vw;
    text-align: center;
@@ -31,9 +43,23 @@
    margin-right: 3vw;
    font-size: 2.5vw;
    font-weight: bolder;
-   padding-bottom: 10px;
    text-decoration: underline;
+   width: 10%;
 }
+
+.song-edit-button {
+   font-size: 20px;
+   text-align: left;
+   margin-left: 10px;
+   width: 10%;
+   @include button(95px);
+}
+
+.song-edit-form {
+   margin-left: 26%;
+   border: 1px solid grey;
+}
+
 .whole-song{
    border-radius: 0 0 19px 19px;
    bottom: 20px;

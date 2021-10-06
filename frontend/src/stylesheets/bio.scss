@@ -15,23 +15,7 @@
 }
 
 .edit-bio-button {
-    margin-top: 10px;
-    border-style: solid;
-    border-width: 0px;
-    border-radius: 99em;
-    background: rgba(165, 42, 42, 0.63);
-    padding: 7px 16px 9px;
-    line-height: 20px;
-    height: 38px;
-    width: 80px;
-    font-size: 24px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-}
-
-.edit-bio-button:hover {
-    cursor: pointer;
+    @include button();
 }
 
 .bio-user {
@@ -111,6 +95,8 @@
 .follow-button{
     @include roundedInputField(120px);
     @include roundCorners();
+    border-width: 1px;
+    color: white;
     margin: 10px;
     margin-left: 3%;
     @include boxShadow();

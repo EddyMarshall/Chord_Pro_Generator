@@ -4,7 +4,6 @@ import BioShow from "./bio_show";
 
 
 const mstp = (state, ownProps)  => {
-    // debugger;
     return ({
         bio: state.entities.bios[ownProps.match.params.userId],
         currentUser: state.session.user.id,

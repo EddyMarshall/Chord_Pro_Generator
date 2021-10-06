@@ -47,9 +47,13 @@
 }
 
 .dropdown-link{
+    @include button();
     font-size: 20px;
+
     @include roundedInputField(95%);
-    @include hoverColor(rgb(224, 205, 176));
+    @include hoverColor(rgb(122, 111, 95));
+    // border-width: 1px;
+    // border-color: white;
 }
 
 .show-dropdown {

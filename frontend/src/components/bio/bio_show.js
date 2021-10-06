@@ -17,12 +17,9 @@ class BioShow extends React.Component {
     componentDidMount() {
         this.props.fetchBio(this.props.userId)
             .then((bio) => {
-                // debugger;
                 if (bio && bio.bio.data) {
-                    console.log("1");
                     this.setState({ formType: 0 });
                 } else {
-                    console.log("2");
                     this.setState({ formType: 1 });
                 };
             });
@@ -44,11 +41,9 @@ class BioShow extends React.Component {
             this.props.fetchBio(this.props.userId)
             .then((bio) => {
                 if (bio && bio.bio.data) {
-                    console.log("1");
                     this.setState({ formType: 0 });
                     this.setState({ ele: this.state.ele + 1 });
                 } else {
-                    console.log("2");
                     this.setState({ formType: 1 });
                     this.setState({ ele: this.state.ele + 1 });
                 };

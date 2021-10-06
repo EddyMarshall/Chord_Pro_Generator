@@ -32,7 +32,7 @@ class RepertoireItem extends React.Component {
                 <div className="repertoire-key">
                     {`${this.props.song.key} Major`}
                 </div>
-                {deleteButton}
+                    {deleteButton}
             </li>
         )
     }

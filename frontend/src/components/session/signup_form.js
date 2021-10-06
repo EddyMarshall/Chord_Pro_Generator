@@ -43,7 +43,6 @@ class SignupForm extends React.Component {
 
     this.props.signup(user, this.props.history)
       // .then(() => this.props.history.push('/'),
-      // (errors) => console.log("hit"));
   }
 
   renderErrors() {

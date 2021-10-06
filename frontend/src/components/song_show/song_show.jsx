@@ -10,7 +10,6 @@ class SongShow extends React.Component {
         // if (this.props.song) {
         //     this.setState({name: this.props.song.name})
         // };
-        // debugger;
         // this.state = this.props.song;
         // this.setState ({edit: 0});
         this.state = { edit: 0, title: "" };

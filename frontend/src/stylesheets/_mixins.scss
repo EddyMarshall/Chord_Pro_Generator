@@ -13,15 +13,35 @@
    background-color: $backgroundColor;
 }
 
-@mixin hoverColor($color: $lightBox) {
+@mixin hoverColor($color: $lightBox, $shad: 20px) {
    &:hover{
       background-color: $color;
       transition: 0.4s;
       cursor: pointer;
+      box-shadow: 0 0 $shad;
    }
 }
 
 
 @mixin boxShadow($shad: 5px){
    box-shadow: 0 0 $shad;
+}
+
+@mixin button($w: 80px, $h: 38px){
+   margin-top: 10px;
+   border-style: solid;
+   border-width: 1px;
+   border-radius: 99em;
+   background: rgba(165, 42, 42, 0.63);
+   padding: 7px 16px 9px;
+   line-height: 20px;
+   height: $h;
+   width: $w;
+   font-size: 24px;
+   text-align: center;
+   align-items: center;
+   color: white;
+   box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+   cursor: pointer;
+   @include hoverColor();
 }

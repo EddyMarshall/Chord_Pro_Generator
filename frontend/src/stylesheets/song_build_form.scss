@@ -123,8 +123,13 @@
          text-align: center;
          width: 100%;
          margin: 10px;
+         @include button($h: 52px);
          @include roundedInputField(100%);
          @include roundCorners(20px);
+         @include hoverColor($shad: 15px);
+         border-width: 2px;
+         border-color: white;
+         color: rgb(102, 67, 27);
          font-size: 25px;
          margin-left: 20px;
          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);

@@ -64,7 +64,7 @@ class SongShow extends React.Component {
             if (this.state.edit === 0 && this.props.currentUser === this.props.song.songwriter) {
                 editButton = <button className="song-edit-button" onClick={() => this.handleEdit()}>Edit</button>
             } else {
-                editButton = (<div className="song-edit-button"></div>);
+                editButton = "";
             };
 
 
@@ -72,14 +72,15 @@ class SongShow extends React.Component {
                 name = <h1 className="song-title">{this.props.song.title}</h1>
             } else {
                 name = (
-                    <form>
+                    <form className="song-edit-form-container">
+                        <button className="song-edit-button" 
+                        onClick={this.handleSubmit}>Save</button>
                         <input type="text" 
+                            className="song-edit-form"
                             placeholder={this.props.song.title}
                             value={this.state.title}
                             onChange={this.update('title')}
                         />
-                        <button onClick={this.handleSubmit}>Save</button>
-
                     </form>
                 )
             }
@@ -91,8 +92,8 @@ class SongShow extends React.Component {
                 <div className="sheet">
 
                     <div className="song-author-container">
-                        {name}
                         {editButton}
+                        {name}
                         <Link to={`/users/${this.props.song.songwriter}`}>
                             <div className="song-author">
                                 {this.props.users[this.props.song.songwriter] ? this.props.users[this.props.song.songwriter].handle : null}

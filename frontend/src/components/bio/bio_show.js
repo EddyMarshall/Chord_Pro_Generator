@@ -89,6 +89,15 @@ class BioShow extends React.Component {
                         
                     </p>
                 </div>
+                <div>
+                    <h1></h1>                
+                </div>
+
+                <div className="bio-section-item">
+                    <div className="bio-section-label">
+                        Followers: {this.props.follows}
+                    </div>
+                </div>
             </div>
             
             
@@ -138,6 +147,12 @@ class BioShow extends React.Component {
                             </p>
                         </div>
 
+                        <div className="bio-section-item">
+                            <div className="bio-section-label">
+                                Followers: {this.props.follows}
+                            </div>
+                        </div>
+
                         {this.props.currentUser === this.props.userId ? 
                             <button onClick={this.handleClick} className="edit-bio-button">Edit</button> :
                             "" }
@@ -168,7 +183,6 @@ class BioShow extends React.Component {
                 emptyBio
             );
         };
-        // return (<CreateBioContainer />);
         
     }
 };

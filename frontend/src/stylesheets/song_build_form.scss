@@ -16,7 +16,8 @@
 
    border-radius: 19px 19px 19px 19px; 
    ::placeholder {
-      color: rgb(82, 133, 86);
+      color: rgba(221, 214, 241, 1);
+      min-height: 300px;
    }
 
    .song-build-header {
@@ -144,6 +145,3 @@
    }
 }
 
-.form-placeholder {
-   min-height: 300px;
-}

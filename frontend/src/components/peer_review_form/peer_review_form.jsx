@@ -85,7 +85,7 @@ class PeerReviewForm extends React.Component {
                     <form onSubmit={this.handleSubmit} className="review-form-container">
                         <textarea 
                             onChange={this.update('body')} 
-                            placeholder="Share your thoughts."
+                            placeholder="Share your thoughts..."
                             className="peer-review-input"
                             value={this.state.body}
                         ></textarea>

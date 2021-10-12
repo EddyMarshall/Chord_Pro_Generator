@@ -90,13 +90,15 @@
     cursor: pointer;
 }
 
-.dropdown-item:first-child {
+.dropdown-item {
     border-bottom: 1px solid black;
-    border-radius: 19px 19px 0 0;
+}
+
+.dropdown-item:first-child {
+    border-radius: 19px 19px 0 0;  
 }
 
 .dropdown-item:last-child{
-    border-top: 1px solid black;
     border-radius: 0 0 19px 19px;
 }
 

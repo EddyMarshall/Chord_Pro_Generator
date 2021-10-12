@@ -28,20 +28,17 @@
 }
 
 #linkedin{
-   align-self: center;
    background-image: url("linkedin.png");
-   width: 120px;
-   height: 100%;
-   bottom: 0;
-   object-fit: cover;
+   width: 60px;
+   height: 60px;
    background-size: 60px;
    background-repeat: no-repeat;
-   background-position: 100% 0px;
+   margin-right: 20px;
 }
 
 #github{
    background-image: url("gh.png");
-   width: 120px;
+   width: 60px;
    height: 60px;
    bottom: 0;
    object-fit: cover;

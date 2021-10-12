@@ -4,6 +4,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 import Footer from './footer/footer';
+import About from './about/about'
 
 import MainPage from './main/main_page';
 import LoginFormContainer from './session/login_form_container';
@@ -35,8 +36,8 @@ const App = (props) => (
       {/* <ProtectedRoute path="/" component={UserShow}/> */}
       <ProtectedRoute exact path="/songs" component={SongIndexContainer} />
       <ProtectedRoute exact path="/songs/:songId" component={SongShowContainer} />
+      <ProtectedRoute exact path="/about" component={About} />
     </div>  
-    <Footer />
   </div>
 );
 

@@ -42,7 +42,12 @@ class Dropdown extends React.Component {
                             </Link>
                             <Link className="dropdown-item" to="/songs" onMouseDown={(e) => e.preventDefault()} onClick={(e) => this.closeDropdown(e)}>
                                 <li className="all-songs-link">
-                                                Feed
+                                        Feed
+                                </li>
+                            </Link>
+                            <Link className="dropdown-item" to="/about" onMouseDown={(e) => e.preventDefault()} onClick={(e) => this.closeDropdown(e)}>
+                                <li className="all-songs-link" >
+                                        About
                                 </li>
                             </Link>
                             <button className="dropdown-item" onMouseDown={(e) => e.preventDefault()} onClick={this.props.logout}>

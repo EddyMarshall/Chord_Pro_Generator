@@ -183,7 +183,6 @@ class BioShow extends React.Component {
                 emptyBio
             );
         };
-        // return (<CreateBioContainer />);
         
     }
 };

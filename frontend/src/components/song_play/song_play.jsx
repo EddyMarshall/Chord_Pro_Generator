@@ -46,7 +46,9 @@ class SongPlay extends React.Component {
             currChordIdx: 0
         };
         this.playButtonClicked = this.playButtonClicked.bind(this);
+        this.restartButtonClicked = this.restartButtonClicked.bind(this);
         this.playChord = this.playChord.bind(this);
+        this.restartProgression = this.restartProgression.bind(this);
         this.chordHash = {
             A: A,
             A7: A,
@@ -172,26 +174,38 @@ class SongPlay extends React.Component {
     };
 
     playButtonClicked() {
-        console.log(this.state);
         if(this.state.songPlaying){
             this.setState({songPlaying: false});
             clearInterval(this.interval);
         } else {
             this.setState({ songPlaying: true });
-            this.setState({currChordIdx: 0})
+            this.setState({currChordIdx: 0});
             this.playChord(this.state.currChordIdx);
             this.interval = setInterval(this.playChord, 1700);
         }
+    }
+
+    restartButtonClicked() {
+        clearInterval(this.interval);
+        this.setState({ currChordIdx: 0, songPlaying: true });
+        this.restartProgression();
+        this.interval = setInterval(this.playChord, 1700);
+    }
+
+    restartProgression(){
+        let str = this.props.song.chordProgression[0];
+        let audio = new Audio(this.chordHash[str]);
+        audio.play();
+        this.setState({ currChordIdx: 1 });
     }
 
     playChord() {
         let str = this.props.song.chordProgression[this.state.currChordIdx];
         let audio = new Audio(this.chordHash[str]);
         audio.play();
-        if(this.state.currChordIdx===this.props.song.chordProgression.length){
-            this.setState({ currChordIdx: 0 });
+        if(this.state.currChordIdx===this.props.song.chordProgression.length-1){
+            this.setState({ currChordIdx: 0, songPlaying: false });
             clearInterval(this.interval);
-            this.setState({songPlaying: false});
         }else{
             this.setState({ currChordIdx: this.state.currChordIdx + 1 });
         }
@@ -205,7 +219,8 @@ class SongPlay extends React.Component {
 
         return (
             <div>
-                <button onClick={this.playButtonClicked}>PLAY SONG</button>
+                <button onClick={this.playButtonClicked}>PLAY/PAUSE</button>
+                <button onClick={this.restartButtonClicked}>RESTART</button>
             </div>
         )
     }

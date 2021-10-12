@@ -82,14 +82,10 @@ class UserShow extends React.Component {
             <div>
                 {/* <p> THIS IS USERSHOW  </p> */}
                 <div className="bio-and-repertoire">
-                    <BioShowContainer {...this.props} />
+                    <BioShowContainer {...this.props} follows={followCount}/>
                     {repertoire}
                 </div>
                 <h1>{followButton}</h1>
-                <div className="follows">
-                    <h1>Followers: </h1>
-                    <h1>{followCount}</h1>
-                </div>
                 {form}
             </div>
         )

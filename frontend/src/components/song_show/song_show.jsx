@@ -1,6 +1,7 @@
 import React from 'react';
 import PeerReviewFormContainer from "../peer_review_form/peer_review_form_container";
 import LikeButtonContainer from "../like_button/like_button";
+import SongPlayContainer from "../song_play/song_play";
 import { Link } from 'react-router-dom';
 
 
@@ -54,6 +55,7 @@ class SongShow extends React.Component {
         let songChords = null; 
         let peerReviewForm = null;
         let likeButton = null;
+        let songPlayButton = null;
         let editButton;
         let name;
         if (songExists) {
@@ -114,12 +116,14 @@ class SongShow extends React.Component {
             </div>
             peerReviewForm = <PeerReviewFormContainer songId={this.props.song._id} />;
             likeButton = <LikeButtonContainer songId={this.props.song._id} getSongLikes={this.props.getSongLikes} />;
+            songPlayButton = <SongPlayContainer songId={this.props.song._id} song={this.props.song}/>
 
         }
         return(
             <div>
                 {/* <div>Song exists: {String(songExists)}</div> */}
                 {songChords}
+                {songPlayButton}
                 <div className="likes">
                     <h1>Likes: </h1>
                     <h1> {likesCount}</h1>

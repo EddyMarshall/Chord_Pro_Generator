@@ -5,7 +5,6 @@ import SongShow from './song_show'
 import { fetchUser } from "../../actions/user_actions";
 
 const mSTP = (state, ownProps) => {   
-
     return {
         currentUser: state.session.user.id,
         song: state.entities.songs[ownProps.match.params.songId],

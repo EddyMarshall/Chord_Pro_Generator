@@ -57,7 +57,7 @@
       @include roundedInputField(20%);
       text-align: center;
       @include hoverColor();
-
+      margin-bottom: 10px;
    } 
    
 }
@@ -65,6 +65,14 @@
 // ::placeholder {
 //    color: aquamarine;
 // }
+
+.errors{
+   // margin: 10px;
+   color: rgb(255, 255, 255);
+   background-color: white;
+   @include roundedInputField(100%, $borderRadius: 10px,$backgroundColor: rgb(253, 0, 0));
+
+}
 
 .demo{
    text-align: center;

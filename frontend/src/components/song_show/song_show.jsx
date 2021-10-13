@@ -13,7 +13,10 @@ class SongShow extends React.Component {
         // };
         // this.state = this.props.song;
         // this.setState ({edit: 0});
-        this.state = { edit: 0, title: "" };
+        this.state = { 
+            edit: 0, 
+            title: "" 
+        };
         this.update = this.update.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     };

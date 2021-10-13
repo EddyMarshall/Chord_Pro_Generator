@@ -218,9 +218,9 @@ class SongPlay extends React.Component {
     render() {
 
         return (
-            <div>
-                <button onClick={this.playButtonClicked}>PLAY/PAUSE</button>
-                <button onClick={this.restartButtonClicked}>RESTART</button>
+            <div className="play-button-container">
+                <button className="play-button" onClick={this.playButtonClicked}>play/pause song</button>
+                <button className="restart-button" onClick={this.restartButtonClicked}>restart song</button>
             </div>
         )
     }

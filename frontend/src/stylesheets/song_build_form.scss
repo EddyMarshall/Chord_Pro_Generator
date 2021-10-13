@@ -52,6 +52,13 @@
       }
    }
 
+   .song-form-errors{
+      // color: rgb(255, 255, 255);
+      background-color: rgb(204, 26, 26);
+      @include roundedInputField(250px, $borderRadius: 10px,$backgroundColor: rgb(253, 0, 0));
+      margin-left: 20px;
+   }
+
    .song-form-container{
       display: flex;
       .song-build-col1{ 
@@ -60,6 +67,7 @@
          .song-form-input{
             font-weight: bold;
          }  
+         
          
          .song-form-input{
             display: flex;

@@ -27,6 +27,7 @@
    margin-right: 3vw;
    padding-bottom: 3vw;
    border-radius: 10px 10px 0px 0px;
+   cursor: default;
 }
 
 .song-edit-form-container {
@@ -88,19 +89,17 @@
 
 .likes{
    display: flex;
-   @include roundedInputField(90px);
-   @include roundCorners();
+   align-items: center;
+   justify-content: space-around;
    margin: 10px;
    margin-left: 3%;
-   @include boxShadow();
    cursor: default;
    font-size: 20px;
    font-weight: bold;
-   justify-content: space-between;
+   width: 50%;
 }
 
 .like-unlike{
-   font-size:30px;
    @include roundCorners();
    @include roundedInputField(100px);
    text-align: center;
@@ -200,3 +199,35 @@
    margin-left: 0;
 }
 
+.song-foot {
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   background: white;
+   @include roundCorners(20px);
+   margin: 10px 3% 10px 3%;
+}
+
+.play-button-container {
+   width: 50%;
+   display: flex;
+   justify-content: space-around;
+}
+
+.play-button {
+   @include roundCorners();
+   @include roundedInputField(100px);
+   @include hoverColor();
+   @include boxShadow();
+   width: fit-content;
+   padding: 10px;
+}
+
+.restart-button {
+   @include roundCorners();
+   @include roundedInputField(100px);
+   @include hoverColor();
+   @include boxShadow();
+   width: fit-content;
+   padding: 10px;
+}

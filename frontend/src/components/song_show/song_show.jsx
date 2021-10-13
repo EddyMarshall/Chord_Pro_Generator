@@ -121,14 +121,14 @@ class SongShow extends React.Component {
         }
         return(
             <div>
-                {/* <div>Song exists: {String(songExists)}</div> */}
                 {songChords}
-                {songPlayButton}
-                <div className="likes">
-                    <h1>Likes: </h1>
-                    <h1> {likesCount}</h1>
+                <div className="song-foot">
+                    {songPlayButton}
+                    <div className="likes">
+                        <h1>Likes: {likesCount}</h1>
+                        <h1>{likeButton}</h1>
+                    </div>
                 </div>
-                <h1>{likeButton}</h1>
                 {peerReviewForm}
             </div>            
         )

@@ -14,7 +14,6 @@ class PeerReviewItem extends React.Component {
     }
 
     handleEdit(review) {
-        console.log("EDITED");
         review.body = this.state.body;
         this.props.updatePeerReview(review);
         this.setState({ edit: false });

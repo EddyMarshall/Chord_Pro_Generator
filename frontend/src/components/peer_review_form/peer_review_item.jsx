@@ -58,16 +58,19 @@ class PeerReviewItem extends React.Component {
                 {this.usernameGrabber(this.props.users, this.props.review)}
             </Link>
             {this.state.edit ?
-                <input type="text"
-                    className="song-edit-form2"
+                <textarea
+                    className="song-edit-form2 review"
                     value={this.state.body}
                     onChange={this.update('body')}
                 /> :
             <div className="review-body">
                 {this.props.review.body}
             </div>}
-            {this.state.edit ? saveButton : editButton}
-            {deleteButton}
+            <div>
+                {this.state.edit ? saveButton : editButton}
+                {deleteButton}
+            </div>
+            
         </li>
         
     }

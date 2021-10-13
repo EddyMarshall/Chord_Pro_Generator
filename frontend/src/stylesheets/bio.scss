@@ -100,4 +100,6 @@
     margin: 10px;
     margin-left: 3%;
     @include boxShadow();
+    @include hoverColor();
+
 }

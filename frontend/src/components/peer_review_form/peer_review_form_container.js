@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PeerReviewForm from './peer_review_form';
-import { createPeerReview, fetchPeerReviews, fetchSongReviews, deletePeerReview } from '../../actions/peer_review_actions';
+import { createPeerReview, fetchPeerReviews, fetchSongReviews, deletePeerReview, updatePeerReview } from '../../actions/peer_review_actions';
 import { fetchUsers } from '../../actions/user_actions'
 
 
@@ -18,7 +18,8 @@ const mDTP = dispatch => ({
     fetchPeerReviews: () => dispatch(fetchPeerReviews()),
     fetchSongReviews: (songId) => dispatch(fetchSongReviews(songId)),
     fetchUsers: () => dispatch(fetchUsers()),
-    deletePeerReview: (reviewId) => dispatch(deletePeerReview(reviewId))
+    deletePeerReview: (reviewId) => dispatch(deletePeerReview(reviewId)),
+    updatePeerReview: (peerReview) => dispatch(updatePeerReview(peerReview))
 });
 
 export default connect(mSTP, mDTP)(PeerReviewForm);

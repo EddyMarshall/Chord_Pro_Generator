@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import  PeerReviewItem from './peer_review_item';
 
 class PeerReviewForm extends React.Component {
     constructor(props) {
         super(props)
         this.state = { body: "" }
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -30,51 +31,17 @@ class PeerReviewForm extends React.Component {
         this.props.createPeerReview(review);
     }
 
-    usernameGrabber(users, review) {
-        let reviewerName = ""
-        let i = 0;
-        while (i < users.length) {
-            if (users[i]._id === review.reviewer) {
-                reviewerName = users[i].handle
-                i += users.length
-            } else {
-                i += 1
-            }
-        }
-
-        if (reviewerName === "") {
-            reviewerName = "Anonymous"
-        }
-        return reviewerName
-    }
 
     render() {
-
         const peerReviewList = (this.props.reviews.length != 0) ? (
             <ul>
-                {this.props.reviews.map((review) => {
-                    let deleteButton = null;
-                    // let editButton = null;
-                    if (review.reviewer === this.props.reviewer_id){
-                        deleteButton = <button onClick={() => this.props.deletePeerReview(review._id)} className="delete-post">DELETE POST</button>
-                        // editButton = <button>EDIT POST</button>
-                    }
-                    return <li key={review._id} className="review-item">
-                        <Link to={`/users/${review.reviewer}`} className="review-username">
-                            {this.usernameGrabber(this.props.users, review)}
-                        </Link>
-                        <div className="review-body">
-                            {review.body}
-                        </div>
-                        {deleteButton}
-                        {/* {editButton} */}
-                    </li>
-                })}
+                {this.props.reviews.map((review) => (
+                    <PeerReviewItem review={review} parent_song={this.props.parent_song_id} key={review._id}/>
+                ))}
             </ul>
         ) : (
             <div className="no-reviews-announcement">No review yet, you can be the first!</div>
         )
-        
 
         return (
             <div className="peer-review-container">

@@ -16,7 +16,7 @@ class Footer extends React.Component {
             <div className="creator">
                <h1 className="name">Eddy Marshall</h1>
                <div className="links">
-                  <a href="https://www.linkedin.com/in/eddy-marshall-092ba6b9/" target="_blank" id="linkedin"/>
+                  <a href="https://www.linkedin.com/in/edward-marshall-092ba6b9/" target="_blank" id="linkedin"/>
                   <a href="https://github.com/EddyMarshall" target="_blank" id="github"/>
                </div>
             </div>

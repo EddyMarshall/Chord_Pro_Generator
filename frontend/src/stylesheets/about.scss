@@ -1,0 +1,15 @@
+.about-centerer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.about-box {
+    background: white;
+    width: 40%;
+    height: fit-content;
+    margin-bottom: 30px;
+    border-radius: 19px 19px 19px 19px;
+    padding: 20px;
+}
+

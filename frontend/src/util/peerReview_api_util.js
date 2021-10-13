@@ -20,8 +20,9 @@ export const createPeerReview = data => {
 };
 
 export const updatePeerReview = peerReview => {
-    return axios.patch(
-        `/api/peer_reviews/${peerReview.id}`
+    return axios.put(
+        `/api/peer_reviews/${peerReview._id}`,
+        peerReview
     )
 };
 

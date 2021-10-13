@@ -7,6 +7,7 @@ import Footer from './footer/footer';
 import About from './about/about'
 
 import MainPage from './main/main_page';
+import Splash from './splash/splash'
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import SongIndexContainer from "./song_index/song_index_container";
@@ -24,9 +25,7 @@ const App = (props) => (
   <div className="background1"> 
     <div className="body">
       <NavBarContainer />
-      <ProtectedRoute exact path="/" >
-        <Redirect to={`/login`}/>
-      </ProtectedRoute>
+      <AuthRoute exact path="/" component={Splash} />
       <ProtectedRoute path={`/users/:userId`} component={UserShow} />
 
       {/* <AuthRoute exact path="/" component={MainPage} /> */}

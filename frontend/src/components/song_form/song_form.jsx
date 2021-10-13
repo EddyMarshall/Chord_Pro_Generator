@@ -1,21 +1,34 @@
 import React from 'react'
 
 class SongForm extends React.Component {
+    static initialState = {
+        songTitle: "",
+        key: "C",
+        barCount: 8,
+        triadsChecked: true,
+        extendedChordsChecked: false,
+        secondaryDominantsChecked: false,
+        resolve: true,
+        errors: {},
+    }
+
     constructor(props) {
         super(props)
-        this.chordMasterList = []
-        this.state = {
-            songTitle: "",
-            key: "C",
-            barCount: 8,
-            triadsChecked: true,
-            extendedChordsChecked: false,
-            secondaryDominantsChecked: false,
-            resolve: true
+        this.chordMasterList = []        
+        this.state = SongForm.initialState
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.radioChange = this.radioChange.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
+        this.resetBuilder = this.resetBuilder.bind(this);
 
-        }
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.radioChange = this.radioChange.bind(this)
+    }
+
+    resetBuilder() {
+        this.setState(SongForm.initialState)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({errors: nextProps.errors}) // Set or clear errors
     }
 
     //builds the scale for the class to use
@@ -147,14 +160,14 @@ class SongForm extends React.Component {
 
 
     //form update and submit functions
-    handleSubmit(e) {
+    handleSubmit(e) {  
         e.preventDefault()
         let scale = this.setScale(this.state.key)
         let triads = this.buildDiatonicChords(scale)
         let harmonicFunctions = this.buildHarmonicFunctions(triads)
         let chords = this.buildChordProgression(this.chordMasterList, harmonicFunctions)
-
-
+        
+        
         let song = {
             title: this.state.songTitle,
             key: this.state.key,
@@ -162,9 +175,12 @@ class SongForm extends React.Component {
             songwriter: this.props.author_id
         }
         this.props.composeSong(song)
-
+        // .then(this.setState({ songTitle: "" }))
+        // .then(() => e.target.reset())       
+        
         //clears the form
-        e.target.reset();
+        e.target.reset();  
+        this.resetBuilder();        
     }
 
     updateCheckboxChange(checkBox) {
@@ -178,6 +194,20 @@ class SongForm extends React.Component {
     radioChange(e) {
         this.setState({ resolve: !this.state.resolve })
     }
+
+    renderErrors() {        
+        return(
+          <ul>
+            {Object.keys(this.state.errors).map((error, i) => (
+              <li key={`error-${i}`} className="song-form-errors">
+                {this.state.errors[error]}
+              </li>
+            ))}
+          </ul>
+        );        
+    }
+
+
 
     render() {
 
@@ -212,7 +242,7 @@ class SongForm extends React.Component {
                     {chordsToBuildFrom.map((chord, i) =>
                     (<li className="available-chord"
                         key={i}>
-                        {chord}
+                        {chord}                          
                     </li>))}
                 </ul>
             </div>
@@ -221,12 +251,12 @@ class SongForm extends React.Component {
 
         return (
             <div className="song-build-centering">
-
             <div className="song-build-container"> 
                 <div className="form-header-container">
                     <h1 className="song-build-header">Build Your Next Song</h1>
                 </div>
                 <div>
+                    {this.renderErrors()}
                     <form onSubmit={this.handleSubmit} className="song-form">
                         <div className="song-form-top-bar">                          
                             <input 
@@ -328,6 +358,7 @@ class SongForm extends React.Component {
                                     value="Compose"
                                     className="song-form-submit"
                                     />
+                                    
                                 </div>  
                             <div className="song-form-available-chords">                          
                                 <div className="song-build-col3"> 
@@ -338,7 +369,6 @@ class SongForm extends React.Component {
                     </form>
                 </div>
                 </div>
-                
             </div>
         )
     }

@@ -25,7 +25,7 @@ const App = (props) => (
   <div className="background1"> 
     <div className="body">
       <NavBarContainer />
-      <Route exact path="/" component={Splash}/>
+      <AuthRoute exact path="/" component={Splash} />
       <ProtectedRoute path={`/users/:userId`} component={UserShow} />
 
       {/* <AuthRoute exact path="/" component={MainPage} /> */}

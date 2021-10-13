@@ -50,6 +50,8 @@
 }
 
 .bio-about-input {
+    @include roundedInputField(100%);
+    @include roundCorners(8px);
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 3px;
     padding: 5px 5px 5px 5px;
@@ -61,6 +63,8 @@
 }
 
 .bio-location-input {
+    @include roundedInputField(100%);
+    @include roundCorners(8px);
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 3px;
     padding: 5px 5px 5px 5px;
@@ -70,6 +74,8 @@
 }
 
 .bio-socialMedia-input {
+    @include roundedInputField(100%);
+    @include roundCorners(8px);
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 3px;
     padding: 5px 5px 5px 5px;

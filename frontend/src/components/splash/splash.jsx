@@ -9,8 +9,10 @@ class Splash extends React.Component {
                     <div className="splash-about-section">
                         <p className="splash-paragraph">
                         Got writer's block? Feel like your songwriting has gotten stale?
-                        Here's an app for you. Dynamically generate beautiful chord progressions 
-                        at the touch of a button with Chord Pro Generator. Share your 
+                        Here's an app for you! 
+                        <br></br><br></br>
+                        Dynamically generate beautiful chord progressions 
+                        at the touch of a button with Chord Pro Generator. <br></br><br></br>Share your 
                         songs with friends, show your support with likes and follow 
                         the artists you love. 
                         </p>

@@ -33,7 +33,8 @@ class About extends React.Component {
                                 Listening to:
                             </div>
                             <div className="bio-section-content">
-
+                                Allen Stone, Emil Ernebro, John Mayer, Gone 
+                                West, Triads in Bb by Demo Nstration
                             </div>
                         
                         </div>
@@ -63,15 +64,15 @@ class About extends React.Component {
                             <div className="bio-section-content">
                                 I'm currently most likely working on a Nashville 
                                 hot chicken sandwich with some spicy aioli or a
-                                 sushi deluxe dinner. Between bites and aggressive 
-                                 moist towelette usages I am working on a few 
-                                 apps that will help my music students with 
-                                 different techniques. Currently, I have a voice 
-                                 leading app that is live and still being built 
-                                 out Soon it will include sheet music visualizations 
-                                 so that it can be used by non guitarists, thus 
-                                 meeting my personal expectation of being as 
-                                 accessible as possible.
+                                sushi deluxe dinner. Between bites and aggressive 
+                                moist towelette usages I am working on a few 
+                                apps that will help my music students with 
+                                different techniques. Currently, I have a voice 
+                                leading app that is live and still being built 
+                                out Soon it will include sheet music visualizations 
+                                so that it can be used by non guitarists, thus 
+                                meeting my personal expectation of being as 
+                                accessible as possible.
                             </div>
                         
                         </div>
@@ -82,7 +83,7 @@ class About extends React.Component {
                             </div>
                             <div className="bio-section-content">
                                 Norah Jones, Ray Charles, street sounds 
-                                sifting through my windows
+                                sifting through windows
                             </div>
                         
                         </div>
@@ -124,7 +125,7 @@ class About extends React.Component {
                                 Listening to:
                             </div>
                             <div className="bio-section-content">
-
+                                Drake, Brian Culbertson, Lil Peep
                             </div>
                         
                         </div>
@@ -152,7 +153,13 @@ class About extends React.Component {
                                 About:
                             </div>
                             <div className="bio-section-content">
-
+                                A software engineer born in a field of ethernet cables
+                                and hard drives. Amin is a titan of creation. He 
+                                built an entire middle school computer science 
+                                and robotics curriculum through sheer force of will. Combining
+                                a towering mountain of knowledge with his uncanny 
+                                ability to make those around him laugh, Amin is one 
+                                of a kind. 
                             </div>
                         
                         </div>
@@ -162,7 +169,7 @@ class About extends React.Component {
                                 Listening to:
                             </div>
                             <div className="bio-section-content">
-
+                                Slayer, Slipknot, Green Jelly
                             </div>
                         
                         </div>

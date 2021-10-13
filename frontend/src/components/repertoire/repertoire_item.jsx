@@ -24,7 +24,7 @@ class RepertoireItem extends React.Component {
             ""
         )
 
-        return (
+        return ( this.props.song ?
             <li className="repertoire-item">
                 <Link to={`/songs/${this.props.song._id}`} className="repertoire-title">
                     {this.props.song.title}
@@ -33,7 +33,7 @@ class RepertoireItem extends React.Component {
                     {`${this.props.song.key} Major`}
                 </div>
                     {deleteButton}
-            </li>
+            </li> : null
         )
     }
 };

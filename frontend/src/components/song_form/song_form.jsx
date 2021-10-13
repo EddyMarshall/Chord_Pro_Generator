@@ -175,12 +175,12 @@ class SongForm extends React.Component {
             songwriter: this.props.author_id
         }
         this.props.composeSong(song)
-        // .then(this.setState({ songTitle: "" }))
-        // .then(() => e.target.reset())       
+        .then(e.target.reset())
+        .then(this.resetBuilder())       
         
         //clears the form
-        e.target.reset();  
-        this.resetBuilder();        
+        // e.target.reset();  
+        // this.resetBuilder();        
     }
 
     updateCheckboxChange(checkBox) {
@@ -341,6 +341,7 @@ class SongForm extends React.Component {
                                                 id="-checkbox"
                                                 className="checkbox"
                                                 name="extended-chords"
+                                                checked= {this.state.extendedChordsChecked ? true : false}
                                                 onChange={() => this.updateCheckboxChange('extendedChordsChecked')} 
                                                 /> Extended Chords
                                         </label>
@@ -349,6 +350,7 @@ class SongForm extends React.Component {
                                                 id="-checkbox"
                                                 className="checkbox"
                                                 name="secondary-dominants"
+                                                checked= {this.state.secondaryDominantsChecked ? true : false}
                                                 onChange={() => this.updateCheckboxChange('secondaryDominantsChecked')} 
                                                 /> Secondary Dominants
                                         </label>

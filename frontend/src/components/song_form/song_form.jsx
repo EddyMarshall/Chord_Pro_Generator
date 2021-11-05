@@ -35,7 +35,7 @@ class SongForm extends React.Component {
     setScale(key) {
         //swaps accidentals between flats and sharps
         let notes
-        if (key === "F") {
+        if (key === "F" || key === "F m") {
             let scale = ["F", "G", "A", "Bb", "C", "D", "E"]
             return scale
         } else if (key.split("").includes("b")) {
@@ -45,10 +45,24 @@ class SongForm extends React.Component {
         }
 
         //rotates array until the chosen key is the first element
-        while (key !== notes[0]) {
-            notes.push(notes.shift())
-        }
+        
 
+        if (key.split("").includes("m")) {
+            let baseKey
+            if (key.length === 4) {
+                baseKey = key.slice(0, 2)
+            } else {
+                baseKey = key.slice(0, 1)
+            }
+            
+            while (baseKey !== notes[0]) {
+                notes.push(notes.shift())
+            }
+        } else {
+            while (key !== notes[0]) {
+                notes.push(notes.shift())
+            }
+        }
         //pulls out notes in selected key to build scale.
         let scale = []
         scale.push(notes[0])
@@ -58,30 +72,58 @@ class SongForm extends React.Component {
         scale.push(notes[7])
         scale.push(notes[9])
         scale.push(notes[11])
+
+        if (key.split("").includes("m")) {
+            for (let i = 0; i < 5; i++) {
+                scale.push(scale.shift())
+            }
+        }
+
         return scale
     }
 
     //function that sets up which chords are major and minor
-    buildDiatonicChords(scale) {
+    buildDiatonicChords(scale, key) {
         let chords = [];
-        for (let i = 0; i < scale.length; i++) {
-            if (i === 0 || i === 3 || i === 4) {
-                chords.push(`${scale[i]}`)
-            } else if (i === 1 || i === 2 || i === 5) {
-                chords.push(`${scale[i]}min`)
-            } else {
-                chords.push(`${scale[i]}dim`)
+        if (key.split("").includes("m")) {
+            for (let i = 0; i < scale.length; i++) {
+                if (i === 0 || i === 3 || i === 4) {
+                    chords.push(`${scale[i]}min`)
+                } else if (i === 2 || i === 5 || i === 6) {
+                    chords.push(`${scale[i]}`)
+                } else {
+                    chords.push(`${scale[i]}dim`)
+                }
+            }
+        } else {
+            for (let i = 0; i < scale.length; i++) {
+                if (i === 0 || i === 3 || i === 4) {
+                    chords.push(`${scale[i]}`)
+                } else if (i === 1 || i === 2 || i === 5) {
+                    chords.push(`${scale[i]}min`)
+                } else {
+                    chords.push(`${scale[i]}dim`)
+                }
             }
         }
         return chords
     }
 
     //function to create secondary dominants based on chosen key
-    buildSecondaryDominants(scale) {
+    buildSecondaryDominants(scale, key) {
         let secondaryDominants = [];
-        for (let i = 0; i < scale.length; i++) {
-            if (i === 1 || i === 2 || i === 5 || i === 6) {
-                secondaryDominants.push(`${scale[i]}7`)
+
+        if (key.split("").includes("m")) {
+            for (let i = 0; i < scale.length; i++) {
+                if (i === 0 || i === 1 || i === 3 || i === 4) {
+                    secondaryDominants.push(`${scale[i]}7`)
+                }
+            }
+        } else {
+            for (let i = 0; i < scale.length; i++) {
+                if (i === 1 || i === 2 || i === 5 || i === 6) {
+                    secondaryDominants.push(`${scale[i]}7`)
+                }
             }
         }
         return secondaryDominants
@@ -89,17 +131,32 @@ class SongForm extends React.Component {
 
 
     //function to build four part chords
-    buildExtendedChords(scale) {
+    buildExtendedChords(scale, key) {
         let extendedChords = [];
-        for (let i = 0; i < scale.length; i++) {
-            if (i === 0 || i === 3) {
-                extendedChords.push(`${scale[i]}maj7`)
-            } else if (i === 4) {
-                extendedChords.push(`${scale[i]}7`)
-            } else if (i === 1 || i === 2 || i === 5) {
-                extendedChords.push(`${scale[i]}min7`)
-            } else {
-                extendedChords.push(`${scale[i]}min7b5`)
+
+        if (key.split("").includes("m")) {
+            for (let i = 0; i < scale.length; i++) {
+                if (i === 2 || i === 5) {
+                    extendedChords.push(`${scale[i]}maj7`)
+                } else if (i === 6) {
+                    extendedChords.push(`${scale[i]}7`)
+                } else if (i === 3 || i === 4 || i === 0) {
+                    extendedChords.push(`${scale[i]}min7`)
+                } else {
+                    extendedChords.push(`${scale[i]}min7b5`)
+                }
+            }
+        } else {
+            for (let i = 0; i < scale.length; i++) {
+                if (i === 0 || i === 3) {
+                    extendedChords.push(`${scale[i]}maj7`)
+                } else if (i === 4) {
+                    extendedChords.push(`${scale[i]}7`)
+                } else if (i === 1 || i === 2 || i === 5) {
+                    extendedChords.push(`${scale[i]}min7`)
+                } else {
+                    extendedChords.push(`${scale[i]}min7b5`)
+                }
             }
         }
         return extendedChords
@@ -107,18 +164,31 @@ class SongForm extends React.Component {
 
     //function to classify harmonic functions of each chord 
     //Not currently used
-    buildHarmonicFunctions(chords) {
+    buildHarmonicFunctions(chords, key) {
         let ton = []
         let sub = []
         let dom = []
 
-        for (let i = 0; i < chords.length; i++) {
-            if (i === 0 || i === 5) {
-                ton.push(chords[i])
-            } else if (i === 1 || i === 3) {
-                sub.push(chords[i])
-            } else if (i === 4 || i === 6) {
-                dom.push(chords[i])
+
+        if (key.split("").includes("m")) {
+            for (let i = 0; i < chords.length; i++) {
+                if (i === 0 || i === 2) {
+                    ton.push(chords[i])
+                } else if (i === 3 || i === 5) {
+                    sub.push(chords[i])
+                } else if (i === 1 || i === 6) {
+                    dom.push(chords[i])
+                }
+            }
+        } else {
+            for (let i = 0; i < chords.length; i++) {
+                if (i === 0 || i === 5) {
+                    ton.push(chords[i])
+                } else if (i === 1 || i === 3) {
+                    sub.push(chords[i])
+                } else if (i === 4 || i === 6) {
+                    dom.push(chords[i])
+                }
             }
         }
 
@@ -150,8 +220,8 @@ class SongForm extends React.Component {
             chordProgression.pop();
             chordProgression.pop();
             chordProgression.pop();
-            chordProgression.push(harmonicFunctions.subdominant[0])
-            chordProgression.push(harmonicFunctions.dominant[0])
+            chordProgression.push(harmonicFunctions.subdominant[Math.floor(Math.random() * 2)])
+            chordProgression.push(harmonicFunctions.dominant[Math.floor(Math.random() * 2)])
             chordProgression.push(harmonicFunctions.tonic[0])
         }
 
@@ -163,17 +233,25 @@ class SongForm extends React.Component {
     handleSubmit(e) {  
         e.preventDefault()
         let scale = this.setScale(this.state.key)
-        let triads = this.buildDiatonicChords(scale)
-        let harmonicFunctions = this.buildHarmonicFunctions(triads)
-        let chords = this.buildChordProgression(this.chordMasterList, harmonicFunctions)
+        let triads = this.buildDiatonicChords(scale, this.state.key)
+        let harmonicFunctions = this.buildHarmonicFunctions(triads, this.state.key)
+        let chords = this.buildChordProgression(this.chordMasterList, harmonicFunctions, this.state.key)
         
+        let formKey
+        if (this.state.key.split("").includes("m")) {
+            formKey = `${ scale[0] } minor`
+        } else {
+            formKey = `${ scale[0] } major`
+        }
         
         let song = {
             title: this.state.songTitle,
-            key: this.state.key,
+            key: formKey,
             chordProgression: chords,
             songwriter: this.props.author_id
         }
+
+
         this.props.composeSong(song)
         .then(e.target.reset())
         .then(this.resetBuilder())       
@@ -214,9 +292,9 @@ class SongForm extends React.Component {
         let chordsToBuildFrom = []
 
         let scale = this.setScale(this.state.key)
-        let triads = this.buildDiatonicChords(scale)
-        let extendedChords = this.buildExtendedChords(scale)
-        let secondaryDominants = this.buildSecondaryDominants(scale)
+        let triads = this.buildDiatonicChords(scale, this.state.key)
+        let extendedChords = this.buildExtendedChords(scale, this.state.key)
+        let secondaryDominants = this.buildSecondaryDominants(scale, this.state.key)
 
         if (this.state.triadsChecked) {
             triads.forEach(function (item) {
@@ -288,6 +366,18 @@ class SongForm extends React.Component {
                                         <option value="Eb">Eb Major</option>
                                         <option value="D">D Major</option>
                                         <option value="Db">Db Major</option>
+                                        <option value="Eb m">C Minor</option>
+                                        <option value="D m">B Minor</option>
+                                        <option value="Db m">Bb Minor</option>
+                                        <option value="C m">A Minor</option>
+                                        <option value="B m">Ab Minor</option>
+                                        <option value="Bb m">G Minor</option>
+                                        <option value="A m">Gb Minor</option>
+                                        <option value="Ab m">F Minor</option>
+                                        <option value="G m">E Minor</option>
+                                        <option value="Gb m">Eb Minor</option>
+                                        <option value="F m">D Minor</option>
+                                        <option value="E m">Db Minor</option>
                                     </select>
 
                                     <select 

@@ -69,7 +69,7 @@ class RepertoireItem extends React.Component {
                     </Link> 
                 }
                 <div className="repertoire-key">
-                    {`${this.props.song.key} Major`}
+                    {`${this.props.song.key}`}
                 </div>
                 <div className="edit-delete-button-container">
                     {this.state.edit ? saveButton : editButton}

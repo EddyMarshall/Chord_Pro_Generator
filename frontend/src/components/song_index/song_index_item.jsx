@@ -43,7 +43,7 @@ const SongIndexItem = props => {
 
             <div className="song-index-song-key-link">
                 <div className="song-index-key">
-                    {`key: ${props.song.key} Major`}
+                    {`key: ${props.song.key}`}
                 </div>
             </div>
 

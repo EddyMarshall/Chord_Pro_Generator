@@ -24,6 +24,8 @@ class About extends React.Component {
                                 automated reports. The process made me fall in 
                                 love with programming, and I decided to pursue 
                                 software engineering full time.
+                                <br></br>
+
                             </div>
                         
                         </div>
@@ -116,6 +118,8 @@ class About extends React.Component {
                                 musical composition, and audio technology. 
                                 Proficient in fullstack web development via 
                                 React/Redux, Ruby on Rails, JS, HTML, and CSS.
+                                <br></br>
+                                <br></br>
                             </div>
                         
                         </div>
